@@ -1,0 +1,31 @@
+@media (max-width: 600px) {
+  .linksColumnWrapper {
+    margin-bottom: 1rem;
+  }
+}
+
+.LinksColumnTitle {
+  font-weight: 500;
+  line-height: 1.5rem;
+  font-size: 0.875rem !important;
+  color: var(--palette-grey-700);
+}
+
+@media (max-width: 600px) {
+  .LinksColumnTitle {
+    font-size: 14px;
+  }
+}
+
+.LinksColumnLink {
+  color: var(--palette-grey-700);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: .875rem;
+  font-weight: 400;
+  display: block;
+}
+
+.linksColumn:hover {
+  color: var(--palette-grey-900);
+}

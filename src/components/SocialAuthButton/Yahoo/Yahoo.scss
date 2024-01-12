@@ -1,0 +1,15 @@
+
+$yahoo: #7E1FFF;
+
+.YahooLoginButton {
+    color: "white";
+    background-color: $yahoo;
+    &:hover {
+        color: $yahoo;
+        background-color: white
+    }
+}
+
+.YahooLoginButton svg {
+    fill: white !important;
+}

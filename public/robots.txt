@@ -1,0 +1,8 @@
+# This robots.txt file is for metaintro.net
+# More information: https://www.robotstxt.org/robotstxt.html
+
+# Allow all web crawlers to access most parts of the website except login page
+User-agent: *
+Disallow: /login
+
+Sitemap: https://metaintro.net/sitemap.xml

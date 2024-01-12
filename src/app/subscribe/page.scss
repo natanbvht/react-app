@@ -1,0 +1,50 @@
+@import "../../styles/theme.scss";
+
+.SubscribeCover {
+  width: 100%;
+  height: auto;
+  @media (min-width: $sm) {
+    display: none;
+  }
+}
+
+.MuiTypography-root.SubscribeTitle {
+  font-weight: 600;
+  font-size: 1.43rem;
+}
+
+.MuiTypography-root.SubscribeSubTitle {
+  font-weight: 400;
+  font-size: .93rem;
+}
+
+.MuiButtonBase-root.SubscribeButton {
+  font-weight: 500;
+  text-transform: none;
+  min-height: calc($unit * 5);
+  background-image: linear-gradient(to right, $metaintro-blue, $metaintro-pink);
+  &:hover {
+    background-image: linear-gradient(to right, darken($metaintro-blue, 10%), darken($metaintro-pink, 10%));
+  }
+}
+
+.MuiTypography-root.LegalNotice {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: $light-text-1;
+  text-decoration: none;
+  letter-spacing: 0.02857em;
+}
+
+.LegalLink {
+  color: $light-text-1;
+  font-size: 12px;
+  line-height: 1.75;
+  text-align: justify;
+  color: $light-text-1;
+  text-decoration: none;
+  letter-spacing: 0.02857em;
+  font-weight: bold;
+}

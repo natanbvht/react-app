@@ -1,0 +1,18 @@
+.MuiButtonBase-root.SwitcherButton {
+  font-weight: 500;
+  text-transform: none;
+  line-height: 11.7px !important;
+  color: var(--main-text-color);
+}
+
+.ChevronDownIcon {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  transition: transform 0.3s;
+  color: var(--main-text-color);
+}
+
+.LanguageIcon.LanguageIcon {
+  padding-right: 0.5rem;
+  color: var(--main-text-color);
+}

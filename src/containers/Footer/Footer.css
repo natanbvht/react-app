@@ -1,0 +1,53 @@
+.Footer {
+  padding: 7rem 0;
+  background-color: var(--palette-grey-100);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+  }
+}
+
+.FooterLogo {
+  cursor: pointer;
+}
+
+.FooterTagline {
+  line-height: 1.5rem !important;
+  font-size: 0.875rem !important;
+  padding-top: 11px !important;
+  padding-bottom: 9px !important;
+  color: var(--palette-grey-700);
+}
+
+.MuiTypography-root.MuiTypography-body1.FooterDescription {
+  color: var(--palette-grey-700);
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 400;
+  display: block;
+  padding-bottom: 0.5rem;
+}
+
+.BottomFooter{
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.045);
+}
+
+.FooterAllRights{
+  color: var(--palette-grey-700) !important;
+  font-weight: 300 !important;
+  text-decoration: none !important;
+  font-size: .875rem;
+  display: block;
+  padding-bottom: 0.5rem;
+}
+
+.QuickLink{
+  font-family: Kanit !important;
+  color: var(--palette-grey-700) !important;
+  font-size: .875rem !important;
+  display: block !important;
+  font-weight: 300 !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 6px;
+}

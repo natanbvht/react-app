@@ -1,0 +1,34 @@
+.MuiGrid-root.MuiGrid-container.LanguagePopup {
+  max-width: 384px;
+}
+
+.LanguageItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.MuiButtonBase-root.MuiMenuItem-root.LanguageItemHighlight {
+  background-color: #f5f5f5;
+}
+
+.LanguageName {
+  font-size: 0.875rem !important;
+  line-height: 11.7px !important;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.FlagImage {
+  padding-right: 5px;
+}
+
+.CountryName {
+  font-size: 0.875rem;
+  line-height: 11.7px !important;
+  padding-bottom: 4px !important;
+}
+
+span.CountryName {
+  padding-bottom: 4px !important;
+}
