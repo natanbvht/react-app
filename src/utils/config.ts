@@ -62,6 +62,14 @@ export const Links = {
 	truestAndSafety: `${METAINTRO}/trust-and-safety`
 };
 
+export const SocialMedia = {
+	facebook: "https://www.facebook.com/officialmetaintro",
+	instagram: "https://www.instagram.com/metaintro",
+	youtube: "https://www.youtube.com/@metaintro",
+	discord: "https://discord.gg/metaintro",
+	twitter: "https://www.twitter.com/metaintro"
+};
+
 export enum TrackingEvents {
 	// Newsletter
 	StartedNewsletterOnboarding = "Started Newsletter Onboarding", // ✔️

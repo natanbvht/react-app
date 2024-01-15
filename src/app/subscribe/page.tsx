@@ -106,7 +106,7 @@ function SubscribePage() {
 	}, [formData]);
 
 	// useEffect(() => {
-	// 	const performApiCallAndNavigate = async () => {
+	// 	const subscribe = async () => {
 	// 		if (formData.isSubmitted && location.pathname !== completedPagePath) {
 	// 			console.debug("Performing API call");
 
@@ -123,12 +123,11 @@ function SubscribePage() {
 	// 				}
 	// 			} catch (error) {
 	// 				console.error("API call failed", error);
-	// 				// Handle any errors here
 	// 			}
 	// 		}
 	// 	};
 
-	// 	performApiCallAndNavigate();
+	// 	subscribe();
 	// }, [formData, completedPagePath, navigate]);
 
 	return (
