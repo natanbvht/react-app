@@ -1,9 +1,9 @@
 import React from "react";
 import { SxProps } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import Button, { ButtonProps } from "@mui/material/Button";
-// import { initializeApp } from "firebase/app";
-// import { signInWithPopup, getAuth, UserCredential, OAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { FirebaseConfig } from "../../config";
+import { languages } from "../../context/Language/Language";
 
 export enum AuthFlow {
 	Popup = "popup",
@@ -52,6 +52,8 @@ function SocialAuthButtonFCR({
 	onMouseEnter,
 	onMouseLeave
 }: SocialAuthButtonFCRProps) {
+	const { i18n } = useTranslation(["subscribe", "common"]);
+
 	async function continueWithProvider(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		e.preventDefault();
 		try {
@@ -61,17 +63,22 @@ function SocialAuthButtonFCR({
 			); /* webpackChunkName: "firebase-auth" */
 			const firebaseApp = initializeApp(FirebaseConfig);
 			const firebaseAuth = getAuth(firebaseApp);
+			const currentLanguage = languages.find((lang) => lang.id === i18n.language);
+			const currentLocaleShortCode = currentLanguage?.shortCode.toLocaleLowerCase() ?? "en";
 
-			// let provider: typeof OAuthProvider | typeof GoogleAuthProvider;
 			if (authProvider === AuthProvider.Google) {
 				const googleProvider = new GoogleAuthProvider();
 				scopes?.forEach((scope) => googleProvider.addScope(scope));
+				googleProvider.setCustomParameters({
+					locale: currentLocaleShortCode
+				});
 				const authResponse = await signInWithPopup(firebaseAuth, googleProvider);
 				return successCb(authResponse);
 			}
 
 			const oauthProvider = new OAuthProvider(authProvider);
 			scopes?.forEach((scope) => oauthProvider.addScope(scope));
+			oauthProvider.setCustomParameters({ locale: currentLocaleShortCode });
 			const authResponse = await signInWithPopup(firebaseAuth, oauthProvider);
 			return successCb(authResponse);
 		} catch (error) {

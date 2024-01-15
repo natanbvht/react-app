@@ -25,6 +25,16 @@
   padding-bottom: 0.5rem;
 }
 
+.CongratulationNotice {
+  color: $light-text-2;
+  text-decoration: none;
+  font-size: .675rem;
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0;
+  padding-top: 0.3rem;
+}
+
 .MuiButtonBase-root.GetStartedButton {
     color: white;
     font-weight: 500;
@@ -100,10 +110,11 @@ $box-shadow2: ();
 }
 
 .Fireworks {
-    top: 60%;
-    left: 50%;
-    z-index: 9999;
-    position: absolute;
+    position: fixed;
+    top: 12%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
 }
 
 .Fireworks > .before, .Fireworks > .after {

@@ -2,7 +2,6 @@
 import "./page.scss";
 import React, { Suspense } from "react";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Collapse from "@mui/material/Collapse";
@@ -12,6 +11,7 @@ import { useTheme } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import { Link, useNavigate } from "react-router-dom";
 import Autocomplete from "@mui/material/Autocomplete";
 import { Seo, Client } from "../../config";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
@@ -38,6 +38,7 @@ const YahooLoginButton = React.lazy(
 
 function SubscribePage() {
 	const theme = useTheme();
+	const navigate = useNavigate();
 	const { t } = useTranslation(["subscribe", "common"]);
 
 	const {
@@ -73,6 +74,7 @@ function SubscribePage() {
 		}
 
 		updateFormData({ ...formData, name, email });
+		navigate("/subscribe/completed");
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
@@ -97,7 +99,7 @@ function SubscribePage() {
 				lqipSrc="/assets/images/covers/Metaintro-Future-of-Work-lqip.webp"
 			/>
 			<Container
-				maxWidth="md"
+				maxWidth="sm"
 				className="ContentWrapper"
 				sx={{
 					paddingTop: objectSpacing,
@@ -226,10 +228,17 @@ function SubscribePage() {
 								errorCb={authErrorCb}
 							/>
 						) : (
-							<GoogleLoginButton
-								successCb={authSuccessCb}
-								errorCb={authErrorCb}
-							/>
+							<>
+								<GoogleLoginButton
+									successCb={authSuccessCb}
+									errorCb={authErrorCb}
+								/>
+								<Divider sx={{ mb: objectSpacing }} />
+								<FacebookLoginButton
+									successCb={authSuccessCb}
+									errorCb={authErrorCb}
+								/>
+							</>
 						)}
 						<Collapse
 							in={pageSettings.openMoreSocialLogins}
@@ -246,16 +255,15 @@ function SubscribePage() {
 										successCb={authSuccessCb}
 										errorCb={authErrorCb}
 									/>
-								</>
-							)}
-							<Divider sx={{ mb: objectSpacing }} />
-							{pageSettings.openMoreSocialLogins && (
-								<Suspense fallback={<div style={{ height: "40px", width: "100%" }} />}>
+									<Divider sx={{ mb: objectSpacing }} />
 									<FacebookLoginButton
 										successCb={authSuccessCb}
 										errorCb={authErrorCb}
 									/>
-
+								</>
+							)}
+							{pageSettings.openMoreSocialLogins && (
+								<Suspense fallback={<div style={{ height: "40px", width: "100%" }} />}>
 									<Divider sx={{ mb: objectSpacing }} />
 									<GithubLoginButton
 										successCb={authSuccessCb}

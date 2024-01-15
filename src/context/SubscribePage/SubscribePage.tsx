@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useMemo, useCallback, ReactNode } from "react";
+import React, { createContext, useEffect, useContext, useState, useMemo, useCallback, ReactNode } from "react";
 
 export interface SubscribePageFormData {
 	name: string;
@@ -72,21 +72,28 @@ function validateEmail(email: string): SubscribePageFormErrors {
 }
 
 function SubscribePageProvider({ children }: SubscribePageProviderProps) {
+	const formDataStorageKey = "subscribePageFormData";
 	const [emailSuggestions, setEmailSuggestions] = useState<string[]>([]);
 	const [formErrors, setFormErrors] = useState<SubscribePageFormErrors>({});
-	const [formData, setFormData] = useState<SubscribePageFormData>({
+
+	const initialPageSettings: SubscribePageSettings = {
+		openCookiePolicy: false,
+		openTermsOfService: false,
+		openContactInfoPolicy: false,
+		submittedSubscribeForm: false
+	};
+
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	const initialFormData: SubscribePageFormData = JSON.parse(localStorage.getItem(formDataStorageKey) as string) || {
 		name: "",
 		email: "",
 		viewedCookiePolicy: false,
 		viewedTermsOfService: false,
 		viewedContactInfoPolicy: false
-	});
-	const [pageSettings, setPageSettings] = useState<SubscribePageSettings>({
-		openCookiePolicy: false,
-		openTermsOfService: false,
-		openContactInfoPolicy: false,
-		submittedSubscribeForm: false
-	});
+	};
+
+	const [formData, setFormData] = useState<SubscribePageFormData>(initialFormData);
+	const [pageSettings, setPageSettings] = useState<SubscribePageSettings>(initialPageSettings);
 
 	const updateErrors = useCallback(
 		(newFormErrors: SubscribePageFormErrors | ((errors: SubscribePageFormErrors) => SubscribePageFormErrors)) => {
@@ -173,6 +180,10 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 		},
 		[formData]
 	);
+
+	useEffect(() => {
+		localStorage.setItem(formDataStorageKey, JSON.stringify(formData));
+	}, [formData]);
 
 	const value = useMemo(
 		() => ({

@@ -15,60 +15,72 @@ function Congratulations() {
 	const { t, i18n } = useTranslation(["subscribe", "common"]);
 	const currentLanguage = languages.find((lang) => lang.id === i18n.language);
 
+	const objSpacing = 2;
 	const finalUrl = `${currentLanguage?.path}/subscribe/recommendations`;
 
 	return (
-		<>
-			<Dialog
-				open
-				fullWidth
-				maxWidth="xs"
-				onClose={() => navigate(finalUrl)}
-				aria-labelledby="dialog-congratulations"
-			>
-				<DialogContent>
-					<Box
-						className="CongratulationImageWrapper"
-						mb={2}
-					>
-						<AchivementIcon />
-					</Box>
-					<Typography
-						variant="h4"
-						component="h4"
-						fontWeight={700}
-						align="center"
-						letterSpacing={0}
-						gutterBottom
-					>
-						{t("messages.congratulations")}
-					</Typography>
-					<Typography
-						align="center"
-						component="p"
-						variant="body1"
-						fontWeight={400}
-						letterSpacing={0}
-						className="CongratulationMessage"
-					>
-						You've subscribed! Please check your email to confirm your subscription.
-					</Typography>
-					<Button
-						fullWidth
-						to={finalUrl}
-						component={Link}
-						variant="contained"
-						className="GetStartedButton"
-					>
-						Get Started Here
-					</Button>
-				</DialogContent>
-			</Dialog>
+		<Dialog
+			open
+			fullWidth
+			maxWidth="xs"
+			onClose={() => navigate(finalUrl)}
+			aria-labelledby="dialog-congratulations"
+			sx={{ maxWidth: 440, margin: "0 auto" }}
+		>
+			<DialogContent>
+				<Box
+					marginTop={objSpacing}
+					className="CongratulationImageWrapper"
+				>
+					<AchivementIcon />
+				</Box>
+				<Typography
+					gutterBottom
+					variant="h4"
+					component="h4"
+					align="center"
+					fontWeight={700}
+					letterSpacing={0}
+					marginTop={objSpacing / 2}
+				>
+					{t("messages.congratulations")}
+				</Typography>
+				<Typography
+					gutterBottom
+					component="p"
+					align="center"
+					variant="body1"
+					fontWeight={400}
+					letterSpacing={0}
+					className="CongratulationMessage"
+				>
+					You've subscribed! Visit our website to explore the best jobs in the Web3 and A.I. space.
+				</Typography>
+				<Button
+					fullWidth
+					to={finalUrl}
+					component={Link}
+					variant="contained"
+					sx={{ zIndex: 9999 }}
+					className="GetStartedButton"
+				>
+					Get Started Here
+				</Button>
+				<Typography
+					component="p"
+					variant="body2"
+					fontWeight={400}
+					textAlign="center"
+					className="CongratulationNotice"
+				>
+					*Please check your email to confirm your subscription.
+				</Typography>
+			</DialogContent>
 			<div className="Fireworks">
 				<div className="before" />
 				<div className="after" />
 			</div>
-		</>
+		</Dialog>
 	);
 }
 
