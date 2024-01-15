@@ -1,8 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import MicrosoftIcon from "@mui/icons-material/Microsoft";
-import { Links, TrackingEvents } from "../../../config";
-import SocialAuthButton, { AuthFlow, AuthProvider, SocialAuthCb } from "../SocialAuthButton";
+import SocialAuthButton, { AuthProvider, SocialAuthCb } from "../SocialAuthButton";
 
 const MicrosoftBrand = {
 	color: "white",

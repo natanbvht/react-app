@@ -3,6 +3,7 @@ import React, { createContext, useEffect, useContext, useState, useMemo, useCall
 export interface SubscribePageFormData {
 	name: string;
 	email: string;
+	isSubmitted?: boolean;
 	viewedCookiePolicy?: boolean;
 	viewedTermsOfService?: boolean;
 	viewedContactInfoPolicy?: boolean;
@@ -28,7 +29,6 @@ export interface SubscribePageContextType {
 	updateFormData: (newFormData: SubscribePageFormData) => void;
 	updateErrors: (newFormErrors: SubscribePageFormErrors) => void;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	submit: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 	toggleOpenMoreSocialLogins: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -56,7 +56,7 @@ export const useSubscribePage = (): SubscribePageContextType => {
  * it is longer than 3 characters
  * @returns FormErrors
  */
-function validateEmail(email: string): SubscribePageFormErrors {
+export function validateEmail(email: string): SubscribePageFormErrors {
 	let errorMessage: string = "";
 	const errors: SubscribePageFormErrors = { email: "" };
 	const latinRegex = /^[a-zA-Z0-9@.]*$/;
@@ -84,9 +84,10 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-	const initialFormData: SubscribePageFormData = JSON.parse(localStorage.getItem(formDataStorageKey) as string) || {
+	const initialFormData: SubscribePageFormData = JSON.parse(sessionStorage.getItem(formDataStorageKey) as string) || {
 		name: "",
 		email: "",
+		isSubmitted: false,
 		viewedCookiePolicy: false,
 		viewedTermsOfService: false,
 		viewedContactInfoPolicy: false
@@ -152,37 +153,8 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 		}));
 	}, []);
 
-	const submit = useCallback(
-		(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-			e.preventDefault();
-
-			updateErrors(validateEmail(formData?.email || ""));
-			let nameError = "";
-			if (formData.name.length < 2) {
-				nameError = "Name must be longer than 2 characters.";
-			}
-			updateErrors({ name: nameError });
-
-			const noErrors = Object.values(formErrors).every((error) => error.length === 0);
-			const emailAndNameFilled = formData.email.length > 0 && formData.name.length > 0;
-
-			if (noErrors && emailAndNameFilled) {
-				// eslint-disable-next-line no-console
-				console.log(formData);
-			} else {
-				updateErrors(formErrors);
-			}
-
-			setPageSettings((prevPageSettings) => ({
-				...prevPageSettings,
-				submittedSubscribeForm: true
-			}));
-		},
-		[formData]
-	);
-
 	useEffect(() => {
-		localStorage.setItem(formDataStorageKey, JSON.stringify(formData));
+		sessionStorage.setItem(formDataStorageKey, JSON.stringify(formData));
 	}, [formData]);
 
 	const value = useMemo(
@@ -191,7 +163,6 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 			formErrors,
 			pageSettings,
 			emailSuggestions,
-			submit,
 			updateErrors,
 			handleChange,
 			updateFormData,

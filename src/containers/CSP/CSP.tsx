@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { getEnv, Environments } from "../../config";
+import { getEnv, Environments } from "../../utils/config";
 
 const METAINTRO_DOMAINS = [
 	"https://metaintro.com",

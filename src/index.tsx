@@ -1,9 +1,9 @@
-import "./i18n";
-import /* webpackPrefetch: true */ "./index.scss";
+import "./utils/i18n";
+import /* webpackPrefetch: true */ "./styles/index.scss";
 import React from /* webpackChunkName: "React", webpackPrefetch: true */ "react";
 import ReactDOM from /* webpackChunkName: "ReactDom", webpackPrefetch: true */ "react-dom/client";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import reportWebVitals from "./utils/webVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

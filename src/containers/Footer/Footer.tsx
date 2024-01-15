@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import LinksColumn from "./LinksColumn/LinksColumn";
 import MetaintroIcon from "../../components/Icons/Metaintro";
 import { FooterLinks } from "./types.d";
-import { Links } from "../../config";
+import { Links } from "../../utils/config";
 
 const links: FooterLinks = {
 	community: {

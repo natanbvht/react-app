@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useMemo, ReactNode } from "react";
 import { i18n } from "i18next";
-import i18nLocal from "../../i18n";
+import i18nLocal from "../../utils/i18n";
 
 export interface Language {
 	id: string;

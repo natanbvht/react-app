@@ -8,13 +8,20 @@ import Toolbar from "./containers/Toolbar/Toolbar";
 import { useLanguage, languages } from "./context/Language/Language";
 import CSP from "./containers/CSP";
 import Subscribe from /* webpackPreload: true */ "./app/subscribe/page";
-import Page404 from "./app-pages/404/page";
-import PageUpgrade from "./app/upgrade/routes";
+import Element404 from "./app/404/page";
+
+import Page404 from "./app/404/routes";
+import PageRecommendations from "./app/recommendations/routes";
 import PageSubscribe from "./app/subscribe/routes";
+import PageUpgrade from "./app/upgrade/routes";
 
-import PageNotFound from "./app-pages/404/routes";
-
-export const pages: Page[] = [{ path: "/", component: Subscribe }, ...PageSubscribe, ...PageUpgrade, ...PageNotFound];
+export const pages: Page[] = [
+	{ path: "/", component: Subscribe },
+	...Page404,
+	...PageSubscribe,
+	...PageRecommendations,
+	...PageUpgrade
+];
 
 // check if already has a language code in the url then replace it and add the default language code
 // also exclude the current one from the list
@@ -129,7 +136,7 @@ function AppRoutes() {
 					)}
 					<Route
 						path="*"
-						element={<Page404 />}
+						element={<Element404 />}
 					/>
 				</Routes>
 			</Suspense>

@@ -1,5 +1,10 @@
 import { ComponentType } from "react";
 
+declare module "*.scss" {
+	const content: { [className: string]: string };
+	export default content;
+}
+
 export type Route<T = string> = string;
 export type PathName = Route<string>;
 

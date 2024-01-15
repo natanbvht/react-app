@@ -42,6 +42,13 @@ export const FirebaseConfig = {
 	appId: "1:793714072191:web:a5ab126231ba95d5497d4a"
 };
 
+export const Pages = {
+	upgrade: "/upgrade",
+	subscribe: "/subscribe",
+	subscribeCompleted: "/subscribe/completed",
+	recommendations: "/recommendations"
+};
+
 export const Links = {
 	resources: `${METAINTRO}/`,
 	events: "#events-subscribe",

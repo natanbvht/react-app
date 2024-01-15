@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import "./page.scss";
-import React, { Suspense } from "react";
+import React, { useEffect, useCallback, Suspense } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
@@ -11,15 +11,15 @@ import { useTheme } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { Link, useNavigate } from "react-router-dom";
 import Autocomplete from "@mui/material/Autocomplete";
-import { Seo, Client } from "../../config";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Seo, Client, Pages } from "../../utils/config";
+import { languages } from "../../context/Language/Language";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
 import LQIPImage from "../../components/LQIPImage/LQIPImage";
 import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
 
 const Congratulations = React.lazy(() => import(/* webpackChunkName: 'Congratulations' */ "./congratulations/page"));
-
 const AppleLoginButton = React.lazy(
 	() => import(/* webpackChunkName: 'AppleSocialAuthButton' */ "../../components/SocialAuthButton/Apple/Apple")
 );
@@ -39,8 +39,9 @@ const YahooLoginButton = React.lazy(
 function SubscribePage() {
 	const theme = useTheme();
 	const navigate = useNavigate();
-	const { t } = useTranslation(["subscribe", "common"]);
-
+	const location = useLocation();
+	const { t, i18n } = useTranslation(["subscribe", "common"]);
+	const currentLanguage = languages.find((lang) => lang.id === i18n.language);
 	const {
 		formData,
 		formErrors,
@@ -53,6 +54,7 @@ function SubscribePage() {
 
 	const objectSpacing = 2;
 	const inputSize = "small";
+	const completedPagePath = `${currentLanguage?.path}${Pages.subscribeCompleted}`;
 
 	const authSuccessCb = (response: UserCredential) => {
 		let name: string = "";
@@ -73,14 +75,61 @@ function SubscribePage() {
 			email = String(appleResponse._tokenResponse.email);
 		}
 
-		updateFormData({ ...formData, name, email });
-		navigate("/subscribe/completed");
+		updateFormData({ ...formData, name, email, isSubmitted: true });
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
 	const authErrorCb = (error: any) => {
 		console.log("handleError", error);
 	};
+
+	const submit = useCallback(
+		(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+			e.preventDefault();
+			updateFormData({ ...formData });
+			if (formData.name && !formErrors.name && formData.email && !formErrors.email) {
+				updateFormData({ ...formData, isSubmitted: true });
+			}
+		},
+		[formData, formErrors]
+	);
+
+	/**
+	 * Since Social Auth Callback and updateFormData are  async, we need to check if the form
+	 * is submitted and there are not form errors, then we can navigate to the completed page.
+	 */
+	useEffect(() => {
+		if (formData.isSubmitted && location.pathname !== completedPagePath) {
+			console.debug("navigate to completed page");
+			navigate(completedPagePath);
+		}
+	}, [formData]);
+
+	// useEffect(() => {
+	// 	const performApiCallAndNavigate = async () => {
+	// 		if (formData.isSubmitted && location.pathname !== completedPagePath) {
+	// 			console.debug("Performing API call");
+
+	// 			try {
+	// 				// Replace this with your actual API call
+	// 				// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+	// 				await yourApiCallFunction();
+	// 				console.debug("API call successful");
+
+	// 				// Check again if the conditions to navigate are still met
+	// 				if (formData.isSubmitted && location.pathname !== completedPagePath) {
+	// 					console.debug("navigate to completed page");
+	// 					navigate(completedPagePath);
+	// 				}
+	// 			} catch (error) {
+	// 				console.error("API call failed", error);
+	// 				// Handle any errors here
+	// 			}
+	// 		}
+	// 	};
+
+	// 	performApiCallAndNavigate();
+	// }, [formData, completedPagePath, navigate]);
 
 	return (
 		<>
@@ -127,8 +176,8 @@ function SubscribePage() {
 				<form
 					id="subscribe-form"
 					name="subscribe-form"
+					target={completedPagePath}
 					aria-label="Subscribe Form"
-					target="/subscribe/completed"
 				>
 					<Autocomplete
 						freeSolo
@@ -143,7 +192,6 @@ function SubscribePage() {
 								{...params}
 								required
 								fullWidth
-								autoFocus
 								name="name"
 								size={inputSize}
 								autoComplete="on"
@@ -153,6 +201,7 @@ function SubscribePage() {
 								error={!!formErrors?.name}
 								helperText={formErrors?.name ?? ""}
 								sx={{ marginBottom: objectSpacing }}
+								autoFocus={location.pathname !== completedPagePath} // do not autofocus on completed
 								InputLabelProps={{ sx: { fontSize: "0.93rem", lineHeight: "-15.75px" } }}
 							/>
 						)}
@@ -188,10 +237,9 @@ function SubscribePage() {
 					<Button
 						fullWidth
 						type="submit"
-						to="/subscribe/completed"
 						size="medium"
-						component={Link}
 						variant="contained"
+						onClick={submit}
 						className="SubscribeButton"
 						sx={{ marginBottom: objectSpacing }}
 						aria-label={t("common:buttons.signUp")}

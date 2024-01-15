@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Seo } from "../../utils/config";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
 
-function UpgradePage() {
-	const { t } = useTranslation(["upgrade", "common"]);
+function RecommendationsPage() {
+	const { t } = useTranslation(["recommendations", "common"]);
 	return (
 		<>
 			<OnPageSeo
@@ -13,10 +13,10 @@ function UpgradePage() {
 				title={Seo.titlePretfix + Seo.delimeter + t("seo.title")}
 			/>
 			<div>
-				<p>Upgrade</p>
+				<p>Recommendations</p>
 			</div>
 		</>
 	);
 }
 
-export default UpgradePage;
+export default RecommendationsPage;

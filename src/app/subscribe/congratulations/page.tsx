@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import Typography from "@mui/material/Typography";
 import { useNavigate, Link } from "react-router-dom";
 import DialogContent from "@mui/material/DialogContent";
+import { Pages } from "../../../utils/config";
 import { languages } from "../../../context/Language/Language";
 import AchivementIcon from "../../../components/Icons/Achivement";
 
@@ -16,14 +17,14 @@ function Congratulations() {
 	const currentLanguage = languages.find((lang) => lang.id === i18n.language);
 
 	const objSpacing = 2;
-	const finalUrl = `${currentLanguage?.path}/subscribe/recommendations`;
+	const recommendationsPagePath = `${currentLanguage?.path}${Pages.recommendations}`;
 
 	return (
 		<Dialog
 			open
 			fullWidth
 			maxWidth="xs"
-			onClose={() => navigate(finalUrl)}
+			onClose={() => navigate(recommendationsPagePath)}
 			aria-labelledby="dialog-congratulations"
 			sx={{ maxWidth: 440, margin: "0 auto" }}
 		>
@@ -58,10 +59,10 @@ function Congratulations() {
 				</Typography>
 				<Button
 					fullWidth
-					to={finalUrl}
 					component={Link}
 					variant="contained"
 					sx={{ zIndex: 9999 }}
+					to={recommendationsPagePath}
 					className="GetStartedButton"
 				>
 					Get Started Here
