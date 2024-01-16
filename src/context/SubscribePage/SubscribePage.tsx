@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useContext, useState, useMemo, useCall
 export interface SubscribePageFormData {
 	name: string;
 	email: string;
-	isSubmitted?: boolean;
+	isReadyToSubmit?: boolean;
 	viewedCookiePolicy?: boolean;
 	viewedTermsOfService?: boolean;
 	viewedContactInfoPolicy?: boolean;
@@ -87,7 +87,7 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 	const initialFormData: SubscribePageFormData = JSON.parse(sessionStorage.getItem(formDataStorageKey) as string) || {
 		name: "",
 		email: "",
-		isSubmitted: false,
+		isReadyToSubmit: false,
 		viewedCookiePolicy: false,
 		viewedTermsOfService: false,
 		viewedContactInfoPolicy: false

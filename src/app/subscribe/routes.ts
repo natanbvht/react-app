@@ -8,8 +8,8 @@ const routes: Page[] = [
 		component: SubscribePage
 	},
 	{
-		path: "/subscribe/completed",
 		title: "Subscribe",
+		path: "/subscribe/completed",
 		component: SubscribeCongratulationPage
 	}
 ];

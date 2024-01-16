@@ -22,6 +22,12 @@
   font-weight: 500;
   text-transform: none;
   min-height: calc($unit * 5);
+}
+
+.MuiButtonBase-root.SubscribeButtonPink {
+  font-weight: 500;
+  text-transform: none;
+  min-height: calc($unit * 5);
   background-image: linear-gradient(to right, $metaintro-blue, $metaintro-pink);
   &:hover {
     background-image: linear-gradient(to right, darken($metaintro-blue, 10%), darken($metaintro-pink, 10%));

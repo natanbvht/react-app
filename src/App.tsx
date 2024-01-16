@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter } from /* webpackChunkName: "ReactRouterDom", webpackPrefetch: true */ "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";

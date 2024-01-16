@@ -11,10 +11,13 @@ export type PathName = Route<string>;
 export interface RouteConfig {
 	title?: string;
 	keywords?: string;
+	footer?: boolean;
+	toolbar?: boolean;
 }
 
 export interface Page extends RouteConfig {
 	path: PathName;
+	mobile?: RouteConfig;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	provider?: ComponentType<any>;
 	component: ComponentType<RouteConfig>;
