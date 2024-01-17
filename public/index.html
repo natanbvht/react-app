@@ -27,13 +27,14 @@
     <link
       rel="preload"
       as="fetch"
-      href="%PUBLIC_URL%/locales/en-US/subscribe.json"
+      href="<%= htmlWebpackPlugin.options.templateParameters.preloadUsNsLocale %>"
       crossorigin="anonymous"
     />
     <title>Metaintro</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">The Amazing Metaintro App</div>
+    <div id="root" style="min-height: 100vh; width: 100vw; overflow: auto;">
+      The Amazing Metaintro App
+    </div>
   </body>
 </html>

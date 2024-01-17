@@ -1,44 +1,33 @@
 /* eslint-disable no-console */
-import "./page.scss";
-import React, { useEffect, useCallback, Suspense } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
-import Divider from "@mui/material/Divider";
 import Collapse from "@mui/material/Collapse";
-import { useTranslation } from "react-i18next";
-import { useTheme } from "@mui/material/styles";
-import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import AvatarGroup from "@mui/material/AvatarGroup";
-import Autocomplete from "@mui/material/Autocomplete";
+import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { UserCredential, AuthError } from "firebase/auth";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Grid } from "@mui/material";
-import { Seo, Client, Pages } from "../../utils/config";
-import { languages } from "../../context/Language/Language";
-import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
-import LQIPImage from "../../components/LQIPImage/LQIPImage";
-import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
+import { AuthError, UserCredential } from "firebase/auth";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./page.scss";
 
-const Congratulations = React.lazy(() => import(/* webpackChunkName: 'Congratulations' */ "./congratulations/page"));
-const AppleLoginButton = React.lazy(
-	() => import(/* webpackChunkName: 'AppleSocialAuthButton' */ "../../components/SocialAuthButton/Apple/Apple")
-);
-const GoogleLoginButton = React.lazy(
-	() => import(/* webpackChunkName: 'GoogleSocialAuthButton' */ "../../components/SocialAuthButton/Google/Google")
-);
-const FacebookLoginButton = React.lazy(
-	() => import(/* webpackChunkName: 'FacebookSocialAuthButton' */ "../../components/SocialAuthButton/Facebook/Facebook")
-);
-const GithubLoginButton = React.lazy(
-	() => import(/* webpackChunkName: 'GithubSocialAuthButton' */ "../../components/SocialAuthButton/GitHub/GitHub")
-);
-const YahooLoginButton = React.lazy(
-	() => import(/* webpackChunkName: 'YahooSocialAuthButton' */ "../../components/SocialAuthButton/Yahoo/Yahoo")
-);
+import AutocompleteTextField from "../../components/AutocompleteTextField/AutocompleteTextField";
+import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
+import { languages } from "../../context/Language/Language";
+import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
+import { Client, Pages, Seo } from "../../utils/config";
+import { PagePartials, SocialAuthButtons } from "./lazy";
+
+interface AppleAuthResponse {
+	_tokenResponse?: {
+		firstName?: string;
+		lastName?: string;
+		email?: string;
+	};
+}
 
 function SubscribePage() {
 	const theme = useTheme();
@@ -46,7 +35,6 @@ function SubscribePage() {
 	const location = useLocation();
 	const { t, i18n } = useTranslation(["subscribe", "common"]);
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
 	const currentLanguage = languages.find((lang) => lang.id === i18n.language);
 	const {
 		formData,
@@ -59,7 +47,6 @@ function SubscribePage() {
 	} = useSubscribePage();
 
 	const objectSpacing = 2;
-	const inputSize = "small";
 	const completedPagePath = `${currentLanguage?.path}${Pages.subscribeCompleted}`;
 
 	const authSuccessCb = (response: UserCredential) => {
@@ -69,16 +56,12 @@ function SubscribePage() {
 		name = String(response.user.providerData[0]?.displayName);
 		email = String(response.user.providerData[0]?.email);
 		if (response.providerId === "apple.com") {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-			const appleResponse = response as any;
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+			const appleResponse = response as AppleAuthResponse;
 			const appleFirstName = String(appleResponse?._tokenResponse?.firstName);
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 			const appleLastName = String(appleResponse?._tokenResponse?.lastName);
 			if (appleFirstName && appleFirstName !== "undefined") name = `${appleFirstName}`;
 			if (appleLastName && appleFirstName !== "undefined") name += ` ${appleLastName}`;
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-			email = String(appleResponse._tokenResponse.email);
+			email = String(appleResponse?._tokenResponse?.email);
 		}
 
 		updateFormData({ ...formData, name, email, isReadyToSubmit: true });
@@ -93,7 +76,7 @@ function SubscribePage() {
 		}
 	};
 
-	const handleClickSubmit = useCallback(
+	const handleClickSubmit = React.useCallback(
 		(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 			e.preventDefault();
 			updateFormData({ ...formData });
@@ -105,10 +88,10 @@ function SubscribePage() {
 	);
 
 	/**
-	 * Since Social Auth Callback and updateFormData are  async, we need to check if the form
-	 * is submitted and there are not form errors, then we can navigate to the completed page.
+	 * Since Social Auth Callback and updateFormData are async, we need to check if the form is ready
+	 * to be  submitted  and there are  not form errors, then we can navigate to  the completed page.
 	 */
-	useEffect(() => {
+	React.useEffect(() => {
 		const handleSubscribe = async () => {
 			if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
 				const { subscribe } = await import("../../utils/api" /* webpackChunkName: "apiV1" */);
@@ -119,7 +102,7 @@ function SubscribePage() {
 					}
 				} catch (error) {
 					console.error("API call failed", error);
-					// TODO: Log error to Sentry
+					// TODO: Log error
 					navigate(completedPagePath);
 				}
 			}
@@ -129,25 +112,40 @@ function SubscribePage() {
 	}, [formData, completedPagePath, navigate]);
 
 	return (
-		<>
+		<React.Suspense fallback={<div style={{ minHeight: "100vh", width: "100vw" }} />}>
 			<OnPageSeo
 				keywords={t("seo.keywords")}
 				description={t("seo.description")}
 				title={Seo.titlePretfix + Seo.delimeter + t("seo.title")}
 			/>
-			{isMobile && (
-				<LQIPImage
-					preLoaded
-					width={600}
-					className="SubscribeCover"
-					alt="Metaintro-Future-of-Work"
-					height={Number(theme.spacing(36).replace("px", ""))}
-					src="/assets/images/covers/Metaintro-Future-of-Work.webp"
-					lqipSrc="/assets/images/covers/Metaintro-Future-of-Work-lqip.webp"
-				/>
-			)}
+			<Grid
+				container
+				flexDirection={isMobile ? "unset" : "row-reverse"}
+			>
+				{/* Mobile LQIPImage Partial */}
+				{isMobile && (
+					<PagePartials.LQIPImage
+						preLoaded
+						width={600}
+						className="SubscribeCover"
+						alt="Metaintro-Future-of-Work"
+						height={Number(theme.spacing(36).replace("px", ""))}
+						src="/assets/images/covers/Metaintro-Future-of-Work.webp"
+						lqipSrc="/assets/images/covers/Metaintro-Future-of-Work-lqip.webp"
+					/>
+				)}
 
-			<Grid container>
+				{/* Desktop SideScreen Partial */}
+				{!isMobile && (
+					<Grid
+						item
+						xs={!isMobile ? 6 : 12}
+						sx={{ overflow: "hidden", backgroundColor: theme.palette.primary.main, minHeight: "calc(100vh)" }}
+					>
+						<PagePartials.DesktopSideScreen />
+					</Grid>
+				)}
+
 				<Grid
 					item
 					xs={!isMobile ? 6 : 12}
@@ -161,16 +159,16 @@ function SubscribePage() {
 							justifyContent: "center",
 							paddingTop: objectSpacing,
 							paddingBottom: objectSpacing,
-							marginRight: isMobile ? objectSpacing : "5.2rem",
-							minHeight: !isMobile ? "calc(100vh)" : "auto"
+							minHeight: !isMobile ? "calc(100vh)" : "auto",
+							marginRight: isMobile ? objectSpacing : "5.2rem"
 						}}
 					>
 						<Typography
 							variant="h1"
-							align={isMobile ? "center" : "left"}
 							component="h1"
 							mb={objectSpacing}
 							className="SubscribeTitle"
+							align={isMobile ? "center" : "left"}
 						>
 							{t("workInWeb3AIToday")}
 						</Typography>
@@ -190,61 +188,48 @@ function SubscribePage() {
 							target={completedPagePath}
 							aria-label="Subscribe Form"
 						>
-							<Autocomplete
+							<AutocompleteTextField
 								freeSolo
 								options={[]}
 								id="name-autocomplete"
 								value={formData?.name ?? ""}
-								onChange={(_, newValue) => {
-									updateFormData({ ...formData, name: newValue ?? "" });
+								onChange={(_: React.SyntheticEvent, newValue: string | string[] | null) => {
+									console.debug(newValue);
+									const value = Array.isArray(newValue) ? newValue.join(", ") : newValue;
+									updateFormData({ ...formData, name: value ?? "" });
 								}}
-								renderInput={(params) => (
-									<TextField
-										{...params}
-										required
-										fullWidth
-										name="name"
-										size={inputSize}
-										autoComplete="on"
-										variant="outlined"
-										label={t("name")}
-										onChange={handleChange}
-										error={!!formErrors?.name}
-										helperText={formErrors?.name ?? ""}
-										sx={{ marginBottom: objectSpacing }}
-										autoFocus={location.pathname !== completedPagePath} // do not autofocus on completed
-										InputLabelProps={{ sx: { fontSize: "0.93rem", lineHeight: "-15.75px" } }}
-									/>
-								)}
+								textFieldProps={{
+									name: "name",
+									size: "small",
+									label: t("name"),
+									onChange: handleChange,
+									error: !!formErrors?.name,
+									helperText: formErrors?.name ?? "",
+									sx: { marginBottom: objectSpacing },
+									autoFocus: location.pathname !== completedPagePath, // do not autofocus on completed
+									InputLabelProps: { sx: { fontSize: "0.93rem", lineHeight: "-15.75px" } }
+								}}
 							/>
-
-							<Autocomplete
+							<AutocompleteTextField
 								freeSolo
 								id="email-autocomplete"
 								options={emailSuggestions}
 								value={formData?.email ?? ""}
-								onChange={(_, newValue) => {
-									updateFormData({ ...formData, email: newValue ?? "" });
+								onChange={(_: React.SyntheticEvent, newValue: string | string[] | null) => {
+									const value = Array.isArray(newValue) ? newValue.join(", ") : newValue;
+									updateFormData({ ...formData, email: value ?? "" });
 								}}
-								renderInput={(params) => (
-									<TextField
-										{...params}
-										required
-										fullWidth
-										name="email"
-										size={inputSize}
-										autoComplete="on"
-										variant="outlined"
-										label={t("email")}
-										onChange={handleChange}
-										error={!!formErrors?.email}
-										helperText={formErrors?.email ?? ""}
-										sx={{ marginBottom: objectSpacing }}
-										InputLabelProps={{ sx: { fontSize: "0.93rem", lineHeight: "-15.75px" } }}
-									/>
-								)}
+								textFieldProps={{
+									name: "email",
+									size: "small",
+									label: t("email"),
+									onChange: handleChange,
+									error: !!formErrors?.email,
+									helperText: formErrors?.email ?? "",
+									sx: { marginBottom: objectSpacing },
+									InputLabelProps: { sx: { fontSize: "0.93rem", lineHeight: "-15.75px" } }
+								}}
 							/>
-
 							<Button
 								fullWidth
 								type="submit"
@@ -260,17 +245,16 @@ function SubscribePage() {
 						</form>
 						<Divider
 							sx={{
-								fontSize: "12px",
 								fontWeight: 400,
+								fontSize: "12px",
+								mb: objectSpacing,
 								lineHeight: "1.75",
 								letterSpacing: "0.02857em",
-								mb: objectSpacing,
 								color: theme.palette.grey[600]
 							}}
 						>
 							{t("orContinueWith")}
 						</Divider>
-						{/* Base Social Logins */}
 						<Box
 							sx={{
 								display: "flex",
@@ -280,70 +264,63 @@ function SubscribePage() {
 								justifyContent: "space-between"
 							}}
 						>
-							<Suspense fallback={<div style={{ height: "40px", width: "100%" }} />}>
+							<React.Suspense fallback={<div style={{ height: "40px", width: "100%" }} />}>
 								{Client.isSafari ? (
-									<AppleLoginButton
+									<SocialAuthButtons.Apple
 										successCb={authSuccessCb}
 										errorCb={authErrorCb}
 									/>
 								) : (
 									<>
-										<GoogleLoginButton
+										<SocialAuthButtons.Google
 											successCb={authSuccessCb}
 											errorCb={authErrorCb}
 										/>
 										<Divider sx={{ mb: objectSpacing }} />
-										<FacebookLoginButton
+										<SocialAuthButtons.Facebook
 											successCb={authSuccessCb}
 											errorCb={authErrorCb}
 										/>
 									</>
 								)}
 								<Collapse
-									in={pageSettings.openMoreSocialLogins}
 									orientation="vertical"
-									sx={{
-										width: "100%",
-										display: "block"
-									}}
+									in={pageSettings.openMoreSocialLogins}
+									sx={{ width: "100%", display: "block" }}
 								>
-									{Client.isSafari && (
+									{pageSettings.openMoreSocialLogins && Client.isSafari && (
 										<>
 											<Divider sx={{ mb: objectSpacing }} />
-											<GoogleLoginButton
+											<SocialAuthButtons.Google
 												successCb={authSuccessCb}
 												errorCb={authErrorCb}
 											/>
 											<Divider sx={{ mb: objectSpacing }} />
-											<FacebookLoginButton
+											<SocialAuthButtons.Facebook
 												successCb={authSuccessCb}
 												errorCb={authErrorCb}
 											/>
 										</>
 									)}
 									{pageSettings.openMoreSocialLogins && (
-										<Suspense fallback={<div style={{ height: "40px", width: "100%" }} />}>
+										<>
 											<Divider sx={{ mb: objectSpacing }} />
-											<GithubLoginButton
+											<SocialAuthButtons.Github
 												successCb={authSuccessCb}
 												errorCb={authErrorCb}
 											/>
+
 											<Divider sx={{ mb: objectSpacing }} />
-											<YahooLoginButton
+											<SocialAuthButtons.Yahoo
 												successCb={authSuccessCb}
 												errorCb={authErrorCb}
 											/>
-										</Suspense>
+										</>
 									)}
 								</Collapse>
-							</Suspense>
+							</React.Suspense>
 						</Box>
-						<Box
-							sx={{
-								width: "100%",
-								textAlign: "right"
-							}}
-						>
+						<Box className="w-100 text-right">
 							<Button
 								size="small"
 								variant="text"
@@ -381,142 +358,8 @@ function SubscribePage() {
 						</Typography>
 					</Container>
 				</Grid>
-				{!isMobile && (
-					<Grid
-						item
-						xs={!isMobile ? 6 : 12}
-						sx={{ overflow: "hidden", backgroundColor: theme.palette.primary.main, minHeight: "calc(100vh)" }}
-					>
-						<Box
-							className="relative hidden h-full items-center justify-center overflow-hidden"
-							sx={{
-								backgroundColor: "primary.main",
-								display: "flex",
-								flexDirection: "column",
-								justifyContent: "center",
-								padding: "0 6.4rem"
-							}}
-						>
-							<svg
-								className="pointer-events-none absolute inset-0"
-								viewBox="0 0 960 540"
-								width="100%"
-								height="100%"
-								preserveAspectRatio="xMidYMax slice"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<Box
-									fill="none"
-									component="g"
-									strokeWidth="100"
-									stroke="currentColor"
-									className="opacity-20"
-									sx={{ color: theme.palette.primary.light }}
-								>
-									<circle
-										r="234"
-										cx="196"
-										cy="23"
-									/>
-									<circle
-										r="234"
-										cx="790"
-										cy="491"
-									/>
-								</Box>
-							</svg>
-							<Box
-								component="svg"
-								className="opacity-20"
-								viewBox="0 0 220 192"
-								width="220px"
-								height="192px"
-								fill="none"
-								sx={{ color: "primary.light", position: "absolute", right: "-64px", top: "-64px" }}
-							>
-								<defs>
-									<pattern
-										id="837c3e70-6c3a-44e6-8854-cc48c737b659"
-										x="0"
-										y="0"
-										width="20"
-										height="20"
-										patternUnits="userSpaceOnUse"
-									>
-										<rect
-											x="0"
-											y="0"
-											width="4"
-											height="4"
-											fill="currentColor"
-										/>
-									</pattern>
-								</defs>
-								<rect
-									width="220"
-									height="192"
-									fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)"
-								/>
-							</Box>
-
-							<div className="relative z-10 w-full max-w-2xl">
-								<Typography
-									variant="h2"
-									component="h2"
-									fontWeight={700}
-									color={theme.palette.primary.contrastText}
-								>
-									Welcome to
-									<br />
-									our community
-								</Typography>
-								<Typography
-									color={theme.palette.primary.contrastText}
-									sx={{
-										marginTop: "2rem"
-									}}
-								>
-									Metaintro helps developers to build organized and well coded dashboards full of beautiful and rich
-									modules. Join us and start building your application today.
-								</Typography>
-								<Box
-									sx={{
-										display: "flex",
-										marginTop: "2rem",
-										alignItems: "center"
-									}}
-								>
-									<AvatarGroup
-										sx={{
-											"& .MuiAvatar-root": {
-												borderColor: "primary.main"
-											}
-										}}
-									>
-										<Avatar src="/assets/images/avatar-users/female-18.jpg" />
-										<Avatar src="/assets/images/avatar-users/female-11.jpg" />
-										<Avatar src="/assets/images/avatar-users/male-09.jpg" />
-										<Avatar src="/assets/images/avatar-users/male-16.jpg" />
-									</AvatarGroup>
-
-									<Box
-										sx={{
-											opacity: 0.8,
-											fontWeight: 500,
-											marginLeft: "1rem",
-											letterSpacing: "-0.025em",
-											color: theme.palette.primary.contrastText
-										}}
-									>
-										More than 500k people joined us, it's your turn
-									</Box>
-								</Box>
-							</div>
-						</Box>
-					</Grid>
-				)}
 			</Grid>
-		</>
+		</React.Suspense>
 	);
 }
 
@@ -524,7 +367,9 @@ export function SubscribeCongratulationPage() {
 	return (
 		<SubscribePageProvider>
 			<SubscribePage />
-			<Congratulations />
+			<React.Suspense fallback={<div style={{ height: "100vh", width: "100vw" }} />}>
+				<PagePartials.Congratulations />
+			</React.Suspense>
 		</SubscribePageProvider>
 	);
 }

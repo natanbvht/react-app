@@ -8,15 +8,13 @@ const dotenv = require("dotenv").config();
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
-const PreloadWebpackPlugin = require("preload-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlCriticalPlugin = require("html-critical-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const HtmlWebpackInjectPreload = require("@principalstudio/html-webpack-inject-preload");
 
-const html = ["404"];
-const views = ["about"];
 const apps = ["upgrade", "subscribe", "recommendations"];
 
 const PATHS = {
@@ -57,9 +55,6 @@ function getEntries() {
   const entryPath = path.resolve(__dirname, "src/index.js");
 
   if (!config.env.localhost) {
-    views.forEach((view) => {
-      entries[entryPath] = entryPath;
-    });
     apps.forEach((app) => {
       entries[entryPath] = entryPath;
     });
@@ -72,35 +67,14 @@ function getPlugins() {
   if (!config.env.localhost) {
     const appHtmls = apps.map((entry) => {
       return new HtmlWebpackPlugin({
+        chunks: [`${entry}`],
         minify: htmlMinify,
-        inject: true,
-        scriptLoading: "blocking",
-        preload: ["main.js", "main.css"],
+        excludeChunks: "main",
         template: `./public/index.html`,
-        chunks: [`${entry.toLocaleLowerCase()}`],
-        filename: `./${entry.toLocaleLowerCase()}/index.html`,
-      });
-    });
-    const viewsHtmls = views.map((entry) => {
-      return new HtmlWebpackPlugin({
-        minify: htmlMinify,
-        inject: true,
-        chunks: ["main"],
-        scriptLoading: "blocking",
-        preload: ["main.js", "main.css"],
-        template: `./public/index.html`,
-        filename: `./${entry.toLocaleLowerCase()}/index.html`,
-      });
-    });
-    const staticHtmls = html.map((entry) => {
-      return new HtmlWebpackPlugin({
-        minify: htmlMinify,
-        inject: true,
-        chunks: ["main"],
-        scriptLoading: "blocking",
-        preload: ["main.js", "main.css"],
-        template: `./public/${entry}/index.html`,
         filename: `./${entry}/index.html`,
+        templateParameters: {
+          preloadUsNsLocale: `/locales/en-US/${entry}.json`,
+        },
       });
     });
     plugins.push(new Dotenv());
@@ -113,20 +87,37 @@ function getPlugins() {
         reportFilename: "../reports/webpack/bundle.html",
       })
     );
-    plugins.push(...appHtmls, ...viewsHtmls, ...staticHtmls);
+    plugins.push(...appHtmls);
+    plugins.push(
+      new HtmlWebpackInjectPreload({
+        files: [
+          {
+            match: /main\.[0-9a-f]{8}\.js$/,
+            attributes: {
+              as: "script",
+              crossorigin: false,
+            },
+          },
+          {
+            match: /main\.[0-9a-f]{8}\.css$/,
+            attributes: {
+              as: "style",
+              crossorigin: false,
+            },
+          },
+          {
+            match: /favicon\.ico$/,
+            attributes: {
+              as: "image",
+              crossorigin: false,
+            },
+          },
+        ],
+      })
+    );
   }
 
   if (config.env.prod || config.env.uat) {
-    new PreloadWebpackPlugin({
-      rel: "preload",
-      as: "style",
-      include: "main.css",
-    }),
-      new PreloadWebpackPlugin({
-        rel: "preload",
-        as: "script",
-        include: "main.js",
-      }),
       new PurgeCSSPlugin({
         paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
       });
@@ -267,12 +258,13 @@ module.exports = {
     entry: getEntries(),
     plugins: getPlugins(),
     optimization: getOptimization(),
-    devtool: config.env.dev ? "source-map" : false,
+    devtool: config.env.dev ? "source-map" : "source-map",
     map: config.env.dev ? "eval-source-map" : null,
     experiments: {
       outputModule: true,
     },
     output: {
+      libraryTarget: "umd",
       path: path.resolve(__dirname, "build"),
       filename: "static/js/[name].[contenthash:8].js",
       chunkFilename: "static/js/[name].[contenthash:8].chunk.js",

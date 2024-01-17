@@ -25,7 +25,7 @@ const userAgentString = navigator.userAgent;
 export const Client = {
 	isChrome: userAgentString.includes("Chrome"),
 	isFirefox: userAgentString.includes("Firefox"),
-	isSafari: !userAgentString.includes("Chrome") && userAgentString.includes("Safari")
+	isSafari: Boolean(!userAgentString.includes("Chrome") && userAgentString.includes("Safari"))
 };
 
 export const Seo = {

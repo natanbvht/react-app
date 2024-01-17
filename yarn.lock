@@ -2379,6 +2379,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@principalstudio/html-webpack-inject-preload@^1.2.7":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@principalstudio/html-webpack-inject-preload/-/html-webpack-inject-preload-1.2.7.tgz#0c1f0b32a34d814b36ce84111f89990441cc64e8"
+  integrity sha512-KJKkiKG63ugBjf8U0e9jUcI9CLPTFIsxXplEDE0oi3mPpxd90X9SJovo3W2l7yh/ARKIYXhQq8fSXUN7M29TzQ==
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -9506,7 +9511,7 @@ object.pick@^1.3.0:
   dependencies:
     isobject "^3.0.1"
 
-object.values@^1.0.4, object.values@^1.1.0, object.values@^1.1.6, object.values@^1.1.7:
+object.values@^1.1.0, object.values@^1.1.6, object.values@^1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/object.values/-/object.values-1.1.7.tgz#617ed13272e7e1071b43973aa1655d9291b8442a"
   integrity sha512-aU6xnDFYT3x17e/f0IiiwlGPTy2jzMySGfUB4fq6z7CV8l85CWHDk5ErhyhpfDHhrOMwGFhSQkhMGHaIotA6Ng==
@@ -10660,14 +10665,6 @@ postcss@^8.3.5, postcss@^8.4.23, postcss@^8.4.24, postcss@^8.4.31, postcss@^8.4.
     nanoid "^3.3.7"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
-
-preload-webpack-plugin@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-2.3.0.tgz#2923d8caff44dead93d1fe5eaab31f3b18ca0de9"
-  integrity sha512-TWpYf7QqmW9lxXIQcPAPkfO+G6Zf/WrSZtqx864IdUtqZ+QGESfOGbGSMlBBt96sYEE+cZLF2GLrxbmLyieX6g==
-  dependencies:
-    object-assign "^4.1.1"
-    object.values "^1.0.4"
 
 prelude-ls@^1.2.1:
   version "1.2.1"

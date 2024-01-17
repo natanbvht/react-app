@@ -1,15 +1,14 @@
-import "./page.scss";
-import React from "react";
 import Box from "@mui/material/Box";
-import Dialog from "@mui/material/Dialog";
 import Button from "@mui/material/Button";
-import { useTranslation } from "react-i18next";
-import Typography from "@mui/material/Typography";
-import { useNavigate, Link } from "react-router-dom";
+import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import { Pages } from "../../../utils/config";
-import { languages } from "../../../context/Language/Language";
+import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 import AchivementIcon from "../../../components/Icons/Achivement";
+import { languages } from "../../../context/Language/Language";
+import { Pages } from "../../../utils/config";
+import "./page.scss";
 
 function Congratulations() {
 	const navigate = useNavigate();
@@ -24,9 +23,9 @@ function Congratulations() {
 			open
 			fullWidth
 			maxWidth="xs"
-			onClose={() => navigate(recommendationsPagePath)}
 			aria-labelledby="dialog-congratulations"
 			sx={{ maxWidth: 440, margin: "0 auto" }}
+			onClose={() => navigate(recommendationsPagePath)}
 		>
 			<DialogContent>
 				<Box
