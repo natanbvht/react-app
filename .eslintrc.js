@@ -23,6 +23,12 @@ module.exports = {
     "src/app/main/documentation/material-ui-components/pages/**",
   ],
   rules: {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@mui/*/*/*"]
+      }
+    ],
     "prettier/prettier": [
       "warn",
       {

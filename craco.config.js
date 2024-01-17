@@ -193,7 +193,6 @@ function getOptimization() {
         maxInitialRequests: Infinity,
         cacheGroups: {
           defaultVendors: {
-            priority: 2,
             chunks: "initial",
             reuseExistingChunk: true,
             test: /[\\/]node_modules[\\/]/,
@@ -211,6 +210,11 @@ function getOptimization() {
             name(module, chunks) {
               return chunks.map((chunk) => chunk.name).join("-");
             },
+          },
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            name: "react",
+            chunks: "all",
           },
         },
       },
@@ -258,7 +262,7 @@ module.exports = {
     entry: getEntries(),
     plugins: getPlugins(),
     optimization: getOptimization(),
-    devtool: config.env.dev ? "source-map" : "source-map",
+    devtool: config.env.dev ? "source-map" : false,
     map: config.env.dev ? "eval-source-map" : null,
     experiments: {
       outputModule: true,
