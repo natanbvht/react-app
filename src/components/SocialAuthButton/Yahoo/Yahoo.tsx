@@ -2,7 +2,8 @@ import "./Yahoo.scss";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import YahooIcon from "../../Icons/Yahoo";
-import SocialAuthButton, { AuthProvider, SocialAuthCb } from "../SocialAuthButton";
+import SocialAuthButton from "../SocialAuthButton";
+import { AuthProvider, SocialAuthCb } from "../index.d";
 
 function YahooLoginButton({ successCb, errorCb }: SocialAuthCb) {
 	const { t } = useTranslation(["common"]);

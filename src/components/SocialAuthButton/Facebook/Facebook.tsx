@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import SocialAuthButton, { AuthProvider, SocialAuthCb } from "../SocialAuthButton";
+import SocialAuthButton from "../SocialAuthButton";
+import { AuthProvider, SocialAuthCb } from "../index.d";
 
 const FacebookBrand = {
 	color: "white",

@@ -1,19 +1,15 @@
-import React, { memo, useState } from "react";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import React from "react";
 import Box from "@mui/material/Box";
-import SocialAuthButtonNFCR from "./SocialAuthButtonNFCR";
-import SocialAuthButtonFCR, {
-	AuthFlow,
-	AuthProvider,
-	SocialAuthCb,
-	SocialAuthButtonFCRProps
-} from "./SocialAuthButtonFCR";
+import { SocialAuthButtonProps } from "./index.d";
 
-// FCR = Functional Component Replacement
-// NFCR = Non-Functional Component Replacement
+const SocialAuthButtonFCR = React.lazy(() => import("./SocialAuthButtonFCR"));
+const SocialAuthButtonNFCR = React.lazy(() => import("./SocialAuthButtonNFCR"));
 
-interface SocialAuthButtonProps extends SocialAuthButtonFCRProps {
-	height?: string;
-}
+/**
+ * FCR = Functional Component Replacement
+ * NFCR = Non-Functional Component Replacement
+ */
 
 function SocialAuthButton({
 	height,
@@ -27,7 +23,7 @@ function SocialAuthButton({
 	onMouseEnter,
 	onMouseLeave
 }: SocialAuthButtonProps) {
-	const [hotReplacement, setHotReplacement] = useState<boolean>(false);
+	const [hotReplacement, setHotReplacement] = React.useState<boolean>(false);
 
 	const handleMouseEnter = () => {
 		setHotReplacement(true);
@@ -76,5 +72,4 @@ SocialAuthButton.defaultProps = {
 	height: "40px"
 };
 
-export { AuthFlow, AuthProvider, type SocialAuthCb };
-export default memo(SocialAuthButton);
+export default React.memo(SocialAuthButton);

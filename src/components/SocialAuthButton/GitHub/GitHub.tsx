@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import SocialAuthButton, { AuthProvider, SocialAuthCb } from "../SocialAuthButton";
+import SocialAuthButton from "../SocialAuthButton";
+import { AuthProvider, SocialAuthCb } from "../index.d";
 
 const GitHubBrand = {
 	color: "#fff",

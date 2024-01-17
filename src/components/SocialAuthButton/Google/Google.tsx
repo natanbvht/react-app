@@ -2,7 +2,8 @@ import React from "react";
 import { SxProps } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import GoogleIcon from "../../Icons/Google";
-import SocialAuthButton, { AuthProvider, SocialAuthCb } from "../SocialAuthButton";
+import SocialAuthButton from "../SocialAuthButton";
+import { AuthProvider, SocialAuthCb } from "../index.d";
 
 const GoogleBrand = {
 	color: "#444",
