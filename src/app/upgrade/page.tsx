@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Seo } from "../../utils/config";
+import { Seo } from "../../services/config";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
 
 function UpgradePage() {

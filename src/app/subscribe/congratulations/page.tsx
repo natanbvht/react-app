@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import AchivementIcon from "../../../components/Icons/Achivement";
-import { languages } from "../../../context/Language/Language";
-import { Pages } from "../../../utils/config";
+import { languages } from "../../../i18n";
+import { Pages } from "../../../services/config";
 import "./page.scss";
 
 function Congratulations() {

@@ -16,9 +16,9 @@ import "./page.scss";
 
 import AutocompleteTextField from "../../components/AutocompleteTextField/AutocompleteTextField";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
-import { languages } from "../../context/Language/Language";
+import { languages } from "../../i18n";
 import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
-import { Client, Pages, Seo } from "../../utils/config";
+import { Client, Pages, Seo } from "../../services/config";
 import { PagePartials, SocialAuthButtons } from "./lazy";
 
 interface AppleAuthResponse {
@@ -94,7 +94,7 @@ function SubscribePage() {
 	React.useEffect(() => {
 		const handleSubscribe = async () => {
 			if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
-				const { subscribe } = await import("../../utils/api" /* webpackChunkName: "apiV1" */);
+				const { subscribe } = await import("../../services/apiV1" /* webpackChunkName: "apiV1" */);
 				try {
 					if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
 						await subscribe({ email: formData.email, fullName: formData.name });

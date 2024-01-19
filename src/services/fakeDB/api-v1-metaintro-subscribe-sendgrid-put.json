@@ -1,0 +1,11 @@
+{
+    "success": {
+        "message": "Successfully subscribed to Metaintro! (via Sendgrid)",
+        "trackingId": "8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a8a"
+    },
+    "error": {
+        "timestamp": "0000-01-01T00:00:00.000Z",
+        "message": "Error subscribing to Metaintro! (via Sendgrid)",
+        "requestId": "8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a8a"
+    }
+}

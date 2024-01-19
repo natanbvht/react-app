@@ -11,29 +11,18 @@
       rel="apple-touch-startup-image"
       href="%PUBLIC_URL%/assets/splash/metaintro.svg"
     />
-    <link
-      as="image"
-      rel="preload"
-      priority="low"
-      type="image/webp"
-      href="%PUBLIC_URL%/assets/images/covers/Metaintro-Future-of-Work.webp"
-    />
+    <%= htmlWebpackPlugin.options.templateParameters.preloadUsNsLocale %>
     <link
       rel="preload"
       as="fetch"
       href="%PUBLIC_URL%/locales/en-US/common.json"
       crossorigin="anonymous"
     />
-    <link
-      rel="preload"
-      as="fetch"
-      href="<%= htmlWebpackPlugin.options.templateParameters.preloadUsNsLocale %>"
-      crossorigin="anonymous"
-    />
+    <%= htmlWebpackPlugin.options.templateParameters.preloadImage %>
     <title>Metaintro</title>
   </head>
   <body>
-    <div id="root" style="min-height: 100vh; width: 100vw; overflow: auto;">
+    <div id="root" style="min-height: 100vh; width: 100vw; overflow: auto">
       The Amazing Metaintro App
     </div>
   </body>

@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import "./SwitcherButton.css";
 import Button from "@mui/material/Button";
 import LanguageIcon from "../../../components/Icons/Language";
-import { Language } from "../../../context/Language/Language";
+import { Language } from "../../../i18n";
 import ChevronDownIcon from "../../../components/Icons/ChevronDown";
 
 interface SwitcherButtonProps {

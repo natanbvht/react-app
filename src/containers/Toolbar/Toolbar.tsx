@@ -1,14 +1,23 @@
 import React from "react";
 import "./Toolbar.scss";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import MetaintroIcon from "../../components/Icons/Metaintro";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { getCurrentLanguage } from "../../i18n";
 
 function AppToolbar() {
+	const navigate = useNavigate();
+
+	const handleButtonClick = () => {
+		const language = getCurrentLanguage();
+		const path = language.path ?? "/";
+		navigate(path);
+	};
+
 	return (
 		<AppBar
 			position="sticky"
@@ -22,10 +31,11 @@ function AppToolbar() {
 			>
 				<Toolbar className="StyledToolbar">
 					<Button
-						to="/"
+						role="link"
 						variant="text"
-						component={Link}
+						component="button"
 						aria-label="Metaintro"
+						onClick={handleButtonClick}
 					>
 						<MetaintroIcon
 							height={32}
