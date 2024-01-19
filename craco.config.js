@@ -70,11 +70,7 @@ function getPlugins() {
   if (!config.env.localhost) {
     const appHtmls = apps.map((entry) => {
       const templateParameters = {
-        preloadImage:
-          entry === "subscribe"
-            ? '<link as="image" rel="preload" priority="low" type="image/webp" href="/assets/images/covers/Metaintro-Future-of-Work.webp"/>'
-            : null,
-        preloadUsNsLocale: `<link rel="preload" as="fetch" href="/locales/en-US/${entry}.json" crossorigin="anonymous" />`,
+        preloadUsNsLocale: `<link rel="preload" as="fetch" href="./locales/en-US/${entry}.json" crossorigin="anonymous" />`,
       };
 
       return new HtmlWebpackPlugin({
@@ -271,8 +267,8 @@ module.exports = {
     entry: getEntries(),
     plugins: getPlugins(),
     optimization: getOptimization(),
-    devtool: config.env.dev ? "source-map" : false,
-    map: config.env.dev ? "eval-source-map" : null,
+    devtool: config.env.dev ? "source-map" : "source-map",
+    map: config.env.dev ? "eval-source-map" : "eval-source-map",
     experiments: {
       outputModule: true,
     },

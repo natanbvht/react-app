@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { Suspense } from "react";
+import React from "react";
 import Skeleton from "@mui/material/Skeleton";
 import { useNavigate, useLocation } from "react-router-dom";
 import SwitcherButton from "./SwitcherButton/SwitcherButton";
@@ -10,13 +10,13 @@ const LanguagePopup = React.lazy(() => import(/* webpackChunkName: 'LanguagePopu
 function LanguageSwitcher() {
 	const location = useLocation();
 	const navigate = useNavigate();
-	const currentPath = location.pathname;
-	const searchParams = location.search;
-	const hashFragment = location.hash;
-	const pathSegments = currentPath.split("/").filter((p) => p);
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
 	const open = Boolean(anchorEl);
-	const language = getCurrentLanguage();
+	const hashFragment = location.hash;
+	const searchParams = location.search;
+	const currentPath = location.pathname;
+	const pathSegments = currentPath.split("/").filter((p) => p);
 
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorEl(event.currentTarget);
@@ -33,14 +33,9 @@ function LanguageSwitcher() {
 		changeLanguage(language.value);
 		setAnchorEl(null);
 
-		// Check if lastLanguage?.path exists and remove it from newPath
 		if (lastLanguage?.path) {
 			newPath = newPath.replace(lastLanguage.path, "");
 		}
-
-		console.debug("lastLanguage", lastLanguage?.path);
-		console.debug("currentPath", currentPath);
-		console.debug("newPath", newPath);
 
 		if (currentPath !== newPath) {
 			navigate(newPath);
@@ -51,11 +46,11 @@ function LanguageSwitcher() {
 		<>
 			<SwitcherButton
 				open={open}
-				language={language}
 				onClick={handleClick}
+				language={languages.find((l) => l.path === `/${pathSegments[0]}`) || getCurrentLanguage()}
 			/>
 			{open && (
-				<Suspense
+				<React.Suspense
 					fallback={
 						<Skeleton
 							width={384}
@@ -67,12 +62,12 @@ function LanguageSwitcher() {
 					<LanguagePopup
 						open={open}
 						anchorEl={anchorEl}
-						language={language}
+						language={languages.find((l) => l.value === getCurrentLanguage().value)}
 						languages={languages}
 						onClose={handleClose}
 						selecteLanguage={selecteLanguage}
 					/>
-				</Suspense>
+				</React.Suspense>
 			)}
 		</>
 	);

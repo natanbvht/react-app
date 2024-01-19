@@ -1,5 +1,5 @@
 import { Page } from "../../types";
-import SubscribePage, { SubscribeCongratulationPage } from "./page";
+import SubscribePage, { SubscribeCongratulationPage } from /* webpackChunkName: 'subscribe' */ "./page";
 
 const routes: Page[] = [
 	{
