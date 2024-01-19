@@ -13,9 +13,11 @@ import Page404 from "./app/404/routes";
 import PageRecommendations from "./app/recommendations/routes";
 import PageSubscribe from "./app/subscribe/routes";
 import PageUpgrade from "./app/upgrade/routes";
+import PageDownload from "./app/download/routes";
 
 export const pages: Page[] = [
 	{ path: "/", component: Subscribe },
+	...PageDownload,
 	...Page404,
 	...PageSubscribe,
 	...PageRecommendations,

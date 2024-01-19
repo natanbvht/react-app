@@ -267,8 +267,8 @@ module.exports = {
     entry: getEntries(),
     plugins: getPlugins(),
     optimization: getOptimization(),
-    devtool: config.env.dev ? "source-map" : "source-map",
-    map: config.env.dev ? "eval-source-map" : "eval-source-map",
+    map: config.env.dev ? "eval-source-map" : false,
+    devtool: config.env.dev ? "eval-source-map" : false,
     experiments: {
       outputModule: true,
     },
