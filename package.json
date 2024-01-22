@@ -4,10 +4,11 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "prebuild": "start-server-and-test 3000 test && npm run sitemap",
+    "prebuild": "start-server-and-test 3000 cypress && npm run sitemap",
     "build": "craco build",
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "cypress": "cypress run --headless",
     "eject": "react-scripts eject",
     "sitemap": "node scripts/sitemap.js",
     "locale": "npm run prebuild && node scripts/i18next.js",
