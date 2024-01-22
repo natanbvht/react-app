@@ -19,7 +19,7 @@ import AutocompleteTextField from "../../components/AutocompleteTextField/Autoco
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
 import { languages } from "../../i18n";
 import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
-import { Client, Pages, Seo, HashLinks } from "../../services/config";
+import { Client, Pages, Seo, HashLinks, Keys } from "../../services/config";
 import { PagePartials, SocialAuthButtons } from "./lazy";
 
 interface AppleAuthResponse {
@@ -92,7 +92,7 @@ function SubscribePage() {
 	React.useEffect(() => {
 		const handleSubscribe = async () => {
 			if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
-				const { subscribe } = await import("../../services/apiV1" /* webpackChunkName: "apiV1" */);
+				const { subscribe, getRecommendations } = await import("../../services/apiV1" /* webpackChunkName: "apiV1" */);
 				try {
 					if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
 						await subscribe({ email: formData.email, fullName: formData.name });
@@ -103,6 +103,14 @@ function SubscribePage() {
 					// TODO: Log error
 					navigate(completedPagePath);
 				}
+				// regardless prefetch recommendations for the next step
+				getRecommendations()
+					.then((res) => {
+						sessionStorage.setItem(Keys.recommendations, JSON.stringify(res));
+					})
+					.catch((error) => {
+						console.error("Failed to get recommendations", error);
+					});
 			}
 		};
 

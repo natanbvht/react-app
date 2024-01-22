@@ -1,0 +1,53 @@
+{
+    "error": {
+        "message": "No campaigns found for this user",
+        "trackingId": "8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a8a"
+    },
+    "success": [
+        {
+            "_id": "partner_campaign_9adff48345a5",
+            "companyName": "The Town Crier",
+            "cta": "Subscribe",
+            "description": "Satire delivered on Sunday",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdWhEIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--629d53124b93d511e359db0d7859f7cd1f9b0153/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/TheTownCrierLogo.png",
+            "name": "The Town Crier",
+            "sub": "09513bfe6f"
+        },
+        {
+            "_id": "partner_campaign_2501c0fc7396",
+            "companyName": "The Aurorean",
+            "cta": "Subscribe",
+            "description": "We scour 100+ sources to share the most significant developments in science and AI. For professionals and enthusiasts in science and technology",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbVZzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--033b7948f748a3d9012cb0542a9bc4e294c5cf8c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/The%20Aurorean%20Logo%20III.png",
+            "name": "The Aurorean",
+            "sub": "91efd0ec95"
+        },
+        {
+            "_id": "partner_campaign_66d4b5100977",
+            "companyName": "Cody Plofker's newsletter",
+            "cta": "Subscribe",
+            "description": "Become A Better, More Well Rounded Marketer. \"A must read for anyone in the DTC space\".",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdlkzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5550c1733a2afcba606ac723f16cce293d1b778f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/cIxP7CDn.png",
+            "name": "Cody Plofker's newsletter",
+            "sub": "d1c54ffeec"
+        },
+        {
+            "_id": "partner_campaign_414710882ca9",
+            "companyName": "🏴‍☠️ AI Productivity Newsletter",
+            "cta": "Subscribe",
+            "description": "We deliver 1-minute, easy, actionable tips to boost productivity with AI. 6000 subscribers are already leveling up. Now it's your turn. Join Free",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbGRzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f9b07d1d9bb4d0332a82d9408bb50d460f15e398/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/DALL%C2%B7E%202023-12-17%2022.16.15%20-%20A%20minimalistic%20logo%20for%20an%20'AI%20Productivity%20Newsletter'.%20The%20logo%20features%20a%20stylized%20representation%20of%20a%20brain%20and%20a%20gear,%20intertwined%20to%20symbolize%20A.png",
+            "name": "🏴‍☠️ AI Productivity Newsletter",
+            "sub": "d2f5ef7087"
+        },
+        {
+            "_id": "partner_campaign_f0ef3966981d",
+            "companyName": "Your Next Breakthrough",
+            "cta": "Subscribe",
+            "description": "#1 NYTimes Bestselling author Mark Manson sends out one idea, one question, and one exercise each week to help you achieve your next breakthrough.",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdjFkIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--244150c758a0aee55121ca30c54bb30c1dde2dfb/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/profile%20pic.jpeg",
+            "name": "Your Next Breakthrough",
+            "sub": "8704938860"
+        }
+    ]
+}

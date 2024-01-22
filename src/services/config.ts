@@ -55,6 +55,10 @@ export const HashLinks = {
 	termsOfService: "#terms-of-service"
 };
 
+export const Keys = {
+	recommendations: "recommendations"
+};
+
 export const Links = {
 	resources: `${METAINTRO}/`,
 	events: "#events-subscribe",

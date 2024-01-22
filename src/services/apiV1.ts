@@ -3,7 +3,7 @@ import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 
 import { getEnv, Environments } from "./config";
 
-interface ApiError {
+export interface ApiError {
 	message: string;
 	timestamp: string;
 	requestId: string;
@@ -14,13 +14,14 @@ const MAX_TIMEOUT = 5000;
 const API_HOST = getEnv() === Environments.PRODUCTION ? "https://api.metronai.com" : "http://localhost:8080";
 
 const ENDPOINTS = {
-	recommendations: `${API_HOST}${API_V1}/recommendations`,
-	subscribe: `${API_HOST}${API_V1}/metaintro/subscribe/sendgrid`
+	subscribe: `${API_HOST}${API_V1}/metaintro/subscribe/sendgrid`,
+	recommendations: `${API_HOST}${API_V1}/affiliates/recommendations`
 };
 
 const DEFAULT_HEADERS = {
 	"Content-Type": "application/json",
 	"Access-Control-Allow-Origin": `${window.location.origin}`,
+	"X-Session-CC": "US",
 	"X-Request-ID": nanoid(8),
 	"X-Session-Language": navigator.language,
 	"X-Session-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -44,8 +45,8 @@ function getMockResponse<T>(config: AxiosRequestConfig, error: boolean = false):
 					// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
 					return module.default.error;
 				}
-				// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-				return module.default.success;
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access, prettier/prettier, @typescript-eslint/no-unsafe-assignment
+				return { data: module.default.success};
 			})
 			.catch(() => {
 				return {};
@@ -62,7 +63,7 @@ async function apiV1<T>(options: AxiosRequestConfig, mockError: boolean = false)
 		timeout: options.timeout || MAX_TIMEOUT
 	};
 
-	if (getEnv() === Environments.LOCALHOST) {
+	if (getEnv() !== Environments.LOCALHOST) {
 		const mockData = await getMockResponse<T>(mergedOptions, mockError);
 		return Promise.resolve(mockData as AxiosResponse<T>);
 	}
@@ -106,9 +107,9 @@ export async function subscribe(subscribeBody: SubscribeBody): Promise<Subscribe
 		if (axios.isAxiosError(error)) {
 			const errorResponse = error.response?.data as ApiError;
 			const customError: ApiError = {
-				timestamp: errorResponse.timestamp,
-				requestId: errorResponse.requestId,
-				message: errorResponse.message || "An error occurred during subscription"
+				timestamp: errorResponse?.timestamp,
+				requestId: errorResponse?.requestId,
+				message: errorResponse?.message || "An error occurred during subscription"
 			};
 			return customError;
 		}
@@ -116,6 +117,48 @@ export async function subscribe(subscribeBody: SubscribeBody): Promise<Subscribe
 			requestId: `local-${nanoid(8)}`,
 			timestamp: new Date().toISOString(),
 			message: "An unexpected error occurred during subscription"
+		};
+	}
+}
+
+export interface Recommendation {
+	_id: string;
+	companyName: string;
+	cts: string;
+	description: string;
+	logo: string;
+	name: string;
+	sub: string;
+}
+type RecommendationsResponse = Recommendation[] | ApiError;
+/**
+ * Gets recommendations.
+ * @returns {Promise<RecommendationsResponse>} - The response from the recommendations API.
+ * @example await getRecommendations();
+ */
+export async function getRecommendations(): Promise<RecommendationsResponse> {
+	const requestOptions: AxiosRequestConfig = {
+		method: "get",
+		url: ENDPOINTS.recommendations
+	};
+
+	try {
+		const response = await apiV1<RecommendationsResponse>(requestOptions);
+		return response.data;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			const errorResponse = error.response?.data as ApiError;
+			const customError: ApiError = {
+				timestamp: errorResponse?.timestamp,
+				requestId: errorResponse?.requestId,
+				message: errorResponse?.message || "An error occurred during get recommendations request"
+			};
+			return customError;
+		}
+		return {
+			requestId: `local-${nanoid(8)}`,
+			timestamp: new Date().toISOString(),
+			message: "An unexpected error occurred during get recommendations request"
 		};
 	}
 }
