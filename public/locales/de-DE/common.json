@@ -1,7 +1,7 @@
 {
   "footer": {
     "arr": "Alle Rechte vorbehalten",
-    "tagline": "Gestalten Sie die Zukunft der Arbeit neu",
+    "tagline": "Gestalte die Zukunft der Arbeit neu",
     "community": "Community",
     "explore": "Erkunden",
     "jobs": "Jobs",
@@ -19,14 +19,14 @@
     "support": "Support",
     "termsOfService": "Nutzungsbedingungen",
     "professionalResumeWallet": "Professionelle Lebenslauf-Brieftasche",
-    "join500k": "Schließen Sie sich über 500.000 Fachleuten an, die bereits einen Vorsprung auf dem Arbeitsmarkt haben. Treten Sie heute in die Zukunft der Arbeit ein!"
+    "join500k": "Schließen Sie sich über 500.000 Fachleuten an, die einen Vorsprung auf dem Arbeitsmarkt haben. Treten Sie noch heute in die Zukunft der Arbeit ein!"
   },
   "socialButtons": {
-    "discord": "Klicken Sie hier, um unserem Discord-Server beizutreten",
-    "facebook": "Klicken Sie hier, um unsere Facebook-Seite zu besuchen",
-    "youtube": "Klicken Sie hier, um unseren YouTube-Kanal zu besuchen",
-    "instagram": "Klicken Sie hier, um unsere Instagram-Seite zu besuchen",
-    "x": "Klicken Sie hier, um unsere X-Seite (ehemals Twitter) zu besuchen"
+    "discord": "Hier klicken, um unserem Discord-Server beizutreten",
+    "facebook": "Hier klicken, um unsere Facebook-Seite zu besuchen",
+    "youtube": "Hier klicken, um unseren YouTube-Kanal zu besuchen",
+    "instagram": "Hier klicken, um unsere Instagram-Seite zu besuchen",
+    "x": "Hier klicken, um unsere X (ehemals Twitter) Seite zu besuchen"
   },
   "buttons": {
     "yes": "Ja",
@@ -35,7 +35,7 @@
     "language": "Sprache",
     "learnMore": "Mehr erfahren",
     "maybeLater": "Vielleicht später",
-    "upgradeNow": "Jetzt upgraden",
+    "upgradeNow": "Jetzt aktualisieren",
     "getStarted": "Loslegen 🚀",
     "bookNow": "Jetzt buchen",
     "getStartedHere": "Hier starten",
@@ -48,25 +48,25 @@
     "moreSocialLogins": "Mehr Social-Logins"
   },
   "messages": {
-    "loading": "Es wird geladen...",
-    "error": "Es ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.",
+    "loading": "Wird geladen...",
+    "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
     "upgradeYourExperience": "✨ Verbessern Sie Ihre Erfahrung ✨",
     "differentLanguage": "👋🏽 Wir sehen, dass Sie Metaintro in einer anderen Sprache verwenden. Möchten Sie zu",
     "boostYourCareer": "Steigern Sie Ihre Karriere mit einem Premium-Plan, der auf Ihre Ambitionen und Bedürfnisse zugeschnitten ist."
   },
   "errors": {
     "invalidEmailAddress": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-    "invalidEmailAddressLatin": "Bitte geben Sie nur eine gültige E-Mail-Adresse mit lateinischen Zeichen ein (a-z, A-Z, 0-9)"
+    "invalidEmailAddressLatin": "Bitte geben Sie eine gültige E-Mail-Adresse nur mit lateinischen Zeichen ein (a-z, A-Z, 0-9)"
   },
   "disclaimers": {
     "howWeUseYourInformation": {
-      "title": "Wie wir Ihre Informationen verwenden?",
-      "thisForm": "Wir sammeln Informationen, die Sie bereitstellen (wie Name und E-Mail) und Geräteinformationen (wie IP-Adresse), um unsere Dienste zu verbessern und gezielte Werbung zu liefern. Wir verwenden Ihre Kontaktinformationen für Abonnement-Updates, Metaintro-Nachrichten, E-Mail-Newsletter, Jobbenachrichtigungen und Werbung.",
-      "thirdParty": "Die von uns verwendeten Drittanbieter-Dienste können Informationen für ihre eigenen Zwecke sammeln. Überprüfen Sie deren Datenschutzrichtlinien für Details.",
-      "contactInfo": "Wir verwenden Ihre Kontaktinformationen für Abonnement-Updates, Metaintro-Nachrichten und Jobs.",
-      "unsubscribe": "Sie können sich jederzeit von gezielter Werbung abmelden und unseren Marketing-E-Mails abbestellen. In jeder E-Mail, die Sie von Metaintro erhalten, befindet sich am Ende ein Abmeldelink, wie es gesetzlich vorgeschrieben ist.",
-      "prefill": "Wir können Ihre Kontaktinformationen aus verschiedenen Quellen vorausfüllen, um die Registrierung zu erleichtern. Sie können diese Informationen bearbeiten oder löschen. Vorausgefüllte Kontaktinformationen können aus folgenden Quellen stammen:",
-      "updateDisclaimer": "Wir können diese Erklärung jederzeit aktualisieren. Bitte überprüfen Sie sie regelmäßig."
+      "title": "Wie verwenden wir Ihre Informationen?",
+      "thisForm": "Wir erfassen Informationen, die Sie bereitstellen (wie Name und E-Mail) sowie Geräteinformationen (wie IP-Adresse), um unsere Dienste zu verbessern und zielgerichtete Werbung zu liefern. Wir verwenden Ihre Kontaktinformationen für Abonnement-Updates, Metaintro-News, E-Mail-Newsletter, Stellenbenachrichtigungen und Werbung.",
+      "thirdParty": "Von uns verwendete Drittanbieter-Dienste können Informationen zu ihren eigenen Zwecken erfassen. Lesen Sie deren Datenschutzrichtlinien für weitere Informationen.",
+      "contactInfo": "Wir verwenden Ihre Kontaktinformationen für Abonnement-Updates und Metaintro-News und -Jobs.",
+      "unsubscribe": "Sie können sich jederzeit von zielgerichteter Werbung abmelden und unsere Marketing-E-Mails abbestellen. In jeder E-Mail, die Sie von Metaintro erhalten, befindet sich eine Option zum Abbestellen im Footer, wie gesetzlich vorgeschrieben.",
+      "prefill": "Wir können Ihre Kontaktinformationen aus verschiedenen Quellen vorab ausfüllen, um die Registrierung zu vereinfachen. Sie können sie bearbeiten oder löschen. Die vorausgefüllten Kontaktdaten können aus folgenden Quellen stammen:",
+      "updateDisclaimer": "Wir können diesen Hinweis jederzeit aktualisieren, daher überprüfen Sie ihn regelmäßig."
     }
   }
 }

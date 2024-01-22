@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import LinksColumn from "./LinksColumn/LinksColumn";
 import MetaintroIcon from "../../components/Icons/Metaintro";
 import { FooterLinks } from "./types.d";
-import { Links } from "../../services/config";
+import { Links, HashLinks } from "../../services/config";
 
 const links: FooterLinks = {
 	community: {
@@ -42,7 +42,7 @@ const links: FooterLinks = {
 		links: [
 			{ name: "footer.about", url: Links.about },
 			{ name: "footer.support", url: Links.support },
-			{ name: "footer.termsOfService", url: Links.terms }
+			{ name: "footer.termsOfService", url: HashLinks.termsOfService }
 		]
 	}
 };
@@ -129,16 +129,16 @@ function Footer() {
 							<List sx={{ display: "flex", flexDirection: "row", padding: 0 }}>
 								<ListItem sx={{ padding: 0 }}>
 									<Link
-										to="#terms"
 										className="QuickLink"
+										to={HashLinks.cookiePolicy}
 									>
 										Cookie
 									</Link>
 								</ListItem>
 								<ListItem sx={{ padding: 0 }}>
 									<Link
-										to="#terms"
 										className="QuickLink"
+										to={HashLinks.termsOfService}
 									>
 										Terms
 									</Link>

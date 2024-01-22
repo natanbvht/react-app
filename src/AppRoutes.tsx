@@ -14,6 +14,9 @@ import PageRecommendations from "./app/recommendations/routes";
 import PageSubscribe from "./app/subscribe/routes";
 import PageUpgrade from "./app/upgrade/routes";
 import PageDownload from "./app/download/routes";
+import { HashLinks } from "./services/config";
+
+const LegalPolicies = React.lazy(() => import("./app/@partials/legal-policies"));
 
 export const pages: Page[] = [
 	{ path: "/", component: Subscribe },
@@ -100,6 +103,24 @@ function AppRoutes() {
 				</Routes>
 			</React.Suspense>
 			<Footer />
+			{/* Hash Routes Popup */}
+			{/* Todo: find a better way to dynamically render hash based components
+				without using react router dom, doesn't need to be a spefic component
+			*/}
+			<React.Suspense fallback={<div>Loading...</div>}>
+				{location.hash === HashLinks.termsOfService && (
+					<LegalPolicies
+						title="Terms of Service"
+						src={`/md/${language?.value}/${HashLinks.termsOfService.replace("#", "")}.md`}
+					/>
+				)}
+				{location.hash === HashLinks.privacyPolicy && (
+					<LegalPolicies
+						title="Privacy Policy"
+						src={`/md/${language?.value}/${HashLinks.privacyPolicy.replace("#", "")}.md`}
+					/>
+				)}
+			</React.Suspense>
 		</>
 	);
 }

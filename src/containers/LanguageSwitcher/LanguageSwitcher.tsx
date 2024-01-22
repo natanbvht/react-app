@@ -31,7 +31,6 @@ function LanguageSwitcher() {
 		const currentPath = `${location.pathname}${searchParams}${hashFragment}`;
 
 		changeLanguage(language.value);
-		setAnchorEl(null);
 
 		if (lastLanguage?.path) {
 			newPath = newPath.replace(lastLanguage.path, "");
@@ -39,6 +38,7 @@ function LanguageSwitcher() {
 
 		if (currentPath !== newPath) {
 			navigate(newPath);
+			setAnchorEl(null);
 		}
 	};
 

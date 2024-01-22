@@ -54,7 +54,7 @@ function Congratulations() {
 					letterSpacing={0}
 					className="CongratulationMessage"
 				>
-					You've subscribed! Visit our website to explore the best jobs in the Web3 and A.I. space.
+					{t("messages.youveSubscribed")}
 				</Typography>
 				<Button
 					fullWidth
@@ -64,7 +64,7 @@ function Congratulations() {
 					to={recommendationsPagePath}
 					className="GetStartedButton"
 				>
-					Get Started Here
+					{t("cta.getStartedHere")}
 				</Button>
 				<Typography
 					component="p"
@@ -73,7 +73,7 @@ function Congratulations() {
 					textAlign="center"
 					className="CongratulationNotice"
 				>
-					*Please check your email to confirm your subscription.
+					*{t("messages.pleaseCheckYourEmail")}
 				</Typography>
 			</DialogContent>
 			<div className="Fireworks">

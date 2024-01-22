@@ -1,8 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import { Box, Avatar, AvatarGroup, Typography } from "@mui/material";
 
 function DesktopSideScreen() {
+	const { t } = useTranslation(["subscribe", "common"]);
+
 	const theme = useTheme();
 	return (
 		<Box
@@ -81,12 +84,13 @@ function DesktopSideScreen() {
 				<Typography
 					variant="h2"
 					component="h2"
+					lineHeight={1}
 					fontWeight={700}
 					color={theme.palette.primary.contrastText}
 				>
-					Welcome to
+					{t("welcomeTo")}
 					<br />
-					our community
+					{t("ourNewsletter")}
 				</Typography>
 				<Typography
 					color={theme.palette.primary.contrastText}
@@ -94,8 +98,7 @@ function DesktopSideScreen() {
 						marginTop: "2rem"
 					}}
 				>
-					Metaintro helps developers to build organized and well coded dashboards full of beautiful and rich modules.
-					Join us and start building your application today.
+					{t("metaintroHelpedThousands")}
 				</Typography>
 				<Box
 					sx={{
@@ -119,14 +122,13 @@ function DesktopSideScreen() {
 
 					<Box
 						sx={{
-							opacity: 0.8,
 							fontWeight: 500,
 							marginLeft: "1rem",
 							letterSpacing: "-0.025em",
 							color: theme.palette.primary.contrastText
 						}}
 					>
-						More than 500k people joined us, it's your turn
+						{t("trustedBy500k")}
 					</Box>
 				</Box>
 			</div>

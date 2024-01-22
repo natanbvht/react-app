@@ -27,6 +27,4 @@ module.exports.ENGLIGH_LOCALE_PATH = path.join(
   __dirname,
   "../public/locales/en-US/common.json"
 );
-module.exports.API_KEY =
-  process.env.OPENAI_API_KEY ||
-  "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";
+module.exports.API_KEY = "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";

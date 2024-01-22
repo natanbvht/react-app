@@ -1,23 +1,39 @@
 {
-  "workInWeb3AIToday": "Trabalhe com Web3 & IA Hoje 🚀",
-  "join400K": "Junte-se a mais de 500.000 profissionais e receba nossa newsletter tri-semanal com os empregos mais bem remunerados em web3 & IA",
+  "workInWeb3AIToday": "Trabalhe em Web3 & IA Hoje 🚀",
+  "join400K": "Junte-se a mais de 500.000 profissionais e receba nossa newsletter tri-semanal com os empregos mais bem remunerados em web3 e IA",
   "contactInformation": "Informações de Contato",
   "name": "Nome",
   "email": "E-mail",
-  "byTapping": "Ao tocar ou clicar em 'Inscrever' ou Continuar com Apple, Facebook, Google, Yahoo, GitHub, Microsoft, você concorda com nossa",
+  "orContinueWith": "Ou continue com",
+  "bySigninUp": "Ao se inscrever, você concorda com os nossos",
+  "termsOfService": "Termos de Serviço",
+  "and": "e",
   "privacyPolicy": "Política de Privacidade",
   "cookiePolicy": "Política de Cookies",
-  "orContinueWith": "Ou continue com",
+  "welcomeTo": "Bem-vindo(a) ao",
+  "ourNewsletter": "nossa newsletter",
+  "metaintroHelpedThousands": "A Metaintro ajudou milhares de profissionais a encontrar seus empregos dos sonhos no espaço de Web3 e IA. Junte-se a nós e seja contratado(a) mais rápido.",
+  "trustedBy500k": "Confiado por mais de 500.000 profissionais",
   "messages": {
     "congratulations": "Parabéns! 🎉",
-    "youreAllSignedUp": "Você está inscrito.",
-    "visitOurWebsite": "Visite nosso site para explorar os melhores empregos no espaço Web3 e A.I.",
-    "youHaveSubscribed": "Você se inscreveu com sucesso em nossa newsletter.",
-    "followUp": "Metaintro poderá entrar em contato com você para um acompanhamento."
+    "youveSubscribed": "Você se inscreveu! Visite nosso site para explorar os melhores empregos no espaço de Web3 e IA.",
+    "visitOurWebsite": "Visite nosso site para explorar os melhores empregos no espaço de Web3 e IA.",
+    "pleaseCheckYourEmail": "Por favor, verifique o seu e-mail para confirmar a sua inscrição.",
+    "followUp": "A Metaintro pode entrar em contato com você para fazer um acompanhamento."
+  },
+  "cta": {
+    "getStartedHere": "Comece Aqui"
+  },
+  "errors": {
+    "nameMustBeAtLeast": "O nome deve ter pelo menos 2 caracteres",
+    "emailMustBeAtLeast": "O e-mail deve ter pelo menos 3 caracteres",
+    "emailMustIncludeAt": "O e-mail deve incluir o símbolo '@'",
+    "emailMustIncludePeriod": "O e-mail deve incluir o símbolo '.'",
+    "emailMustBeLatin": "O e-mail deve estar em caracteres latinos"
   },
   "seo": {
-    "title": "Inscreva-se em nossa newsletter",
-    "description": "Junte-se a mais de 500.000 profissionais e receba nossa newsletter tri-semanal com os empregos mais bem remunerados em web3 & IA",
-    "keywords": "inscrever-se, inscrição metaintro, web3, empregos em web3, carreiras em web3, newsletter web3, newsletter de empregos em web3, newsletter de carreiras em web3, assinatura de newsletter web3, assinatura de newsletter de empregos em web3, assinatura de newsletter de carreiras em web3, inscrição em newsletter web3, inscrição em newsletter de empregos em web3, inscrição em newsletter de carreiras em web3, se inscrever na newsletter web3, se inscrever na newsletter de empregos em web3, se inscrever na newsletter de carreiras em web3, assinatura de newsletter web3, assinatura de newsletter de empregos em web3"
+    "title": "Assine nossa newsletter",
+    "description": "Junte-se a mais de 500.000 profissionais e receba nossa newsletter tri-semanal com os empregos mais bem remunerados em web3 e IA",
+    "keywords": "subscribe, metaintro subscribe, web3, web3 jobs, web3 careers, web3 newsletter, web3 jobs newsletter, web3 careers newsletter, web3 newsletter subscription, web3 jobs newsletter subscription, web3 careers newsletter subscription, web3 newsletter signup, web3 jobs newsletter signup, web3 careers newsletter signup, web3 newsletter sign up, web3 jobs newsletter sign up, web3 careers newsletter sign up, web3 newsletter subscribe, web3 jobs newsletter subscribe, web3 careers newsletter subscribe, web3 newsletter subscription, web3 jobs newsletter"
   }
 }

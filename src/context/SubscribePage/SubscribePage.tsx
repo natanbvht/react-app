@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import { useTranslation } from "react-i18next";
 import React, { createContext, useEffect, useContext, useState, useMemo, useCallback, ReactNode } from "react";
 
 export interface SubscribePageFormData {
@@ -29,7 +31,7 @@ export interface SubscribePageContextType {
 	updateFormData: (newFormData: SubscribePageFormData) => void;
 	updateErrors: (newFormErrors: SubscribePageFormErrors) => void;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	toggleOpenMoreSocialLogins: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+	toggleOpenMoreSocialLogins: () => void;
 }
 
 export interface SubscribePageProviderProps {
@@ -56,15 +58,16 @@ export const useSubscribePage = (): SubscribePageContextType => {
  * it is longer than 3 characters
  * @returns FormErrors
  */
-export function validateEmail(email: string): SubscribePageFormErrors {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function validateEmail(email: string, t: any): SubscribePageFormErrors {
 	let errorMessage: string = "";
 	const errors: SubscribePageFormErrors = { email: "" };
 	const latinRegex = /^[a-zA-Z0-9@.]*$/;
 
-	if (email.length < 3) errorMessage += "Email must be longer than 3 characters. ";
-	if (!email.includes("@")) errorMessage += "Email must include @. ";
-	if (!email.includes(".")) errorMessage += "Email must include . ";
-	if (!latinRegex.test(email)) errorMessage += "Email must contain only latin characters and numbers. ";
+	if (email.length < 3) errorMessage += t("errors.emailMustBeAtLeast");
+	if (!email.includes("@")) errorMessage += t("errors.emailMustIncludeAt");
+	if (!email.includes(".")) errorMessage += t("errors.emailMustIncludePeriod");
+	if (!latinRegex.test(email)) errorMessage += t("errors.emailMustBeLatin");
 
 	errors.email = errorMessage;
 
@@ -72,6 +75,7 @@ export function validateEmail(email: string): SubscribePageFormErrors {
 }
 
 function SubscribePageProvider({ children }: SubscribePageProviderProps) {
+	const { t } = useTranslation(["subscribe", "common"]);
 	const formDataStorageKey = "subscribePageFormData";
 	const [emailSuggestions, setEmailSuggestions] = useState<string[]>([]);
 	const [formErrors, setFormErrors] = useState<SubscribePageFormErrors>({});
@@ -79,6 +83,7 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 	const initialPageSettings: SubscribePageSettings = {
 		openCookiePolicy: false,
 		openTermsOfService: false,
+		openMoreSocialLogins: false,
 		openContactInfoPolicy: false,
 		submittedSubscribeForm: false
 	};
@@ -120,13 +125,13 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 				if (value && value.indexOf("@") === -1) {
 					setEmailSuggestions(["@gmail.com", "@yahoo.com", "@hotmail.com", "@aol.com"].map((suffix) => value + suffix));
 				}
-				updateErrors((errors: SubscribePageFormErrors) => ({ ...errors, ...validateEmail(value) }));
+				updateErrors((errors: SubscribePageFormErrors) => ({ ...errors, ...validateEmail(value, t) }));
 			}
 
 			if (name === "name") {
 				updateErrors((errors: SubscribePageFormErrors) => {
 					if (value && value.length < 2) {
-						return { ...errors, name: "Name must be longer than 2 characters." };
+						return { ...errors, name: t("errors.nameMustBeAtLeast") };
 					}
 					// eslint-disable-next-line unused-imports/no-unused-vars
 					const { name, ...restErrors } = errors;
@@ -139,17 +144,16 @@ function SubscribePageProvider({ children }: SubscribePageProviderProps) {
 
 	const updateFormData = useCallback((newFormData: SubscribePageFormData) => {
 		if (newFormData.name.length < 2) {
-			updateErrors({ name: "Name must be longer than 2 characters." });
+			updateErrors({ name: t("errors.nameMustBeAtLeast") });
 		}
-		updateErrors(validateEmail(newFormData.email));
+		updateErrors(validateEmail(newFormData.email, t));
 		setFormData(newFormData);
 	}, []);
 
-	const toggleOpenMoreSocialLogins = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		e.preventDefault();
+	const toggleOpenMoreSocialLogins = useCallback(() => {
 		setPageSettings((prevPageSettings) => ({
 			...prevPageSettings,
-			openMoreSocialLogins: !prevPageSettings.openMoreSocialLogins
+			openMoreSocialLogins: Boolean(!prevPageSettings.openMoreSocialLogins)
 		}));
 	}, []);
 

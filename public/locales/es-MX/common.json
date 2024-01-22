@@ -7,19 +7,19 @@
     "jobs": "Trabajos",
     "company": "Empresa",
     "events": "Eventos",
-    "wallOfLove": "Muro de Amor",
+    "wallOfLove": "Muro del Amor",
     "truestAndSafety": "Confianza y Seguridad",
     "resources": "Recursos",
-    "newsletter": "Boletín de Noticias",
-    "workWithUs": "Trabaja con Nosotros",
+    "newsletter": "Boletín de noticias",
+    "workWithUs": "Trabaja con nosotros",
     "aiJobs": "Trabajos de IA",
     "web3Jobs": "Trabajos de Web3",
-    "remoteJobs": "Trabajos Remotos",
+    "remoteJobs": "Trabajos remotos",
     "about": "Acerca de",
     "support": "Soporte",
-    "termsOfService": "Términos de Servicio",
-    "professionalResumeWallet": "Billetera de CV Profesional",
-    "join500k": "¡Únete a más de 500,000 profesionales que han obtenido una ventaja en el mercado laboral. Únete al futuro del trabajo hoy!"
+    "termsOfService": "Términos del servicio",
+    "professionalResumeWallet": "Billetera profesional de currículum",
+    "join500k": "Únete a más de 500K+ de profesionales que obtuvieron una ventaja en el mercado laboral. ¡Únete al futuro del trabajo hoy mismo!"
   },
   "socialButtons": {
     "discord": "Haz clic aquí para unirte a nuestro servidor de Discord",
@@ -30,43 +30,43 @@
   },
   "buttons": {
     "yes": "Sí",
-    "signUp": "Registrarse",
-    "dismiss": "Descartar",
+    "signUp": "Regístrate",
+    "dismiss": "Cerrar",
     "language": "Idioma",
-    "learnMore": "Más información",
+    "learnMore": "Aprende más",
     "maybeLater": "Quizás después",
-    "upgradeNow": "Actualizar Ahora",
+    "upgradeNow": "Actualizar ahora",
     "getStarted": "Comenzar 🚀",
-    "bookNow": "Reservar Ahora",
+    "bookNow": "Reservar ahora",
     "getStartedHere": "Comienza aquí",
     "continueWithApple": "Continuar con Apple",
     "continueWithGitHub": "Continuar con GitHub",
     "continueWithGoogle": "Continuar con Google",
     "continueWithFacebook": "Continuar con Facebook",
     "continueWithYahoo": "Continuar con Yahoo",
-    "lessSocialLogins": "Menos Inicios de Sesión Sociales",
-    "moreSocialLogins": "Más Inicios de Sesión Sociales"
+    "lessSocialLogins": "Menos Inicios de sesión con redes sociales",
+    "moreSocialLogins": "Más Inicios de sesión con redes sociales"
   },
   "messages": {
     "loading": "Cargando...",
     "error": "Ocurrió un error, por favor inténtalo de nuevo.",
-    "upgradeYourExperience": "✨ Mejora tu Experiencia ✨",
-    "differentLanguage": "👋🏽 Vemos que estás utilizando Metaintro en un idioma diferente. ¿Te gustaría cambiar a",
+    "upgradeYourExperience": "✨ Mejora tu experiencia ✨",
+    "differentLanguage": "👋🏽 Vemos que estás usando Metaintro en un idioma diferente. ¿Te gustaría cambiar a",
     "boostYourCareer": "Impulsa tu carrera con un plan premium adaptado a tus ambiciones y necesidades."
   },
   "errors": {
     "invalidEmailAddress": "Por favor ingresa una dirección de correo electrónico válida",
-    "invalidEmailAddressLatin": "Por favor ingresa una dirección de correo electrónico válida utilizando únicamente caracteres latinos (a-z, A-Z, 0-9)"
+    "invalidEmailAddressLatin": "Por favor ingresa una dirección de correo electrónico válida solo con caracteres latinos (a-z, A-Z, 0-9)"
   },
   "disclaimers": {
     "howWeUseYourInformation": {
-      "title": "¿Cómo Utilizamos Tu Información?",
-      "thisForm": "Recopilamos la información que proporcionas (como nombre y correo electrónico) y la información del dispositivo (como la dirección IP) para mejorar nuestros servicios y ofrecer anuncios dirigidos. Utilizaremos tus datos de contacto para actualizaciones de suscripción, noticias de Metaintro, boletines de correo electrónico, notificaciones de trabajos y publicidad.",
-      "thirdParty": "Los servicios de terceros que utilizamos pueden recopilar información para sus propios fines. Consulta sus políticas de privacidad para obtener más detalles.",
-      "contactInfo": "Utilizaremos tus datos de contacto para actualizaciones de suscripción, noticias de Metaintro y trabajos.",
-      "unsubscribe": "Puedes optar por no recibir publicidad dirigida y darte de baja de nuestros correos electrónicos de marketing cuando lo desees. En cada correo electrónico que recibas de Metaintro, habrá una opción para darte de baja en el pie de página, según lo requiere la ley.",
-      "prefill": "Es posible que completemos tu información de contacto desde varias fuentes para facilitar el registro. Puedes editar o eliminar esta información. La información de contacto completada automáticamente puede provenir de:",
-      "updateDisclaimer": "Podemos actualizar este descargo de responsabilidad en cualquier momento, así que revísalo periódicamente."
+      "title": "¿Cómo usamos tu información?",
+      "thisForm": "Recopilamos información que proporcionas (como nombre y correo electrónico) e información del dispositivo (como la dirección IP) para mejorar nuestros servicios y mostrar anuncios dirigidos. Utilizaremos tu información de contacto para actualizaciones de suscripción, noticias de Metaintro, boletines de correo electrónico, notificaciones de trabajo y anuncios.",
+      "thirdParty": "Los servicios de terceros que utilizamos pueden recopilar información para sus propios fines. Consulta sus políticas de privacidad para obtener detalles.",
+      "contactInfo": "Utilizaremos tu información de contacto para actualizaciones de suscripción, noticias de Metaintro y trabajos.",
+      "unsubscribe": "Puedes optar por no recibir publicidad dirigida y darte de baja de nuestros correos electrónicos de marketing cuando lo desees. En cada correo electrónico que recibas de Metaintro, habrá una opción para darte de baja en el pie de página, según lo requiera la ley.",
+      "prefill": "Podemos completar tu información de contacto desde diversas fuentes para facilitar el registro. Puedes editarla o eliminarla. La información de contacto prellenada puede provenir de:",
+      "updateDisclaimer": "Podemos actualizar este aviso legal en cualquier momento, por lo tanto, revísalo regularmente."
     }
   }
 }

@@ -49,6 +49,12 @@ export const Pages = {
 	recommendations: "/recommendations"
 };
 
+export const HashLinks = {
+	cookiePolicy: "#cookie-policy",
+	privacyPolicy: "#privacy-policy",
+	termsOfService: "#terms-of-service"
+};
+
 export const Links = {
 	resources: `${METAINTRO}/`,
 	events: "#events-subscribe",
