@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React from "react";
+import Box from "@mui/material/Box";
 import { Helmet } from "react-helmet";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Page } from "./types";
@@ -72,35 +73,41 @@ function AppRoutes() {
 					/>
 				))}
 			</Helmet>
+			{/* Toolbar Height is 64px */}
 			<Toolbar />
 			<React.Suspense fallback={<div>Loading...</div>}>
-				<Routes>
-					<Route
-						path="/"
-						element={<Subscribe />}
-					/>
-					{pages.map((page, pageIndex) =>
-						languages.map(({ path: langPath }, langIndex) => (
-							<Route
-								key={`${pageIndex}-${langIndex}`}
-								path={`${langPath}${page.path}`}
-								element={
-									page.provider ? (
-										<page.provider>
+				<Box
+					pt={8}
+					className="RoutesContentWrapper" /* 8x8 -> 64px toolbar height */
+				>
+					<Routes>
+						<Route
+							path="/"
+							element={<Subscribe />}
+						/>
+						{pages.map((page, pageIndex) =>
+							languages.map(({ path: langPath }, langIndex) => (
+								<Route
+									key={`${pageIndex}-${langIndex}`}
+									path={`${langPath}${page.path}`}
+									element={
+										page.provider ? (
+											<page.provider>
+												<page.component />
+											</page.provider>
+										) : (
 											<page.component />
-										</page.provider>
-									) : (
-										<page.component />
-									)
-								}
-							/>
-						))
-					)}
-					<Route
-						path="*"
-						element={<Element404 />}
-					/>
-				</Routes>
+										)
+									}
+								/>
+							))
+						)}
+						<Route
+							path="*"
+							element={<Element404 />}
+						/>
+					</Routes>
+				</Box>
 			</React.Suspense>
 			<Footer />
 			{/* Hash Routes Popup */}
