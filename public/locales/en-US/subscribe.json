@@ -4,16 +4,32 @@
   "contactInformation": "Contact Information",
   "name": "Name",
   "email": "Email",
-  "byTapping": "By tapping or clicking 'Sign Up' or Continue with Apple, Facebook, Google, Yahoo, GitHub, Microsoft, you agree to our",
+  "orContinueWith": "Or continue with",
+  "bySigninUp": "By Signin Up, you agree to our",
+  "termsOfService": "Terms of Service",
+  "and": "and",
   "privacyPolicy": "Privacy Policy",
   "cookiePolicy": "Cookie Policy",
-  "orContinueWith": "Or continue with",
+  "welcomeTo": "Welcome to",
+  "ourNewsletter": "our newsletter",
+  "metaintroHelpedThousands": "Metaintro has helped thousands of professionals find their dream jobs in the Web3 and A.I. space. Join us and get hired faster.",
+  "trustedBy500k": "Trusted by 500,000+ professionals",
   "messages": {
     "congratulations": "Congratulations! 🎉",
-    "youreAllSignedUp": "You’re all signed up.",
+    "youveSubscribed": "You've subscribed! Visit our website to explore the best jobs in the Web3 and A.I. space.",
     "visitOurWebsite": "Visit our website to explore the best jobs in the Web3 and A.I space.",
-    "youHaveSubscribed": "You have successfully subscribed to our newsletter.",
+    "pleaseCheckYourEmail": "Please check your email to confirm your subscription.",
     "followUp": "Metaintro may contact you to follow up."
+  },
+  "cta": {
+    "getStartedHere": "Get Started Here"
+  },
+  "errors": {
+    "nameMustBeAtLeast": "Name must be at least 2 characters long",
+    "emailMustBeAtLeast": "Email must be at least 3 characters long",
+    "emailMustIncludeAt": "Email must include an '@' symbol",
+    "emailMustIncludePeriod": "Email must include a '.' symbol",
+    "emailMustBeLatin": "Email must be in Latin characters"
   },
   "seo": {
     "title": "Subscribe to our newsletter",

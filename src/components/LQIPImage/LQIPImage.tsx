@@ -52,27 +52,29 @@ function LQIPImage({ src, lqipSrc, alt, className, height, width, loading, sizes
 
 	return (
 		<div style={{ position: "relative", width: "100%", paddingTop: `${aspectRatio}%`, overflow: "hidden" }}>
-			<img
-				id={alt}
-				alt={alt}
-				sizes={sizes}
-				ref={imageRef}
-				src={imageSrc}
-				loading={loading}
-				className={className}
-				style={{
-					position: "absolute",
-					top: 0,
-					left: 0,
-					width: "100%",
-					height: "100%",
-					display: "block",
-					overflow: "hidden",
-					objectFit: "cover",
-					transition: "filter 0.05s linear",
-					filter: isLoaded ? "none" : "blur(200px)"
-				}}
-			/>
+			<picture>
+				<img
+					id={alt}
+					alt={alt}
+					sizes={sizes}
+					ref={imageRef}
+					src={imageSrc}
+					loading={loading}
+					className={className}
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						width: "100%",
+						height: "100%",
+						display: "block",
+						overflow: "hidden",
+						objectFit: "cover",
+						transition: "filter 0.05s linear",
+						filter: isLoaded ? "none" : "blur(200px)"
+					}}
+				/>
+			</picture>
 		</div>
 	);
 }

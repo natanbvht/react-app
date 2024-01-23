@@ -82,4 +82,9 @@ svg {
     vertical-align: middle;
 }
 
+.rotate-180 {
+    transform: rotate(-180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
 // md:flex lg:px-112

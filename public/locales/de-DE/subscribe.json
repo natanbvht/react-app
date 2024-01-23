@@ -1,23 +1,39 @@
 {
-  "workInWeb3AIToday": "Arbeite heute in Web3 & KI 🚀",
-  "join400K": "Trete über 500.000 Fachleuten bei und erhalte unseren dreiwöchentlichen Newsletter mit den bestbezahlten Jobs in Web3 & KI",
-  "contactInformation": "Kontaktinformationen",
+  "workInWeb3AIToday": "Heute in Web3 & KI arbeiten 🚀",
+  "join400K": "Treten Sie über 500.000 Fachleuten bei und erhalten Sie unseren dreiwöchentlichen Newsletter mit den bestbezahlten Jobs in Web3 & KI",
+  "contactInformation": "Kontaktinformation",
   "name": "Name",
-  "email": "E-Mail",
-  "byTapping": "Durch Tippen oder Klicken auf 'Registrieren' oder 'Weiter mit Apple, Facebook, Google, Yahoo, GitHub, Microsoft' stimmen Sie unseren",
-  "privacyPolicy": "Datenschutzrichtlinien",
-  "cookiePolicy": "Cookie-Richtlinien",
-  "orContinueWith": "Oder weiter mit",
+  "email": "Email",
+  "orContinueWith": "Oder fahren Sie mit",
+  "bySigninUp": "Indem Sie sich anmelden, stimmen Sie unseren",
+  "termsOfService": "Nutzungsbedingungen",
+  "and": "und",
+  "privacyPolicy": "Datenschutzrichtlinie",
+  "cookiePolicy": "Cookie-Richtlinie",
+  "welcomeTo": "Willkommen bei",
+  "ourNewsletter": "unserem Newsletter",
+  "metaintroHelpedThousands": "Metaintro hat Tausenden von Fachleuten geholfen, ihren Traumjob im Web3- und KI-Bereich zu finden. Schließen Sie sich uns an und werden Sie schneller eingestellt.",
+  "trustedBy500k": "Vertrauen von über 500.000 Fachleuten",
   "messages": {
     "congratulations": "Herzlichen Glückwunsch! 🎉",
-    "youreAllSignedUp": "Du bist angemeldet.",
-    "visitOurWebsite": "Besuche unsere Website, um die besten Jobs im Bereich Web3 und KI zu entdecken.",
-    "youHaveSubscribed": "Du hast erfolgreich unseren Newsletter abonniert.",
-    "followUp": "Metaintro kann sich mit dir in Verbindung setzen, um weiteres Vorgehen abzustimmen."
+    "youveSubscribed": "Sie haben sich angemeldet! Besuchen Sie unsere Website, um die besten Jobs im Web3- und KI-Bereich zu entdecken.",
+    "visitOurWebsite": "Besuchen Sie unsere Website, um die besten Jobs im Web3- und KI-Bereich zu entdecken.",
+    "pleaseCheckYourEmail": "Bitte überprüfen Sie Ihre E-Mail, um Ihr Abonnement zu bestätigen.",
+    "followUp": "Metaintro kann sich mit Ihnen in Verbindung setzen, um weitere Informationen zu erhalten."
+  },
+  "cta": {
+    "getStartedHere": "Hier geht's los"
+  },
+  "errors": {
+    "nameMustBeAtLeast": "Name muss mindestens 2 Zeichen lang sein",
+    "emailMustBeAtLeast": "E-Mail muss mindestens 3 Zeichen lang sein",
+    "emailMustIncludeAt": "E-Mail muss ein '@' Symbol enthalten",
+    "emailMustIncludePeriod": "E-Mail muss ein '.' Symbol enthalten",
+    "emailMustBeLatin": "E-Mail muss in lateinischen Zeichen sein"
   },
   "seo": {
-    "title": "Abonniere unseren Newsletter",
-    "description": "Trete über 500.000 Fachleuten bei und erhalte unseren dreiwöchentlichen Newsletter mit den bestbezahlten Jobs in Web3 & KI",
-    "keywords": "abonnieren, metaintro abonnieren, web3, web3 jobs, web3 karrieren, web3 newsletter, web3 jobs newsletter, web3 karrieren newsletter, web3 newsletter abonnement, web3 jobs newsletter abonnement, web3 karrieren newsletter abonnement, web3 newsletter anmeldung, web3 jobs newsletter anmeldung, web3 karrieren newsletter anmeldung, web3 newsletter registrieren, web3 jobs newsletter registrieren, web3 karrieren newsletter registrieren, web3 newsletter abonnieren, web3 jobs newsletter abonnieren, web3 karrieren newsletter abonnieren, web3 newsletter abonnement, web3 jobs newsletter"
+    "title": "Abonnieren Sie unseren Newsletter",
+    "description": "Treten Sie über 500.000 Fachleuten bei und erhalten Sie unseren dreiwöchentlichen Newsletter mit den bestbezahlten Jobs in Web3 & KI",
+    "keywords": "abonnieren, metaintro abonnieren, web3, web3 jobs, web3 karriere, web3 newsletter, web3 jobs newsletter, web3 karriere newsletter, web3 newsletter abonnement, web3 jobs newsletter abonnement, web3 karriere newsletter abonnement, web3 newsletter anmeldung, web3 jobs newsletter anmeldung, web3 karriere newsletter anmeldung, web3 newsletter registrierung, web3 jobs newsletter registrierung, web3 karriere newsletter registrierung, web3 newsletter abonnieren, web3 jobs newsletter abonnieren, web3 karriere newsletter abonnieren, web3 newsletter abonnement, web3 jobs newsletter"
   }
 }

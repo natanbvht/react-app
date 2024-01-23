@@ -1,72 +1,76 @@
 {
-  "footer": {
-    "arr": "All Rights Reserved",
-    "tagline": "Reimagine the future of work",
-    "community": "Community",
-    "explore": "Explore",
-    "jobs": "Jobs",
-    "company": "Company",
-    "events": "Events",
-    "wallOfLove": "Wall of Love",
-    "truestAndSafety": "Trust & Safety",
-    "resources": "Resources",
-    "newsletter": "Newsletter",
-    "workWithUs": "Work With Us",
-    "aiJobs": "AI Jobs",
-    "web3Jobs": "Web3 Jobs",
-    "remoteJobs": "Remote Jobs",
-    "about": "About",
-    "support": "Support",
-    "termsOfService": "Terms of Service",
-    "professionalResumeWallet": "Professional Resume Wallet",
-    "join500k": "Join over 500K+ of professionals who got a head-start in the job market. Join the future of work today!"
-  },
-  "socialButtons": {
-    "discord": "Click here to join our Discord server",
-    "facebook": "Click here to visit our Facebook page",
-    "youtube": "Click here to visit our YouTube channel",
-    "instagram": "Click here to visit our Instagram page",
-    "x": "Click here to visit our X (formally Twitter) page"
-  },
   "buttons": {
-    "yes": "Yes",
-    "signUp": "Sign Up",
-    "dismiss": "Dismiss",
-    "language": "Language",
-    "learnMore": "Learn More",
-    "maybeLater": "Maybe Later",
-    "upgradeNow": "Upgrade Now",
-    "getStarted": "Get Started 🚀",
     "bookNow": "Book Now",
-    "getStartedHere": "Get Started Here",
+    "continue": "Continue",
     "continueWithApple": "Continue with Apple",
+    "continueWithFacebook": "Continue with Facebook",
     "continueWithGitHub": "Continue with GitHub",
     "continueWithGoogle": "Continue with Google",
-    "continueWithFacebook": "Continue with Facebook",
     "continueWithYahoo": "Continue with Yahoo",
+    "dismiss": "Dismiss",
+    "getStarted": "Get Started 🚀",
+    "getStartedHere": "Get Started Here",
+    "language": "Language",
+    "learnMore": "Learn More",
     "lessSocialLogins": "Less Social Logins",
-    "moreSocialLogins": "More Social Logins"
+    "maybeLater": "Maybe Later",
+    "metaintroPro": "Metaintro Pro",
+    "moreSocialLogins": "More Social Logins",
+    "selectAll": "Select All",
+    "selectNone": "Select None",
+    "signUp": "Sign Up",
+    "upgradeNow": "Upgrade Now",
+    "yes": "Yes"
   },
-  "messages": {
-    "loading": "Loading...",
-    "error": "An error occurred, please try again.",
-    "upgradeYourExperience": "✨ Upgrade Your Experience ✨",
-    "differentLanguage": "👋🏽 We see you're using Metaintro in a different language. Would you like to switch to",
-    "boostYourCareer": "Boost your career with a premium plan tailored to your ambitions and needs."
+  "disclaimers": {
+    "howWeUseYourInformation": {
+      "contactInfo": "We will use your contact info for subscription updates & Metaintro news and jobs.",
+      "prefill": "We may pre-filll your contact information from various sources for easier registration. You are able to edit or delete it. Prefill contact information can come from:",
+      "thirdParty": "Third-party services we use may collect information for their own purposes. Check their privacy policies for details.",
+      "thisForm": "We collect information you provide (like name and email) and device information (like IP address) to improve our services and deliver targeted ads. We will use your contact info for subscription updates, Metaintro news, email newsletters, job notifications, and advertisements.",
+      "title": "How We Use Your Information?",
+      "unsubscribe": "You can opt out of targeted advertising and unsubscribe from our marketing emails whenever you want. In every email you receive from Metaintro, there will be an Unsubscribe option in the footer, as required by law.",
+      "updateDisclaimer": "We may update this disclaimer at any time, so please review it regularly."
+    }
   },
   "errors": {
     "invalidEmailAddress": "Please enter a valid email address",
     "invalidEmailAddressLatin": "Please enter a valid email address in Latin characters only (a-z, A-Z, 0-9)"
   },
-  "disclaimers": {
-    "howWeUseYourInformation": {
-      "title": "How We Use Your Information?",
-      "thisForm": "We collect information you provide (like name and email) and device information (like IP address) to improve our services and deliver targeted ads. We will use your contact info for subscription updates, Metaintro news, email newsletters, job notifications, and advertisements.",
-      "thirdParty": "Third-party services we use may collect information for their own purposes. Check their privacy policies for details.",
-      "contactInfo": "We will use your contact info for subscription updates & Metaintro news and jobs.",
-      "unsubscribe": "You can opt out of targeted advertising and unsubscribe from our marketing emails whenever you want. In every email you receive from Metaintro, there will be an Unsubscribe option in the footer, as required by law.",
-      "prefill": "We may pre-filll your contact information from various sources for easier registration. You are able to edit or delete it. Prefill contact information can come from:",
-      "updateDisclaimer": "We may update this disclaimer at any time, so please review it regularly."
-    }
+  "footer": {
+    "about": "About",
+    "aiJobs": "AI Jobs",
+    "arr": "All Rights Reserved",
+    "community": "Community",
+    "company": "Company",
+    "events": "Events",
+    "explore": "Explore",
+    "jobs": "Jobs",
+    "join500k": "Join over 500K+ of professionals who got a head-start in the job market. Join the future of work today!",
+    "newsletter": "Newsletter",
+    "professionalResumeWallet": "Professional Resume Wallet",
+    "remoteJobs": "Remote Jobs",
+    "resources": "Resources",
+    "support": "Support",
+    "tagline": "Reimagine the future of work",
+    "termsOfService": "Terms of Service",
+    "truestAndSafety": "Trust & Safety",
+    "wallOfLove": "Wall of Love",
+    "web3Jobs": "Web3 Jobs",
+    "workWithUs": "Work With Us"
+  },
+  "messages": {
+    "boostYourCareer": "Boost your career with a premium plan tailored to your ambitions and needs.",
+    "differentLanguage": "👋🏽 We see you're using Metaintro in a different language. Would you like to switch to",
+    "error": "An error occurred, please try again.",
+    "loading": "Loading...",
+    "upgradeYourExperience": "✨ Upgrade Your Experience ✨"
+  },
+  "socialButtons": {
+    "discord": "Click here to join our Discord server",
+    "facebook": "Click here to visit our Facebook page",
+    "instagram": "Click here to visit our Instagram page",
+    "x": "Click here to visit our X (formally Twitter) page",
+    "youtube": "Click here to visit our YouTube channel"
   }
 }

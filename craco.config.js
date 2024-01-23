@@ -3,6 +3,8 @@ const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
 const zlib = require("zlib");
+const webpack = require("webpack");
+const express = require("express");
 const Dotenv = require("dotenv-webpack");
 const dotenv = require("dotenv").config();
 const TerserPlugin = require("terser-webpack-plugin");
@@ -15,6 +17,7 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const HtmlWebpackInjectPreload = require("@principalstudio/html-webpack-inject-preload");
 
+const mockApi = express();
 const apps = ["upgrade", "subscribe", "recommendations"];
 
 const PATHS = {
@@ -66,17 +69,23 @@ function getPlugins() {
 
   if (!config.env.localhost) {
     const appHtmls = apps.map((entry) => {
+      const templateParameters = {
+        preloadUsNsLocale: `<link rel="preload" as="fetch" href="./locales/en-US/${entry}.json" crossorigin="anonymous" />`,
+      };
+
       return new HtmlWebpackPlugin({
-        chunks: [`${entry}`],
+        templateParameters,
         minify: htmlMinify,
-        excludeChunks: "main",
-        template: `./public/index.html`,
+        chunks: [`${entry}`],
+        template: "./public/index.html",
         filename: `./${entry}/index.html`,
-        templateParameters: {
-          preloadUsNsLocale: `/locales/en-US/${entry}.json`,
-        },
       });
     });
+    plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/fakeDB$/,
+      })
+    );
     plugins.push(new Dotenv());
     plugins.push(
       new BundleAnalyzerPlugin({
@@ -118,9 +127,9 @@ function getPlugins() {
   }
 
   if (config.env.prod || config.env.uat) {
-      new PurgeCSSPlugin({
-        paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-      });
+    new PurgeCSSPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    });
     new CompressionPlugin({
       algorithm: "gzip",
       filename: "[path][base].gz",
@@ -193,7 +202,7 @@ function getOptimization() {
         maxInitialRequests: Infinity,
         cacheGroups: {
           defaultVendors: {
-            priority: 2,
+            priority: -2,
             chunks: "initial",
             reuseExistingChunk: true,
             test: /[\\/]node_modules[\\/]/,
@@ -211,7 +220,7 @@ function getOptimization() {
             name(module, chunks) {
               return chunks.map((chunk) => chunk.name).join("-");
             },
-          },
+          }
         },
       },
       minimizer: [
@@ -258,8 +267,8 @@ module.exports = {
     entry: getEntries(),
     plugins: getPlugins(),
     optimization: getOptimization(),
-    devtool: config.env.dev ? "source-map" : "source-map",
-    map: config.env.dev ? "eval-source-map" : null,
+    map: config.env.dev ? "eval-source-map" : false,
+    devtool: config.env.dev ? "eval-source-map" : false,
     experiments: {
       outputModule: true,
     },
@@ -269,17 +278,13 @@ module.exports = {
       filename: "static/js/[name].[contenthash:8].js",
       chunkFilename: "static/js/[name].[contenthash:8].chunk.js",
     },
-  },
-  devServer: (devServerConfig) => {
-    const { onBeforeSetupMiddleware } = devServerConfig;
-    devServerConfig.onBeforeSetupMiddleware = (devServer) => {
-      if (onBeforeSetupMiddleware) {
-        onBeforeSetupMiddleware(devServer);
-      }
-      devServer.app.get("/api/health", (req, res) => {
-        res.json({ status: "UP" });
-      });
-    };
-    return devServerConfig;
+    devServer: {
+      historyApiFallback: false,
+      beforeAll: function () {
+        mockApi.get("/api/health", express.json(), (req, res) => {
+          res.json([{ name: "John Doe" }, { name: "Jane Doe" }]);
+        });
+      },
+    },
   },
 };

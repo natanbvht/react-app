@@ -1,72 +1,76 @@
 {
+  "buttons": {
+    "bookNow": "Nu boeken",
+    "continue": "Doorgaan",
+    "continueWithApple": "Doorgaan met Apple",
+    "continueWithFacebook": "Doorgaan met Facebook",
+    "continueWithGitHub": "Doorgaan met GitHub",
+    "continueWithGoogle": "Doorgaan met Google",
+    "continueWithYahoo": "Doorgaan met Yahoo",
+    "dismiss": "Sluiten",
+    "getStarted": "Aan de slag 🚀",
+    "getStartedHere": "Hier beginnen",
+    "language": "Taal",
+    "learnMore": "Meer informatie",
+    "lessSocialLogins": "Minder sociale logins",
+    "maybeLater": "Misschien later",
+    "metaintroPro": "Metaintro Pro",
+    "moreSocialLogins": "Meer sociale logins",
+    "selectAll": "Alles selecteren",
+    "selectNone": "Niks selecteren",
+    "signUp": "Aanmelden",
+    "upgradeNow": "Nu upgraden",
+    "yes": "Ja"
+  },
+  "disclaimers": {
+    "howWeUseYourInformation": {
+      "contactInfo": "We gebruiken uw contactgegevens voor updates over abonnementen en Metaintro-nieuws en -vacatures.",
+      "prefill": "We kunnen uw contactgegevens vooraf invullen vanuit verschillende bronnen voor gemakkelijkere registratie. U kunt deze gegevens bewerken of verwijderen. Vooraf ingevulde contactgegevens kunnen afkomstig zijn van:",
+      "thirdParty": "Diensten van derden die we gebruiken, kunnen informatie verzamelen voor hun eigen doeleinden. Bekijk hun privacybeleid voor details.",
+      "thisForm": "We verzamelen informatie die u verstrekt (zoals naam en e-mail) en apparaatinformatie (zoals IP-adres) om onze diensten te verbeteren en doelgerichte advertenties te leveren. We gebruiken uw contactgegevens voor updates over abonnementen, Metaintro-nieuws, e-mailnieuwsbrieven, vacaturemeldingen en advertenties.",
+      "title": "Hoe gebruiken wij uw informatie?",
+      "unsubscribe": "U kunt zich te allen tijde afmelden voor doelgerichte advertenties en u uitschrijven voor onze marketing-e-mails. In elke e-mail die u van Metaintro ontvangt, staat een optie Uitschrijven in de voettekst, zoals vereist door de wet.",
+      "updateDisclaimer": "We kunnen deze disclaimer op elk moment bijwerken, dus bekijk hem regelmatig."
+    }
+  },
+  "errors": {
+    "invalidEmailAddress": "Voer een geldig e-mailadres in",
+    "invalidEmailAddressLatin": "Voer alleen een geldig e-mailadres in met Latijnse tekens (a-z, A-Z, 0-9)"
+  },
   "footer": {
+    "about": "Over",
+    "aiJobs": "AI Vacatures",
     "arr": "Alle rechten voorbehouden",
-    "tagline": "Herschep de toekomst van werk",
-    "community": "Gemeenschap",
-    "explore": "Verkennen",
-    "jobs": "Vacatures",
+    "community": "Community",
     "company": "Bedrijf",
     "events": "Evenementen",
-    "wallOfLove": "Wall of Love",
-    "truestAndSafety": "Vertrouwen en Veiligheid",
-    "resources": "Bronnen",
+    "explore": "Verkennen",
+    "jobs": "Vacatures",
+    "join500k": "Sluit u aan bij meer dan 500.000 professionals die een voorsprong hebben in de arbeidsmarkt. Sluit u vandaag aan bij de toekomst van werk!",
     "newsletter": "Nieuwsbrief",
-    "workWithUs": "Werken bij ons",
-    "aiJobs": "AI vacatures",
-    "web3Jobs": "Web3 vacatures",
-    "remoteJobs": "Op afstand vacatures",
-    "about": "Over",
+    "professionalResumeWallet": "Professionele cv-portemonnee",
+    "remoteJobs": "Op afstand werken",
+    "resources": "Bronnen",
     "support": "Ondersteuning",
-    "termsOfService": "Gebruiksvoorwaarden",
-    "professionalResumeWallet": "Professioneel CV-portemonnee",
-    "join500k": "Sluit je aan bij meer dan 500K+ professionals die een voorsprong hebben genomen op de arbeidsmarkt. Sluit je vandaag aan bij de toekomst van werk!"
+    "tagline": "Verbeeld de toekomst van werk",
+    "termsOfService": "Servicevoorwaarden",
+    "truestAndSafety": "Vertrouwen en veiligheid",
+    "wallOfLove": "Muur van liefde",
+    "web3Jobs": "Web3 Vacatures",
+    "workWithUs": "Werk met ons"
+  },
+  "messages": {
+    "boostYourCareer": "Geef uw carrière een boost met een premium plan dat is afgestemd op uw ambities en behoeften.",
+    "differentLanguage": "👋🏽 We zien dat u Metaintro in een andere taal gebruikt. Wilt u overschakelen naar",
+    "error": "Er is een fout opgetreden, probeer het opnieuw.",
+    "loading": "Laden...",
+    "upgradeYourExperience": "✨ Upgrade uw ervaring ✨"
   },
   "socialButtons": {
     "discord": "Klik hier om lid te worden van onze Discord-server",
     "facebook": "Klik hier om onze Facebook-pagina te bezoeken",
-    "youtube": "Klik hier om ons YouTube-kanaal te bezoeken",
     "instagram": "Klik hier om onze Instagram-pagina te bezoeken",
-    "x": "Klik hier om onze X (voorheen Twitter)-pagina te bezoeken"
-  },
-  "buttons": {
-    "yes": "Ja",
-    "signUp": "Inschrijven",
-    "dismiss": "Sluiten",
-    "language": "Taal",
-    "learnMore": "Meer weten",
-    "maybeLater": "Misschien later",
-    "upgradeNow": "Nu upgraden",
-    "getStarted": "Aan de slag 🚀",
-    "bookNow": "Nu boeken",
-    "getStartedHere": "Begin hier",
-    "continueWithApple": "Doorgaan met Apple",
-    "continueWithGitHub": "Doorgaan met GitHub",
-    "continueWithGoogle": "Doorgaan met Google",
-    "continueWithFacebook": "Doorgaan met Facebook",
-    "continueWithYahoo": "Doorgaan met Yahoo",
-    "lessSocialLogins": "Minder sociale aanmeldingen",
-    "moreSocialLogins": "Meer sociale aanmeldingen"
-  },
-  "messages": {
-    "loading": "Laden...",
-    "error": "Er is een fout opgetreden, probeer het opnieuw.",
-    "upgradeYourExperience": "✨ Upgrade je ervaring ✨",
-    "differentLanguage": "👋🏽 We zien dat je Metaintro in een andere taal gebruikt. Wil je overschakelen naar",
-    "boostYourCareer": "Boost je carrière met een premium plan op maat gemaakt voor jouw ambities en behoeften."
-  },
-  "errors": {
-    "invalidEmailAddress": "Voer een geldig e-mailadres in",
-    "invalidEmailAddressLatin": "Voer een geldig e-mailadres in in alleen Latijnse tekens (a-z, A-Z, 0-9)"
-  },
-  "disclaimers": {
-    "howWeUseYourInformation": {
-      "title": "Hoe gebruiken wij jouw informatie?",
-      "thisForm": "Wij verzamelen informatie die je verstrekt (zoals naam en e-mail) en apparaatinformatie (zoals IP-adres) om onze diensten te verbeteren en gerichte advertenties te leveren. We zullen jouw contactgegevens gebruiken voor abonnementsupdates, Metaintro-nieuws, e-mailnieuwsbrieven, vacaturemeldingen en advertenties.",
-      "thirdParty": "Diensten van derden die wij gebruiken, kunnen informatie verzamelen voor hun eigen doeleinden. Raadpleeg hun privacybeleid voor details.",
-      "contactInfo": "We zullen jouw contactgegevens gebruiken voor abonnementsupdates en Metaintro-nieuws en -vacatures.",
-      "unsubscribe": "Je kunt je op elk moment afmelden voor gerichte advertenties en je uitschrijven voor onze marketingmails. In elke e-mail die je van Metaintro ontvangt, staat een optie om je af te melden in de voettekst, zoals vereist door de wet.",
-      "prefill": "We kunnen jouw contactgegevens vooraf invullen uit verschillende bronnen voor een eenvoudigere registratie. Je kunt deze informatie bewerken of verwijderen. Vooraf ingevulde contactinformatie kan afkomstig zijn van:",
-      "updateDisclaimer": "We kunnen deze disclaimer op elk moment bijwerken, dus bekijk hem regelmatig."
-    }
+    "x": "Klik hier om onze X (voorheen Twitter) pagina te bezoeken",
+    "youtube": "Klik hier om ons YouTube-kanaal te bezoeken"
   }
 }

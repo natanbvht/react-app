@@ -1,72 +1,76 @@
 {
+  "buttons": {
+    "bookNow": "Boka nu",
+    "continue": "Fortsätt",
+    "continueWithApple": "Fortsätt med Apple",
+    "continueWithFacebook": "Fortsätt med Facebook",
+    "continueWithGitHub": "Fortsätt med GitHub",
+    "continueWithGoogle": "Fortsätt med Google",
+    "continueWithYahoo": "Fortsätt med Yahoo",
+    "dismiss": "Avfärda",
+    "getStarted": "Kom igång 🚀",
+    "getStartedHere": "Börja här",
+    "language": "Språk",
+    "learnMore": "Läs mer",
+    "lessSocialLogins": "Färre sociala inloggningar",
+    "maybeLater": "Kanske senare",
+    "metaintroPro": "Metaintro Pro",
+    "moreSocialLogins": "Fler sociala inloggningar",
+    "selectAll": "Välj alla",
+    "selectNone": "Välj inget",
+    "signUp": "Registrera",
+    "upgradeNow": "Uppgradera nu",
+    "yes": "Ja"
+  },
+  "disclaimers": {
+    "howWeUseYourInformation": {
+      "contactInfo": "Vi kommer att använda din kontaktinformation för prenumerationsuppdateringar och Metaintro-nyheter och jobb.",
+      "prefill": "Vi kan förifylla din kontaktinformation från olika källor för enklare registrering. Du kan redigera eller ta bort den. Förifylld kontaktinformation kan komma från:",
+      "thirdParty": "Tredjepartstjänster vi använder kan samla in information för egna ändamål. Kontrollera deras integritetspolicy för mer information.",
+      "thisForm": "Vi samlar in information du tillhandahåller (som namn och e-postadress) och enhetsinformation (som IP-adress) för att förbättra våra tjänster och leverera riktade annonser. Vi kommer att använda din kontaktinformation för prenumerationsuppdateringar, Metaintro-nyheter, e-postutskick, jobbnotifikationer och annonsering.",
+      "title": "Hur vi använder din information?",
+      "unsubscribe": "Du kan välja bort riktad annonsering och avregistrera dig från våra marknadsförings-e-postmeddelanden när som helst. I varje e-postmeddelande du får från Metaintro kommer det finnas ett alternativ för avregistrering i sidfoten, som krävs enligt lag.",
+      "updateDisclaimer": "Vi kan uppdatera denna friskrivning när som helst, så var vänlig och granska den regelbundet."
+    }
+  },
+  "errors": {
+    "invalidEmailAddress": "Ange en giltig e-postadress",
+    "invalidEmailAddressLatin": "Ange endast en giltig e-postadress med latinska tecken (a-z, A-Z, 0-9)"
+  },
   "footer": {
+    "about": "Om oss",
+    "aiJobs": "AI-jobb",
     "arr": "Alla rättigheter förbehållna",
-    "tagline": "Omtolka framtidens arbetsliv",
-    "community": "Gemenskap",
+    "community": "Community",
+    "company": "Företag",
+    "events": "Event",
     "explore": "Utforska",
     "jobs": "Jobb",
-    "company": "Företag",
-    "events": "Evenemang",
-    "wallOfLove": "Kärlekens vägg",
-    "truestAndSafety": "Tillit och säkerhet",
-    "resources": "Resurser",
+    "join500k": "Gå med över 500 000 yrkesverksamma som har fått en försprång på arbetsmarknaden. Delta i framtidens arbete idag!",
     "newsletter": "Nyhetsbrev",
-    "workWithUs": "Jobba med oss",
-    "aiJobs": "AI-jobb",
-    "web3Jobs": "Web3-jobb",
+    "professionalResumeWallet": "Professionell CV-plånbok",
     "remoteJobs": "Distansjobb",
-    "about": "Om oss",
+    "resources": "Resurser",
     "support": "Support",
+    "tagline": "Omforma framtiden för arbete",
     "termsOfService": "Användarvillkor",
-    "professionalResumeWallet": "Proffesionell CV-plånbok",
-    "join500k": "Gå med mer än 500 000 yrkesverksamma som har fått en fördel på jobbmarknaden. Gå med i arbetslivets framtid idag!"
+    "trustAndSafety": "Tillit och säkerhet",
+    "wallOfLove": "Kärleksvägg",
+    "web3Jobs": "Web3-jobb",
+    "workWithUs": "Jobba med oss"
+  },
+  "messages": {
+    "boostYourCareer": "Förbättra din karriär med ett premiumplan anpassad efter dina ambitioner och behov.",
+    "differentLanguage": "👋🏽 Vi ser att du använder Metaintro på ett annat språk. Vill du byta till",
+    "error": "Ett fel uppstod, försök igen.",
+    "loading": "Laddar...",
+    "upgradeYourExperience": "✨ Uppgradera din upplevelse ✨"
   },
   "socialButtons": {
     "discord": "Klicka här för att gå med i vår Discord-server",
     "facebook": "Klicka här för att besöka vår Facebook-sida",
-    "youtube": "Klicka här för att besöka vår YouTube-kanal",
     "instagram": "Klicka här för att besöka vår Instagram-sida",
-    "x": "Klicka här för att besöka vår X (tidigare Twitter)-sida"
-  },
-  "buttons": {
-    "yes": "Ja",
-    "signUp": "Registrera dig",
-    "dismiss": "Avfärda",
-    "language": "Språk",
-    "learnMore": "Läs mer",
-    "maybeLater": "Kanske senare",
-    "upgradeNow": "Uppgradera nu",
-    "getStarted": "Kom igång 🚀",
-    "bookNow": "Boka nu",
-    "getStartedHere": "Kom igång här",
-    "continueWithApple": "Fortsätt med Apple",
-    "continueWithGitHub": "Fortsätt med GitHub",
-    "continueWithGoogle": "Fortsätt med Google",
-    "continueWithFacebook": "Fortsätt med Facebook",
-    "continueWithYahoo": "Fortsätt med Yahoo",
-    "lessSocialLogins": "Färre sociala inloggningar",
-    "moreSocialLogins": "Fler sociala inloggningar"
-  },
-  "messages": {
-    "loading": "Laddar...",
-    "error": "Ett fel inträffade, försök igen.",
-    "upgradeYourExperience": "✨ Uppgradera din upplevelse ✨",
-    "differentLanguage": "👋🏽 Vi ser att du använder Metaintro på ett annat språk. Vill du byta till",
-    "boostYourCareer": "Boosta din karriär med ett premium-plan som är anpassat efter dina ambitioner och behov."
-  },
-  "errors": {
-    "invalidEmailAddress": "Ange en giltig e-postadress",
-    "invalidEmailAddressLatin": "Ange en giltig e-postadress endast med latiniska tecken (a-z, A-Z, 0-9)"
-  },
-  "disclaimers": {
-    "howWeUseYourInformation": {
-      "title": "Hur vi använder din information?",
-      "thisForm": "Vi samlar in information du lämnar (som namn och e-postadress) samt enhetsinformation (som IP-adress) för att förbättra våra tjänster och leverera riktade annonser. Vi kommer att använda din kontaktinfo för prenumerationsuppdateringar, nyheter från Metaintro, e-post-nyhetsbrev, jobbnotiser och annonsering.",
-      "thirdParty": "Tredjepartstjänster vi använder kan samla in information för sina egna ändamål. Kolla deras integritetspolicy för mer information.",
-      "contactInfo": "Vi kommer att använda din kontaktinfo för prenumerationsuppdateringar & nyheter från Metaintro och jobb.",
-      "unsubscribe": "Du kan välja bort riktad annonsering och avregistrera dig från våra marknadsförings-e-postmeddelanden när du vill. I varje e-post från Metaintro kommer det finnas ett alternativ att avregistrera sig längst ner i enlighet med lagkrav.",
-      "prefill": "Vi kan förifylla dina kontaktuppgifter från olika källor för enklare registrering. Du kan redigera eller ta bort det. Förifyllda kontaktuppgifter kan komma från:",
-      "updateDisclaimer": "Vi kan uppdatera denna ansvarsfriskrivning när som helst, så gå gärna igenom den regelbundet."
-    }
+    "twitter": "Klicka här för att besöka vår Twitter-sida",
+    "youtube": "Klicka här för att besöka vår YouTube-kanal"
   }
 }

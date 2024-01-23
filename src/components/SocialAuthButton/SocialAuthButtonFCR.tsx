@@ -2,9 +2,30 @@ import React from "react";
 import { SxProps } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import Button, { ButtonProps } from "@mui/material/Button";
-import { FirebaseConfig } from "../../utils/config";
-import { languages } from "../../context/Language/Language";
-import { AuthProvider, SocialAuthCb } from "./index.d";
+import { FirebaseConfig } from "../../services/config";
+import { languages } from "../../i18n";
+
+export enum AuthFlow {
+	Popup = "popup",
+	Redirect = "redirect"
+}
+
+export enum AuthProvider {
+	Apple = "apple.com",
+	Yahoo = "yahoo.com",
+	Google = "google.com",
+	GitHub = "github.com",
+	Twitter = "twitter.com",
+	Facebook = "facebook.com",
+	Microsoft = "microsoft.com"
+}
+
+export interface SocialAuthCb {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	errorCb: (error: any) => void;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	successCb: (authResponse: any) => void;
+}
 
 export interface SocialAuthButtonFCRProps extends ButtonProps, SocialAuthCb {
 	sx?: SxProps;

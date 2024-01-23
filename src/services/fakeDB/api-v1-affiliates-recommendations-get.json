@@ -1,0 +1,53 @@
+{
+    "error": {
+        "message": "No campaigns found for this user",
+        "trackingId": "8a8a8a8a-8a8a-8a8a-8a8a-8a8a8a8a8a8a"
+    },
+    "success": [
+        {
+            "_id": "partner_campaign_9f711e2e3d62",
+            "companyName": "Fresh Salmon",
+            "cta": "Subscribe",
+            "description": "Helping you transform your B2B Marketing from lead generation to demand creation.",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3hoIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e42b8a899630caed6b7ad89666e46e65209d85e5/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/fresh%20salmon%20logo.jpeg",
+            "name": "Fresh Salmon",
+            "sub": "a89344750b"
+        },
+        {
+            "_id": "partner_campaign_08006720d131",
+            "companyName": "GPTE AI",
+            "cta": "Subscribe",
+            "description": "Daily summary of the latest AI news and trending tools sent to 40,000+ subscribers including Amazon, Apple, Google, and Microsoft employees.",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbnRjIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1764e7cc0f2ac80280849bd33687b1b4ec5c1567/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/chatboticon.jpg",
+            "name": "GPTE AI",
+            "sub": "dc0c5a1658"
+        },
+        {
+            "_id": "partner_campaign_e0630e1b6253",
+            "companyName": "The AI Buzz",
+            "cta": "Subscribe",
+            "description": "Stay ahead in the dynamic world of AI! Sign up for the AI Buzz newsletter for exclusive insights and updates on the latest AI news and developments.",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa2x1IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ce82224783260f4c149d97489ce2231c1101850a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/Quillbee%20logo.png",
+            "name": "The AI Buzz",
+            "sub": "e81e8db3ac"
+        },
+        {
+            "_id": "partner_campaign_f0ef3966981d",
+            "companyName": "Your Next Breakthrough",
+            "cta": "Subscribe",
+            "description": "#1 NYTimes Bestselling author Mark Manson sends out one idea, one question, and one exercise each week to help you achieve your next breakthrough.",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdjFkIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--244150c758a0aee55121ca30c54bb30c1dde2dfb/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/profile%20pic.jpeg",
+            "name": "Your Next Breakthrough",
+            "sub": "8704938860"
+        },
+        {
+            "_id": "partner_campaign_5d147ffb4cf0",
+            "companyName": "Secrets of Success",
+            "cta": "Subscribe",
+            "description": "Each Morning You'll Receive An Email Inspired By Success Philosophers Like Napoleon Hill, Orison Swett Marden, Elsie Lincoln Benedict and more!",
+            "logo": "https://dash.sparkloop.app/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBb3hxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--89d888c491932eb2158dba701fb440c8f55a60b6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWl3QmFRSXNBUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--e6d5cf3f19637591e5d24ecaf7d1b67e81e3fae6/b04f3663113805d428ae19cfca75256c.png",
+            "name": "Secrets of Success",
+            "sub": "398ff0dad2"
+        }
+    ]
+}

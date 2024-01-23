@@ -1,16 +1,16 @@
+import React from "react";
 import { Page } from "../../types";
-import Page404 from "./page";
 
 const routes: Page[] = [
 	{
 		path: "/404",
 		title: "404 Oops! Page not found",
-		component: Page404
+		component: React.lazy(() => import(/* webpackChunkName: '404' */ "./page"))
 	},
 	{
 		path: "/not-found",
 		title: "404 Oops! Page not found",
-		component: Page404
+		component: React.lazy(() => import(/* webpackChunkName: '404' */ "./page"))
 	}
 ];
 

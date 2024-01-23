@@ -1,22 +1,27 @@
 /* eslint-disable no-console */
-import React, { useEffect, Suspense } from "react";
+import React from "react";
+import Box from "@mui/material/Box";
 import { Helmet } from "react-helmet";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Page } from "./types";
 import Footer from "./containers/Footer/Footer";
 import Toolbar from "./containers/Toolbar/Toolbar";
-import { useLanguage, languages } from "./context/Language/Language";
 import CSP from "./containers/CSP";
 import Subscribe from /* webpackPreload: true */ "./app/subscribe/page";
 import Element404 from "./app/404/page";
-
+import { languages, changeLanguage, getCurrentLanguage } from "./i18n";
 import Page404 from "./app/404/routes";
 import PageRecommendations from "./app/recommendations/routes";
 import PageSubscribe from "./app/subscribe/routes";
 import PageUpgrade from "./app/upgrade/routes";
+import PageDownload from "./app/download/routes";
+import { HashLinks } from "./services/config";
+
+const LegalPolicies = React.lazy(() => import("./app/@partials/legal-policies"));
 
 export const pages: Page[] = [
 	{ path: "/", component: Subscribe },
+	...PageDownload,
 	...Page404,
 	...PageSubscribe,
 	...PageRecommendations,
@@ -36,59 +41,17 @@ function buildRefAlternateUrl(pathname: string, language: { path: string; value:
 
 function AppRoutes() {
 	const location = useLocation();
-	const navigate = useNavigate();
-	const { language, changeLanguage } = useLanguage();
+	const language = getCurrentLanguage();
 
-	// 1 - Listen to language change and update the browser url
-	useEffect(() => {
-		const currentPath = location.pathname;
-		const searchParams = location.search;
-		const hashFragment = location.hash;
-		const pathSegments = currentPath.split("/").filter((p) => p);
-		const browserLanguageCode = languages.some((lang) => lang.path === `/${pathSegments[0]}`);
-
-		// Case 1: Language changed detected in the language, update the browser url
-		if (!browserLanguageCode && language.path && language.path !== pathSegments[0]) {
-			const newPath = `${language.path}/${pathSegments.join("/")}${searchParams}${hashFragment}`;
-			const currentPath = `${location.pathname}${searchParams}${hashFragment}`;
-			if (currentPath !== newPath) {
-				navigate(newPath);
-				return;
-			}
-		}
-		// Case 2: Language changed detected in the browser, update the browser url
-		if (browserLanguageCode && language.path && language.path !== pathSegments[0]) {
-			const newPath = `${language.path}/${pathSegments.slice(1).join("/") || ""}${searchParams}${hashFragment}`;
-			const currentPath = `${location.pathname}${searchParams}${hashFragment}`;
-			if (currentPath !== newPath) {
-				navigate(newPath);
-				return;
-			}
-		}
-		// Case 3: Remove the language code from the url if default language is selected
-		if (browserLanguageCode && !language.path) {
-			const newPath = `${pathSegments.slice(1).join("/")}${searchParams}/${hashFragment}`;
-			const currentPath = `${location.pathname}${searchParams}${hashFragment}`;
-			if (currentPath !== newPath) {
-				if (newPath.includes("#") && !newPath.includes("/#")) {
-					const [path, hash] = newPath.split("#");
-					navigate(path, { replace: true });
-					navigate(`/#${hash}`);
-				} else {
-					navigate(newPath, { replace: true });
-				}
-			}
-		}
-	}, [language]);
-
-	// 2 - Listen to browser url change and update the language (Reverse)
-	useEffect(() => {
+	// Listen to browser url change and update the language
+	React.useEffect(() => {
+		const language = getCurrentLanguage();
 		const pathSegments = location.pathname.split("/").filter((p) => p);
 		if (pathSegments.length > 0) {
 			const languagePrefix = pathSegments[0];
 			const matchingLanguage = languages.find((lang) => lang.path === `/${languagePrefix}`);
 			if (matchingLanguage && language !== matchingLanguage) {
-				changeLanguage(matchingLanguage);
+				changeLanguage(matchingLanguage.value);
 			}
 		}
 	}, [location.pathname]);
@@ -110,37 +73,61 @@ function AppRoutes() {
 					/>
 				))}
 			</Helmet>
+			{/* Toolbar Height is 64px */}
 			<Toolbar />
-			<Suspense fallback={<div>Loading...</div>}>
-				<Routes>
-					<Route
-						path="/"
-						element={<Subscribe />}
-					/>
-					{pages.map((page, pageIndex) =>
-						languages.map(({ path: langPath }, langIndex) => (
-							<Route
-								key={`${pageIndex}-${langIndex}`}
-								path={`${langPath}${page.path}`}
-								element={
-									page.provider ? (
-										<page.provider>
+			<React.Suspense fallback={<div>Loading...</div>}>
+				<Box
+					pt={8} /* 8x8 -> 64px toolbar height + 16px top and buttom */
+					className="RoutesContentWrapper"
+				>
+					<Routes>
+						<Route
+							path="/"
+							element={<Subscribe />}
+						/>
+						{pages.map((page, pageIndex) =>
+							languages.map(({ path: langPath }, langIndex) => (
+								<Route
+									key={`${pageIndex}-${langIndex}`}
+									path={`${langPath}${page.path}`}
+									element={
+										page.provider ? (
+											<page.provider>
+												<page.component />
+											</page.provider>
+										) : (
 											<page.component />
-										</page.provider>
-									) : (
-										<page.component />
-									)
-								}
-							/>
-						))
-					)}
-					<Route
-						path="*"
-						element={<Element404 />}
-					/>
-				</Routes>
-			</Suspense>
+										)
+									}
+								/>
+							))
+						)}
+						<Route
+							path="*"
+							element={<Element404 />}
+						/>
+					</Routes>
+				</Box>
+			</React.Suspense>
 			<Footer />
+			{/* Hash Routes Popup */}
+			{/* Todo: find a better way to dynamically render hash based components
+				without using react router dom, doesn't need to be a spefic component
+			*/}
+			<React.Suspense fallback={<div>Loading...</div>}>
+				{location.hash === HashLinks.termsOfService && (
+					<LegalPolicies
+						title="Terms of Service"
+						src={`/md/${language?.value}/${HashLinks.termsOfService.replace("#", "")}.md`}
+					/>
+				)}
+				{location.hash === HashLinks.privacyPolicy && (
+					<LegalPolicies
+						title="Privacy Policy"
+						src={`/md/${language?.value}/${HashLinks.privacyPolicy.replace("#", "")}.md`}
+					/>
+				)}
+			</React.Suspense>
 		</>
 	);
 }

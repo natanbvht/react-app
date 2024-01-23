@@ -1,23 +1,39 @@
 {
   "workInWeb3AIToday": "Trabaja en Web3 y AI hoy 🚀",
-  "join400K": "Únete a más de 500,000 profesionales y recibe nuestro boletín informativo trisemanal con los trabajos mejor remunerados en web3 y AI",
+  "join400K": "Únete a más de 500,000 profesionales y recibe nuestro boletín tres veces por semana con los trabajos mejor remunerados en web3 y AI",
   "contactInformation": "Información de contacto",
   "name": "Nombre",
   "email": "Correo electrónico",
-  "byTapping": "Al tocar o hacer clic en 'Regístrate' o Continuar con Apple, Facebook, Google, Yahoo, GitHub, Microsoft, aceptas nuestros",
+  "orContinueWith": "O continuar con",
+  "bySigninUp": "Al registrarte, aceptas nuestros",
+  "termsOfService": "Términos de servicio",
+  "and": "y",
   "privacyPolicy": "Política de privacidad",
   "cookiePolicy": "Política de cookies",
-  "orContinueWith": "O continuar con",
+  "welcomeTo": "Bienvenido a",
+  "ourNewsletter": "nuestro boletín",
+  "metaintroHelpedThousands": "Metaintro ha ayudado a miles de profesionales a encontrar sus trabajos soñados en el espacio de Web3 y A.I. Únete a nosotros y consigue ser contratado más rápido.",
+  "trustedBy500k": "Confían en nosotros más de 500,000 profesionales",
   "messages": {
-    "congratulations": "¡Felicidades! 🎉",
-    "youreAllSignedUp": "¡Ya estás registrado!",
+    "congratulations": "¡Felicitaciones! 🎉",
+    "youveSubscribed": "¡Te has suscrito! Visita nuestro sitio web para explorar los mejores trabajos en el espacio de Web3 y A.I.",
     "visitOurWebsite": "Visita nuestro sitio web para explorar los mejores trabajos en el espacio de Web3 y A.I.",
-    "youHaveSubscribed": "Te has suscrito correctamente a nuestro boletín informativo.",
-    "followUp": "Metaintro puede ponerse en contacto contigo para hacer un seguimiento."
+    "pleaseCheckYourEmail": "Por favor, revisa tu correo electrónico para confirmar tu suscripción.",
+    "followUp": "Metaintro puede ponerse en contacto contigo para dar seguimiento."
+  },
+  "cta": {
+    "getStartedHere": "Comienza aquí"
+  },
+  "errors": {
+    "nameMustBeAtLeast": "El nombre debe tener al menos 2 caracteres",
+    "emailMustBeAtLeast": "El correo electrónico debe tener al menos 3 caracteres",
+    "emailMustIncludeAt": "El correo electrónico debe incluir el símbolo '@'",
+    "emailMustIncludePeriod": "El correo electrónico debe incluir el símbolo '.'",
+    "emailMustBeLatin": "El correo electrónico debe estar en caracteres latinos"
   },
   "seo": {
-    "title": "Suscríbete a nuestro boletín informativo",
-    "description": "Únete a más de 500,000 profesionales y recibe nuestro boletín informativo trisemanal con los trabajos mejor remunerados en web3 y AI",
-    "keywords": "suscribirse, suscripción metaintro, web3, trabajos web3, carreras web3, boletín informativo web3, boletín informativo web3 trabajos, boletín informativo web3 carreras, suscripción boletín web3, suscripción boletín web3 trabajos, suscripción boletín web3 carreras, registro boletín web3, registro boletín web3 trabajos, registro boletín web3 carreras, suscribirse boletín web3, suscribirse boletín web3 trabajos, suscribirse boletín web3 carreras, suscripción boletín web3, suscripción boletín web3 trabajos"
+    "title": "Suscríbete a nuestro boletín",
+    "description": "Únete a más de 500,000 profesionales y recibe nuestro boletín tres veces por semana con los trabajos mejor remunerados en web3 y AI",
+    "keywords": "suscripción, suscripción a metaintro, web3, trabajos web3, carreras web3, boletín web3, boletín de trabajos web3, boletín de carreras web3, suscripción a boletín web3, suscripción a boletín de trabajos web3, suscripción a boletín de carreras web3, registro en boletín web3, registro en boletín de trabajos web3, registro en boletín de carreras web3, suscripción a boletín web3, suscripción a boletín de trabajos web3, suscripción a boletín de carreras web3, suscripción a boletín web3, suscripción a boletín de trabajos web3, suscripción a boletín de carreras web3, suscripción a boletín web3, suscripción a boletín de trabajos web3"
   }
 }

@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import "./SwitcherButton.css";
 import Button from "@mui/material/Button";
+import { Language } from "../../../i18n";
 import LanguageIcon from "../../../components/Icons/Language";
-import { Language } from "../../../context/Language/Language";
 import ChevronDownIcon from "../../../components/Icons/ChevronDown";
 
 interface SwitcherButtonProps {
@@ -32,8 +32,8 @@ function SwitcherButton({ open, language, onClick }: SwitcherButtonProps) {
 		>
 			{" "}
 			<LanguageIcon
-				width={18}
-				height={18}
+				width={24}
+				height={24}
 			/>{" "}
 			{language?.native}
 		</Button>

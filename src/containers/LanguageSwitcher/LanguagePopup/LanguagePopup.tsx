@@ -5,7 +5,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import { Language } from "../../../context/Language/Language";
+import { Language } from "../../../i18n";
 
 interface LanguagePopupProps {
 	open?: boolean;

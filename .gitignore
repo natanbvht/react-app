@@ -16,6 +16,7 @@ serve.json
 /.vscode
 /public/sitemap.xml
 /cypress/downloads
+/cypress/screenshots
 
 # misc
 .DS_Store

@@ -1,72 +1,76 @@
 {
-  "footer": {
-    "arr": "Tutti i diritti riservati",
-    "tagline": "Rimmagina il futuro del lavoro",
-    "community": "Community",
-    "explore": "Esplora",
-    "jobs": "Lavori",
-    "company": "Azienda",
-    "events": "Eventi",
-    "wallOfLove": "Muro dell'Amore",
-    "truestAndSafety": "Affidabilità e sicurezza",
-    "resources": "Risorse",
-    "newsletter": "Newsletter",
-    "workWithUs": "Lavora con noi",
-    "aiJobs": "Lavori di AI",
-    "web3Jobs": "Lavori di Web3",
-    "remoteJobs": "Lavori da remoto",
-    "about": "Informazioni",
-    "support": "Supporto",
-    "termsOfService": "Termini di servizio",
-    "professionalResumeWallet": "Portafoglio professionale per curriculum",
-    "join500k": "Unisciti a oltre 500K+ di professionisti che hanno avuto una marcia in più nel mercato del lavoro. Unisciti al futuro del lavoro oggi stesso!"
-  },
-  "socialButtons": {
-    "discord": "Clicca qui per unirti al nostro server Discord",
-    "facebook": "Clicca qui per visitare la nostra pagina Facebook",
-    "youtube": "Clicca qui per visitare il nostro canale YouTube",
-    "instagram": "Clicca qui per visitare la nostra pagina Instagram",
-    "x": "Clicca qui per visitare la nostra pagina X (formalmente Twitter)"
-  },
   "buttons": {
-    "yes": "Sì",
-    "signUp": "Iscriviti",
-    "dismiss": "Annulla",
-    "language": "Lingua",
-    "learnMore": "Scopri di più",
-    "maybeLater": "Forse più tardi",
-    "upgradeNow": "Passa a Premium",
-    "getStarted": "Inizia 🚀",
     "bookNow": "Prenota ora",
-    "getStartedHere": "Inizia qui",
+    "continue": "Continua",
     "continueWithApple": "Continua con Apple",
+    "continueWithFacebook": "Continua con Facebook",
     "continueWithGitHub": "Continua con GitHub",
     "continueWithGoogle": "Continua con Google",
-    "continueWithFacebook": "Continua con Facebook",
     "continueWithYahoo": "Continua con Yahoo",
-    "lessSocialLogins": "Meno accessi tramite social media",
-    "moreSocialLogins": "Più accessi tramite social media"
+    "dismiss": "Chiudi",
+    "getStarted": "Inizia 🚀",
+    "getStartedHere": "Inizia qui",
+    "language": "Lingua",
+    "learnMore": "Scopri di più",
+    "lessSocialLogins": "Meno accessi con i social media",
+    "maybeLater": "Forse dopo",
+    "metaintroPro": "Metaintro Pro",
+    "moreSocialLogins": "Più accessi con i social media",
+    "selectAll": "Seleziona tutto",
+    "selectNone": "Deseleziona tutti",
+    "signUp": "Iscriviti",
+    "upgradeNow": "Esegui l'upgrade ora",
+    "yes": "Sì"
   },
-  "messages": {
-    "loading": "Caricamento...",
-    "error": "Si è verificato un errore, riprova.",
-    "upgradeYourExperience": "✨ Migliora la tua esperienza ✨",
-    "differentLanguage": "👋🏽 Abbiamo notato che stai utilizzando Metaintro in una lingua diversa. Vorresti passare a",
-    "boostYourCareer": "Migliora la tua carriera con un piano premium su misura per le tue ambizioni e necessità."
+  "disclaimers": {
+    "howWeUseYourInformation": {
+      "contactInfo": "Utilizzeremo le tue informazioni di contatto per aggiornamenti sulla sottoscrizione e notizie e offerte di lavoro di Metaintro.",
+      "prefill": "Potremmo precompilare le tue informazioni di contatto da diverse fonti per facilitare la registrazione. Puoi modificarle o eliminarle. Le informazioni di contatto precaricate possono provenire da:",
+      "thirdParty": "I servizi di terze parti che utilizziamo potrebbero raccogliere informazioni per scopi propri. Consulta le loro politiche sulla privacy per ulteriori dettagli.",
+      "thisForm": "Raccogliamo le informazioni che fornisci (come nome ed email) e le informazioni sul dispositivo (come indirizzo IP) per migliorare i nostri servizi e fornire annunci mirati. Utilizzeremo le tue informazioni di contatto per aggiornamenti sulla sottoscrizione, notizie di Metaintro, newsletter via email, notifiche di lavoro e annunci pubblicitari.",
+      "title": "Come utilizziamo le tue informazioni?",
+      "unsubscribe": "Puoi disattivare la pubblicità mirata e annullare l'iscrizione alle nostre email di marketing in qualsiasi momento. In ogni email che ricevi da Metaintro, ci sarà un'opzione per annullare l'iscrizione nel piè di pagina, come richiesto dalla legge.",
+      "updateDisclaimer": "Potremmo aggiornare questo disclaimer in qualsiasi momento, quindi ti invitiamo a consultarlo regolarmente."
+    }
   },
   "errors": {
     "invalidEmailAddress": "Inserisci un indirizzo email valido",
     "invalidEmailAddressLatin": "Inserisci un indirizzo email valido utilizzando solo caratteri latini (a-z, A-Z, 0-9)"
   },
-  "disclaimers": {
-    "howWeUseYourInformation": {
-      "title": "Come utilizziamo le tue informazioni?",
-      "thisForm": "Raccogliamo le informazioni che fornisci (come nome e email) e le informazioni del dispositivo (come indirizzo IP) per migliorare i nostri servizi e fornire annunci mirati. Utilizzeremo le tue informazioni di contatto per gli aggiornamenti delle iscrizioni, le novità di Metaintro, le newsletter via email, le notifiche di lavoro e la pubblicità.",
-      "thirdParty": "I servizi di terze parti che utilizziamo possono raccogliere informazioni per scopi propri. Consulta le loro politiche sulla privacy per i dettagli.",
-      "contactInfo": "Utilizzeremo le tue informazioni di contatto per gli aggiornamenti delle iscrizioni, le novità di Metaintro e i lavori.",
-      "unsubscribe": "Puoi disattivare la pubblicità mirata e disiscriverti dalle nostre email di marketing quando vuoi. In ogni email che ricevi da Metaintro, ci sarà un'opzione di disiscrizione in fondo, come richiesto dalla legge.",
-      "prefill": "Potremmo precaricare le tue informazioni di contatto da varie fonti per facilitare la registrazione. Puoi modificare o eliminare queste informazioni. Le informazioni di contatto precompilate possono provenire da:",
-      "updateDisclaimer": "Potremmo aggiornare questo avviso legale in qualsiasi momento, quindi ti invitiamo a controllarlo regolarmente."
-    }
+  "footer": {
+    "about": "Informazioni",
+    "aiJobs": "Lavori nell'AI",
+    "arr": "Tutti i diritti riservati",
+    "community": "Comunità",
+    "company": "Azienda",
+    "events": "Eventi",
+    "explore": "Esplora",
+    "jobs": "Lavori",
+    "join500k": "Unisciti a oltre 500.000 professionisti che hanno avuto un vantaggio nel mercato del lavoro. Unisciti al futuro del lavoro oggi stesso!",
+    "newsletter": "Newsletter",
+    "professionalResumeWallet": "Portafoglio di curriculum professionali",
+    "remoteJobs": "Lavori da remoto",
+    "resources": "Risorse",
+    "support": "Supporto",
+    "tagline": "Ripensiamo il futuro del lavoro",
+    "termsOfService": "Termini di servizio",
+    "trustAndSafety": "Affidabilità e sicurezza",
+    "wallOfLove": "Muro dell'amore",
+    "web3Jobs": "Lavori nel Web3",
+    "workWithUs": "Lavora con noi"
+  },
+  "messages": {
+    "boostYourCareer": "Migliora la tua carriera con un piano premium personalizzato sulle tue ambizioni e necessità.",
+    "differentLanguage": "👋🏽 Vediamo che stai usando Metaintro in una lingua diversa. Vorresti passare a",
+    "error": "Si è verificato un errore. Riprova.",
+    "loading": "Caricamento in corso...",
+    "upgradeYourExperience": "✨ Aggiorna la tua esperienza ✨"
+  },
+  "socialButtons": {
+    "discord": "Clicca qui per unirti al nostro server su Discord",
+    "facebook": "Clicca qui per visitare la nostra pagina su Facebook",
+    "instagram": "Clicca qui per visitare la nostra pagina su Instagram",
+    "x": "Clicca qui per visitare la nostra pagina su X (ex Twitter)",
+    "youtube": "Clicca qui per visitare il nostro canale su YouTube"
   }
 }

@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Collapse from "@mui/material/Collapse";
@@ -9,16 +10,16 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { AuthError, UserCredential } from "firebase/auth";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./page.scss";
 
+import ChevronDownIcon from "../../components/Icons/ChevronDown";
 import AutocompleteTextField from "../../components/AutocompleteTextField/AutocompleteTextField";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
-import { languages } from "../../context/Language/Language";
+import { languages } from "../../i18n";
 import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
-import { Client, Pages, Seo } from "../../utils/config";
+import { Client, Pages, Seo, HashLinks, Keys } from "../../services/config";
 import { PagePartials, SocialAuthButtons } from "./lazy";
 
 interface AppleAuthResponse {
@@ -35,19 +36,16 @@ function SubscribePage() {
 	const location = useLocation();
 	const { t, i18n } = useTranslation(["subscribe", "common"]);
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+	const [expanded, setExpanded] = React.useState<boolean>(false);
 	const currentLanguage = languages.find((lang) => lang.id === i18n.language);
-	const {
-		formData,
-		formErrors,
-		pageSettings,
-		emailSuggestions,
-		handleChange,
-		updateFormData,
-		toggleOpenMoreSocialLogins
-	} = useSubscribePage();
+	const { formData, formErrors, emailSuggestions, handleChange, updateFormData } = useSubscribePage();
 
 	const objectSpacing = 2;
 	const completedPagePath = `${currentLanguage?.path}${Pages.subscribeCompleted}`;
+
+	const handleToggleExpand = () => {
+		setExpanded(!expanded);
+	};
 
 	const authSuccessCb = (response: UserCredential) => {
 		let name: string = "";
@@ -94,7 +92,7 @@ function SubscribePage() {
 	React.useEffect(() => {
 		const handleSubscribe = async () => {
 			if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
-				const { subscribe } = await import("../../utils/api" /* webpackChunkName: "apiV1" */);
+				const { subscribe, getRecommendations } = await import("../../services/apiV1" /* webpackChunkName: "apiV1" */);
 				try {
 					if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
 						await subscribe({ email: formData.email, fullName: formData.name });
@@ -105,6 +103,14 @@ function SubscribePage() {
 					// TODO: Log error
 					navigate(completedPagePath);
 				}
+				// regardless prefetch recommendations for the next step
+				getRecommendations()
+					.then((res) => {
+						sessionStorage.setItem(Keys.recommendations, JSON.stringify(res));
+					})
+					.catch((error) => {
+						console.error("Failed to get recommendations", error);
+					});
 			}
 		};
 
@@ -194,7 +200,6 @@ function SubscribePage() {
 								id="name-autocomplete"
 								value={formData?.name ?? ""}
 								onChange={(_: React.SyntheticEvent, newValue: string | string[] | null) => {
-									console.debug(newValue);
 									const value = Array.isArray(newValue) ? newValue.join(", ") : newValue;
 									updateFormData({ ...formData, name: value ?? "" });
 								}}
@@ -284,39 +289,48 @@ function SubscribePage() {
 									</>
 								)}
 								<Collapse
-									orientation="vertical"
-									in={pageSettings.openMoreSocialLogins}
-									sx={{ width: "100%", display: "block" }}
+									unmountOnExit
+									in={expanded}
+									timeout="auto"
+									sx={{
+										width: "100%",
+										height: expanded ? "auto" : "100%",
+										transition: theme.transitions.create("height", {
+											duration: theme.transitions.duration.standard
+										})
+									}}
 								>
-									{pageSettings.openMoreSocialLogins && Client.isSafari && (
-										<>
-											<Divider sx={{ mb: objectSpacing }} />
-											<SocialAuthButtons.Google
-												successCb={authSuccessCb}
-												errorCb={authErrorCb}
-											/>
-											<Divider sx={{ mb: objectSpacing }} />
-											<SocialAuthButtons.Facebook
-												successCb={authSuccessCb}
-												errorCb={authErrorCb}
-											/>
-										</>
-									)}
-									{pageSettings.openMoreSocialLogins && (
-										<>
-											<Divider sx={{ mb: objectSpacing }} />
-											<SocialAuthButtons.Github
-												successCb={authSuccessCb}
-												errorCb={authErrorCb}
-											/>
+									<Box>
+										{expanded && (
+											<React.Suspense fallback={<div style={{ height: "40px", width: "100%" }} />}>
+												<Divider sx={{ mb: objectSpacing }} />
+												<SocialAuthButtons.Github
+													successCb={authSuccessCb}
+													errorCb={authErrorCb}
+												/>
 
-											<Divider sx={{ mb: objectSpacing }} />
-											<SocialAuthButtons.Yahoo
-												successCb={authSuccessCb}
-												errorCb={authErrorCb}
-											/>
-										</>
-									)}
+												<Divider sx={{ mb: objectSpacing }} />
+												<SocialAuthButtons.Yahoo
+													successCb={authSuccessCb}
+													errorCb={authErrorCb}
+												/>
+											</React.Suspense>
+										)}
+										{expanded && Client.isSafari && (
+											<React.Suspense fallback={<div style={{ height: "40px", width: "100%" }} />}>
+												<Divider sx={{ mb: objectSpacing }} />
+												<SocialAuthButtons.Google
+													successCb={authSuccessCb}
+													errorCb={authErrorCb}
+												/>
+												<Divider sx={{ mb: objectSpacing }} />
+												<SocialAuthButtons.Facebook
+													successCb={authSuccessCb}
+													errorCb={authErrorCb}
+												/>
+											</React.Suspense>
+										)}
+									</Box>
 								</Collapse>
 							</React.Suspense>
 						</Box>
@@ -324,37 +338,29 @@ function SubscribePage() {
 							<Button
 								size="small"
 								variant="text"
-								onClick={toggleOpenMoreSocialLogins}
+								onClick={handleToggleExpand}
 								sx={{
-									padding: 0,
 									fontWeight: 500,
 									fontSize: "12px",
 									textTransform: "none",
 									marginBottom: objectSpacing,
 									color: theme.palette.grey[600]
 								}}
+								endIcon={
+									<ChevronDownIcon
+										width={12}
+										height={12}
+										className={expanded ? "rotate-180" : ""}
+									/>
+								}
 							>
-								{pageSettings.openMoreSocialLogins
-									? `${t("common:buttons.lessSocialLogins")}`
-									: `${t("common:buttons.moreSocialLogins")}`}
+								{expanded ? `${t("common:buttons.lessSocialLogins")}` : `${t("common:buttons.moreSocialLogins")}`}
 							</Button>
 						</Box>
 						<Typography className="LegalNotice">
-							By signin up, you agree to our{" "}
-							<a
-								href="#terms-and-conditions"
-								className=""
-							>
-								Terms of Service
-							</a>{" "}
-							and{" "}
-							<a
-								href="privacy-policy"
-								className=""
-							>
-								Privacy Policy
-							</a>
-							.
+							{t("bySigninUp")} <a href={HashLinks.privacyPolicy}>{t("privacyPolicy")}</a>
+							{", "}
+							{t("and")} <a href={HashLinks.termsOfService}>{t("termsOfService")}</a>.
 						</Typography>
 					</Container>
 				</Grid>
