@@ -10,13 +10,21 @@ import Typography from "@mui/material/Typography";
 import LinksColumn from "./LinksColumn/LinksColumn";
 import MetaintroIcon from "../../components/Icons/Metaintro";
 import { FooterLinks } from "./types.d";
-import { Links, HashLinks } from "../../services/config";
+import { Links, HashLinks, SocialMedia } from "../../services/config";
 
 const links: FooterLinks = {
+	socials: {
+		title: "footer.social",
+		links: [
+			{ name: "footer.discord", url: SocialMedia.discord },
+			{ name: "footer.youtube", url: SocialMedia.youtube },
+			{ name: "footer.instagram", url: SocialMedia.instagram }
+		]
+	},
 	community: {
 		title: "footer.community",
 		links: [
-			{ name: "footer.events", url: "#events-subscribe" },
+			{ name: "footer.events", url: Links.events },
 			{ name: "footer.wallOfLove", url: Links.wallOfLove },
 			{ name: "footer.truestAndSafety", url: Links.truestAndSafety }
 		]
@@ -27,14 +35,6 @@ const links: FooterLinks = {
 			{ name: "footer.resources", url: Links.resources },
 			{ name: "footer.newsletter", url: Links.newsletter },
 			{ name: "footer.workWithUs", url: Links.advertise }
-		]
-	},
-	jobs: {
-		title: "footer.jobs",
-		links: [
-			{ name: "footer.aiJobs", url: "#job-board" },
-			{ name: "footer.web3Jobs", url: "#salary-calculator" },
-			{ name: "footer.remoteJobs", url: "#developer-survey" }
 		]
 	},
 	company: {

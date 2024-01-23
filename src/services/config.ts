@@ -1,3 +1,5 @@
+import { nanoid } from /* webpackChunkName: "nnid" */ "nanoid";
+
 export const METAINTRO = "https://www.metaintro.com";
 export enum Environments {
 	LOCALHOST = "localhost",
@@ -13,18 +15,17 @@ export const isDev = window?.location?.hostname?.includes("dev");
 export const isUat = window?.location?.hostname?.includes("uat");
 export const isProd = !isLocalhost && !isDev && !isUat;
 
-export function getEnv(): Environments {
-	if (isLocalhost) return Environments.LOCALHOST;
-	if (isDev) return Environments.DEVELOPMENT;
-	if (isUat) return Environments.UAT;
-	return Environments.PRODUCTION;
-}
-
 const userAgentString = navigator.userAgent;
 export const Client = {
 	isChrome: userAgentString.includes("Chrome"),
 	isFirefox: userAgentString.includes("Firefox"),
 	isSafari: Boolean(!userAgentString.includes("Chrome") && userAgentString.includes("Safari"))
+};
+
+export const Stripe = {
+	pricingTableId: "prctbl_1O59tnIP7J9Ye5hOCHs2DaAt",
+	publishableKey:
+		"pk_live_51KWlfMIP7J9Ye5hOKGmB9sHrwCDknXVaqByFpyXb8o7n3bhpXbhWe2MnMfifAqTeBOyTwOBu4CHZeQN9IJXDvXBD00zaUTqKO7"
 };
 
 export const Seo = {
@@ -56,15 +57,16 @@ export const HashLinks = {
 
 export const Keys = {
 	subscribe: "subscribe",
+	sessionId: "sessionId",
 	recommendations: "recommendations"
 };
 
 export const Links = {
 	metaintro: `${METAINTRO}/`,
 	resources: `${METAINTRO}/`,
-	events: "#events-subscribe",
 	about: `${METAINTRO}/about`,
 	terms: `${METAINTRO}/terms`,
+	events: `${METAINTRO}/events`,
 	authCallBack: "/subscribe/cb",
 	support: `${METAINTRO}/support`,
 	advertise: `${METAINTRO}/advertise`,
@@ -80,6 +82,22 @@ export const SocialMedia = {
 	discord: "https://discord.gg/metaintro",
 	twitter: "https://www.twitter.com/metaintro"
 };
+
+export function getEnv(): Environments {
+	if (isLocalhost) return Environments.LOCALHOST;
+	if (isDev) return Environments.DEVELOPMENT;
+	if (isUat) return Environments.UAT;
+	return Environments.PRODUCTION;
+}
+
+export function getSessionId(): string {
+	let sessionId = sessionStorage.getItem(Keys.sessionId);
+	if (!sessionId) {
+		sessionId = nanoid(6);
+		sessionStorage.setItem(Keys.sessionId, sessionId);
+	}
+	return sessionId;
+}
 
 export enum TrackingEvents {
 	// Newsletter
