@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -13,11 +14,17 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
-import { Recommendation, getRecommendations } from "../../services/apiV1" /* webpackChunkName: "apiV1" */;
-import { Keys, Seo, Pages, Links } from "../../services/config";
+import { SubscribePageFormData } from "../../context/SubscribePage/SubscribePage";
+import {
+	Recommendation,
+	SubscribeRecommendationsData,
+	getRecommendations,
+	subscribeRecommendations
+} from "../../services/apiV1" /* webpackChunkName: "apiV1" */;
+import { Keys, Links, Pages, Seo } from "../../services/config";
 
 interface RecommendationItemProps extends Recommendation {
 	selectedRecommendations?: string[];
@@ -37,7 +44,11 @@ function RecommendationItem({
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-	// Accessibility: Add keyboard support for toggling the switch with the spacebar/enter key
+	/**
+	 * @Accessibility
+	 * @description support toggle switch with spacebar/enter key
+	 * @link https://www.w3.org/TR/wai-aria-practices-1.1/#switch
+	 */
 	const handleKeyDown = (e: React.KeyboardEvent, recommendationId: string) => {
 		if (e.key === "Enter") {
 			e.preventDefault();
@@ -105,7 +116,7 @@ function RecommendationItem({
 										aria-label="Enable Recommendation"
 										onChange={handleSwitchChange(sub)}
 										onKeyDown={(e) => handleKeyDown(e, sub)}
-										checked={selectedRecommendations && selectedRecommendations.includes(sub)}
+										checked={selectedRecommendations?.includes(sub)}
 									/>
 								}
 								label=""
@@ -150,29 +161,25 @@ function RecommendationsPage() {
 	const navigate = useNavigate();
 	const { t } = useTranslation(["recommendations", "common"]);
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-	const [selectedRecommendations, setSelectedRecommendations] = React.useState<string[]>([]);
 	const [recommendations, setRecommendations] = React.useState<Recommendation[]>(
 		() => JSON.parse(sessionStorage.getItem(Keys.recommendations) || "[]") as Recommendation[]
+	);
+	const [selectedRecommendations, setSelectedRecommendations] = React.useState<string[]>(
+		recommendations.map((res: Recommendation) => res.sub)
 	);
 
 	const handleSwitchChange = (recommendationId: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
 		const isChecked = event.target.checked;
-
 		if (isChecked && !selectedRecommendations?.includes(recommendationId)) {
-			setSelectedRecommendations((prevSelectedRecommendations) => {
-				if (prevSelectedRecommendations) {
-					return [...prevSelectedRecommendations, recommendationId];
+			setSelectedRecommendations((prevRecs) => {
+				if (prevRecs) {
+					return [...prevRecs, recommendationId];
 				}
 				return [recommendationId];
 			});
 		}
-
 		if (!isChecked && selectedRecommendations?.includes(recommendationId)) {
-			setSelectedRecommendations((prevSelectedRecommendations) =>
-				prevSelectedRecommendations?.filter(
-					(prevSelectedRecommendation) => prevSelectedRecommendation !== recommendationId
-				)
-			);
+			setSelectedRecommendations((prevRecs) => prevRecs?.filter((prevRec) => prevRec !== recommendationId));
 		}
 	};
 
@@ -187,8 +194,40 @@ function RecommendationsPage() {
 		}
 	};
 
-	const handleContinue = () => {
-		//   posthog.capture(TrackingEvents.ClickedContinue);
+	const handleContinue = async () => {
+		try {
+			const subscribeSession = JSON.parse(
+				sessionStorage.getItem(Keys.subscribe) || "{}"
+			) as SubscribePageFormData | null;
+			if (selectedRecommendations.length > 0 && subscribeSession?.email) {
+				const body: SubscribeRecommendationsData[] = [
+					{
+						email: subscribeSession.email,
+						sub: selectedRecommendations.join(",")
+					}
+				];
+				await subscribeRecommendations(body);
+				// window.location.href = Links.metaintro;
+			} else {
+				console.debug("No recommendations selected or email not found in session");
+				console.debug("selectedRecommendations", selectedRecommendations);
+				console.debug("subscribeSession", subscribeSession);
+				// report error to analytics
+				//   posthog.capture(TrackingEvents.AffiliateError, {
+				//     errorCode: errCode,
+				//     message: errMessage
+				//   });
+			}
+			//   posthog.capture(TrackingEvents.ClickedContinue);
+		} catch (err: unknown) {
+			console.error(err);
+			//   posthog.capture(TrackingEvents.AffiliateError, {
+			//     errorCode: errCode,
+			//     message: errMessage
+			//   });
+			// regardless of error, redirect to metaintro
+			window.location.href = Links.metaintro;
+		}
 	};
 
 	React.useEffect(() => {
@@ -225,7 +264,7 @@ function RecommendationsPage() {
 		fetchRecommendations();
 	}, []);
 
-	if (recommendations && recommendations.length > 0) {
+	if (recommendations.length > 0) {
 		return (
 			<React.Suspense fallback={<div />}>
 				<OnPageSeo
@@ -274,7 +313,7 @@ function RecommendationsPage() {
 									color: theme.palette.grey[800]
 								}}
 							>
-								{selectedRecommendations && selectedRecommendations.length === recommendations.length
+								{selectedRecommendations.length === recommendations.length
 									? t("common:buttons.selectNone")
 									: t("common:buttons.selectAll")}
 							</Button>
@@ -302,7 +341,9 @@ function RecommendationsPage() {
 								aria-label={t("common:buttons.continue")}
 								sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
 							>
-								{t("common:buttons.continue")}
+								{selectedRecommendations.length > 0
+									? t("common:buttons.continue")
+									: t("common:buttons.selectRecommendations")}
 							</Button>
 							<Button
 								fullWidth

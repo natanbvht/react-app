@@ -1,7 +1,6 @@
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { nanoid } from "nanoid";
-import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
-
-import { getEnv, Environments } from "./config";
+import { Environments, getEnv } from "./config";
 
 export interface ApiError {
 	message: string;
@@ -9,13 +8,22 @@ export interface ApiError {
 	requestId: string;
 }
 
+export interface ApiSuccess {
+	message: string;
+	trackingId: string;
+}
+
+export type ApiResult = ApiSuccess | ApiError;
+
 const API_V1 = "/api/v1";
 const MAX_TIMEOUT = 5000;
+const MOCK_API_FLAG = getEnv() !== Environments.LOCALHOST;
 const API_HOST = getEnv() === Environments.PRODUCTION ? "https://api.metronai.com" : "http://localhost:8080";
 
 const ENDPOINTS = {
 	subscribe: `${API_HOST}${API_V1}/metaintro/subscribe/sendgrid`,
-	recommendations: `${API_HOST}${API_V1}/affiliates/recommendations`
+	recommendations: `${API_HOST}${API_V1}/affiliates/recommendations`,
+	recommendationsSubscribe: `${API_HOST}${API_V1}/metaintro/recommendations`
 };
 
 const DEFAULT_HEADERS = {
@@ -63,14 +71,14 @@ async function apiV1<T>(options: AxiosRequestConfig, mockError: boolean = false)
 		timeout: options.timeout || MAX_TIMEOUT
 	};
 
-	if (getEnv() === Environments.LOCALHOST) {
+	if (MOCK_API_FLAG) {
 		const mockData = await getMockResponse<T>(mergedOptions, mockError);
 		return Promise.resolve(mockData as AxiosResponse<T>);
 	}
 	return axios(mergedOptions);
 }
 
-interface SubscribeBody {
+interface SubscribeData {
 	email: string;
 	fullName: string;
 	utm_source?: string;
@@ -82,26 +90,21 @@ interface SubscribeBody {
 	reactivate_existing?: boolean;
 	custom_fields?: Record<string, string>;
 }
-interface SubscribeSuccess {
-	message: string;
-	trackingId: string;
-}
-type SubscribeResponse = SubscribeSuccess | ApiError;
 /**
  * Subscribes to newsletter.
- * @param {SubscribeBody} subscribeBody - Data for the subscription.
- * @returns {Promise<SubscribeFunctionResponse>} - The response from the subscription API.
+ * @param {SubscribeData} subscribeData - Data for the subscription.
+ * @returns {Promise<ApiResult>} - The response from the subscription API.
  * @example subscribe({ email: " ", utm_source: " ", utm_medium: " " });
  */
-export async function subscribe(subscribeBody: SubscribeBody): Promise<SubscribeResponse> {
+export async function subscribe(data: SubscribeData): Promise<ApiResult> {
 	const requestOptions: AxiosRequestConfig = {
 		method: "put",
 		url: ENDPOINTS.subscribe,
-		data: JSON.stringify(subscribeBody)
+		data: JSON.stringify(data)
 	};
 
 	try {
-		const response = await apiV1<SubscribeResponse>(requestOptions);
+		const response = await apiV1<ApiResult>(requestOptions);
 		return response.data;
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
@@ -117,7 +120,7 @@ export async function subscribe(subscribeBody: SubscribeBody): Promise<Subscribe
 			requestId: `local-${nanoid(8)}`,
 			timestamp: new Date().toISOString(),
 			message: "An unexpected error occurred during subscription"
-		};
+		} as ApiError;
 	}
 }
 
@@ -159,6 +162,37 @@ export async function getRecommendations(): Promise<RecommendationsResponse> {
 			requestId: `local-${nanoid(8)}`,
 			timestamp: new Date().toISOString(),
 			message: "An unexpected error occurred during get recommendations request"
-		};
+		} as ApiError;
+	}
+}
+export interface SubscribeRecommendationsData {
+	sub: string; // comma separated list of recommendation ids
+	email: string;
+}
+export async function subscribeRecommendations(data: SubscribeRecommendationsData[]): Promise<ApiResult> {
+	const requestOptions: AxiosRequestConfig = {
+		method: "post",
+		data: JSON.stringify(data),
+		url: ENDPOINTS.recommendationsSubscribe
+	};
+
+	try {
+		const response = await apiV1<ApiResult>(requestOptions);
+		return response.data;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			const errorResponse = error.response?.data as ApiError;
+			const customError: ApiError = {
+				timestamp: errorResponse?.timestamp,
+				requestId: errorResponse?.requestId,
+				message: errorResponse?.message || "An error occurred during subscription"
+			};
+			return customError;
+		}
+		return {
+			requestId: `local-${nanoid(8)}`,
+			timestamp: new Date().toISOString(),
+			message: "An unexpected error occurred during subscribe to recommendations api request"
+		} as ApiError;
 	}
 }

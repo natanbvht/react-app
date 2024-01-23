@@ -1,5 +1,4 @@
 export const METAINTRO = "https://www.metaintro.com";
-
 export enum Environments {
 	LOCALHOST = "localhost",
 	TEST = "test",
