@@ -77,8 +77,9 @@ function AppRoutes() {
 			<Toolbar />
 			<React.Suspense fallback={<div>Loading...</div>}>
 				<Box
-					pt={8}
-					className="RoutesContentWrapper" /* 8x8 -> 64px toolbar height */
+					pb={2} /* 8x8 -> 64px toolbar height + 16px top and buttom */
+					pt={10} /* 8x8 -> 64px toolbar height + 16px top and buttom */
+					className="RoutesContentWrapper"
 				>
 					<Routes>
 						<Route

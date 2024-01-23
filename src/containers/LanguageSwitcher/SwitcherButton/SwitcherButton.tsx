@@ -22,6 +22,7 @@ function SwitcherButton({ open, language, onClick }: SwitcherButtonProps) {
 			aria-label={language?.native}
 			aria-expanded={open ? "true" : undefined}
 			aria-controls={open ? "language-switcher" : undefined}
+			sx={{ paddingRight: 0 }}
 			endIcon={
 				<ChevronDownIcon
 					width={12}

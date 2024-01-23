@@ -123,12 +123,12 @@ export async function subscribe(subscribeBody: SubscribeBody): Promise<Subscribe
 
 export interface Recommendation {
 	_id: string;
-	companyName: string;
-	cts: string;
-	description: string;
+	sub: string;
+	cta?: string;
 	logo: string;
 	name: string;
-	sub: string;
+	sponsored?: boolean;
+	description: string;
 }
 type RecommendationsResponse = Recommendation[] | ApiError;
 /**

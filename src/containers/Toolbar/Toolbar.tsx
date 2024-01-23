@@ -62,6 +62,7 @@ function AppToolbar() {
 								variant="text"
 								component="button"
 								aria-label="Metaintro"
+								sx={{ paddingLeft: 0 }}
 								onClick={handleButtonClick}
 							>
 								<MetaintroIcon
