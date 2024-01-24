@@ -16,6 +16,13 @@ const cardSize = "23rem";
 const MAX_VISIBILITY = 3;
 const colorGray = "#9CA3AF";
 
+interface TwiterItem {
+	avatar?: string;
+	title: string;
+	text: string;
+	embed?: any;
+}
+
 const cards = [
 	{
 		title: "vasisht hari",
@@ -110,7 +117,7 @@ const cards = [
 			</blockquote>
 		)
 	}
-] as CardProps[];
+] as TwiterItem[];
 
 const TestimonialsWrapper = styled(Box)({
 	display: "flex",
@@ -244,16 +251,13 @@ function CarouselControls({ children, active, setActive }: CarouselControlsProps
 }
 
 interface CardProps {
-	text: string;
-	title: string;
 	index?: number;
-	avatar?: string;
 	embed?: any;
 	activeIndex?: number;
 }
 
 // const Card: FC<CardProps> = ({ title, text, embed, index = 0, activeIndex = 2, avatar }: CardProps) => {
-function Card({ title, text, embed, index = 0, activeIndex = 2, avatar }: CardProps) {
+function Card({ embed, index = 0, activeIndex = 2 }: CardProps) {
 	const active = index === activeIndex;
 	const offset = (activeIndex - index) / 3;
 	const pointerEvents = active ? "auto" : "none";

@@ -32,9 +32,9 @@ function App() {
 				// 2. Save country code
 				const { getIpLocation } = await import("./services/apiV1" /* webpackChunkName: "apiV1" */);
 				const response = (await getIpLocation()) as IpLocation;
-				if (response?.countryCode !== "") sessionStorage.setItem(Keys.cc, response.countryCode ?? "");
+				if (response?.countryCode !== "") sessionStorage.setItem(Keys.cc, JSON.stringify(response || {}));
 			} catch (err: unknown) {
-				sessionStorage.setItem(Keys.cc, "");
+				sessionStorage.setItem(Keys.cc, JSON.stringify({}));
 			}
 		}, 8000); // delay 8s, to avoid blocking the main thread
 		return () => clearTimeout(timeoutGetIpLocation);

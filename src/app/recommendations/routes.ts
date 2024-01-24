@@ -3,9 +3,10 @@ import { Page } from "../../types";
 
 const routes: Page[] = [
 	{
+		footer: false,
 		title: "Recommendations",
 		path: "/recommendations",
-		component: React.lazy(() => import(/* webpackChunkName: 'recommendations' */ "./page"))
+		element: React.lazy(() => import(/* webpackChunkName: 'recommendations' */ "./page"))
 	}
 ];
 

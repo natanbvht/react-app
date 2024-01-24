@@ -5,12 +5,12 @@ const routes: Page[] = [
 	{
 		path: "/subscribe",
 		title: "Subscribe",
-		component: SubscribePage
+		element: SubscribePage
 	},
 	{
 		title: "Subscribe",
 		path: "/subscribe/completed",
-		component: SubscribeCongratulationPage
+		element: SubscribeCongratulationPage
 	}
 ];
 

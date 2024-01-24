@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { nanoid } from "nanoid";
-import { IpLocation } from "../types.d";
-import { getEnv, Environments, MOCK_API_DEBUG, MOCK_API_FLAG } from "../config";
+import { IpLocation, Recommendation } from "../types.d";
+import { getEnv, Keys, Environments, MOCK_API_DEBUG, MOCK_API_FLAG } from "../config";
 
 export interface ApiError {
 	message: string;
@@ -37,10 +37,6 @@ const DEFAULT_HEADERS = {
 	"X-Session-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone
 } as Record<string, string>;
 
-function isApiError(response: unknown) {
-	return (response as ApiError).message !== undefined;
-}
-
 /**
  * @used for localhost/testing only, mock api response
  * excluded from production build
@@ -69,7 +65,11 @@ function getMockResponse<T>(config: AxiosRequestConfig, error: boolean = false):
 	);
 }
 
-async function apiV1<T>(options: AxiosRequestConfig, mockError: boolean = false): Promise<AxiosResponse<T>> {
+interface ApiOptions extends AxiosRequestConfig {
+	cacheKey?: string;
+}
+
+async function apiV1<T>(options: ApiOptions, mockError: boolean = false): Promise<AxiosResponse<T>> {
 	const fullUrl = options.url?.startsWith("http") ? options.url : `${API_HOST}${options.url}`;
 	const mergedOptions = {
 		...options,
@@ -84,7 +84,19 @@ async function apiV1<T>(options: AxiosRequestConfig, mockError: boolean = false)
 		if (MOCK_API_DEBUG) console.debug("Mock data", mockData);
 		return Promise.resolve(mockData as AxiosResponse<T>);
 	}
-	return axios(mergedOptions);
+
+	if (options.cacheKey && sessionStorage.getItem(options.cacheKey)) {
+		const cachedData = JSON.parse(sessionStorage.getItem(options.cacheKey) || "{}") as T;
+		return Promise.resolve({ data: cachedData } as AxiosResponse<T>);
+	}
+
+	try {
+		const response = await axios(mergedOptions);
+		if (options.cacheKey) sessionStorage.setItem(options.cacheKey, JSON.stringify(response.data));
+		return response;
+	} catch (error) {
+		return Promise.reject(error);
+	}
 }
 
 interface SubscribeData {
@@ -107,15 +119,14 @@ interface SubscribeData {
  * @example subscribe({ email: " ", utm_source: " ", utm_medium: " " });
  */
 export async function subscribe(data: SubscribeData): Promise<ApiResult> {
-	const requestOptions: AxiosRequestConfig = {
-		method: "put",
-		url: ENDPOINTS.subscribe,
-		data: JSON.stringify(data)
-	};
-
 	try {
-		const response = await apiV1<ApiResult>(requestOptions);
-		return response.data;
+		return (
+			await apiV1<ApiSuccess>({
+				method: "put",
+				url: ENDPOINTS.subscribe,
+				data: JSON.stringify(data)
+			})
+		).data;
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			const errorResponse = error.response?.data as ApiError;
@@ -134,27 +145,19 @@ export async function subscribe(data: SubscribeData): Promise<ApiResult> {
 	}
 }
 
-export interface Recommendation {
-	_id: string;
-	sub: string;
-	cta?: string;
-	logo: string;
-	name: string;
-	sponsored?: boolean;
-	description: string;
-}
-
-type RecommendationsResponse = Recommendation[] | ApiError;
-
 /**
  * Gets recommendations.
- * @returns {Promise<RecommendationsResponse>} - The response from the recommendations API.
+ * @returns {Promise<Recommendation[] | ApiError>} - The response from the recommendations API.
  * @example await getRecommendations();
  */
-export async function getRecommendations(): Promise<RecommendationsResponse> {
+export async function getRecommendations(): Promise<Recommendation[] | ApiError> {
 	try {
-		const response = await apiV1<RecommendationsResponse>({ url: ENDPOINTS.recommendations });
-		return response.data;
+		return (
+			await apiV1<Recommendation[]>({
+				url: ENDPOINTS.recommendations,
+				cacheKey: Keys.recommendations
+			})
+		).data;
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			const errorResponse = error.response?.data as ApiError;
@@ -178,17 +181,15 @@ export interface SubscribeRecommendationsData {
 	sub: string; // comma separated list of recommendation ids
 	email: string;
 }
-
 export async function subscribeRecommendations(data: SubscribeRecommendationsData[]): Promise<ApiResult> {
-	const requestOptions: AxiosRequestConfig = {
-		method: "post",
-		data: JSON.stringify(data),
-		url: ENDPOINTS.recommendationsSubscribe
-	};
-
 	try {
-		const response = await apiV1<ApiResult>(requestOptions);
-		return response.data;
+		return (
+			await apiV1<ApiSuccess>({
+				method: "post",
+				data: JSON.stringify(data),
+				url: ENDPOINTS.recommendationsSubscribe
+			})
+		).data;
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			const errorResponse = error.response?.data as ApiError;
@@ -210,11 +211,7 @@ export async function subscribeRecommendations(data: SubscribeRecommendationsDat
 type IpLocationResponse = IpLocation | ApiError;
 export async function getIpLocation(): Promise<IpLocationResponse> {
 	try {
-		const response = await apiV1<IpLocationResponse>({ url: ENDPOINTS.ipLocation });
-		if (isApiError(response.data)) {
-			return response.data as ApiError;
-		}
-		return response.data as IpLocation;
+		return (await apiV1<IpLocation>({ url: ENDPOINTS.ipLocation, cacheKey: Keys.cc })).data;
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			const errorResponse = error.response?.data as ApiError;

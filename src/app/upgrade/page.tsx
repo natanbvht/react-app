@@ -115,15 +115,11 @@ function Partner({ logo, name }: TrustedBy) {
 	);
 }
 
-// const Upgrade: FC = () => {
 function Upgrade() {
 	// const posthog = usePostHog();
 	// const { extLink, formData } = usePageView();
 	const { t } = useTranslation(["upgrade", "common"]);
 	const isMobile = useMediaQuery(useTheme().breakpoints.down("sm"));
-
-	console.debug(Stripe);
-
 	return (
 		<>
 			<Helmet>

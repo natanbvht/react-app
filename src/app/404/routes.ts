@@ -5,12 +5,12 @@ const routes: Page[] = [
 	{
 		path: "/404",
 		title: "404 Oops! Page not found",
-		component: React.lazy(() => import(/* webpackChunkName: '404' */ "./page"))
+		element: React.lazy(() => import(/* webpackChunkName: '404' */ "./page"))
 	},
 	{
 		path: "/not-found",
 		title: "404 Oops! Page not found",
-		component: React.lazy(() => import(/* webpackChunkName: '404' */ "./page"))
+		element: React.lazy(() => import(/* webpackChunkName: '404' */ "./page"))
 	}
 ];
 

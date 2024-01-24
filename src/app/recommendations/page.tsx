@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
+import "./page.scss";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
+import AppBar from "@mui/material/AppBar";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
 import Container from "@mui/material/Container";
@@ -17,14 +19,16 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
+import { Keys, Links, Pages, Seo } from "../../config";
 import { SubscribePageFormData } from "../../context/SubscribePage/SubscribePage";
 import {
-	Recommendation,
 	SubscribeRecommendationsData,
 	getRecommendations,
 	subscribeRecommendations
-} from "../../services/apiV1" /* webpackChunkName: "apiV1" */;
-import { Keys, Links, Pages, Seo } from "../../config";
+} from /* webpackChunkName: "apiV1" */ "../../services/apiV1";
+import { Recommendation } from "../../types.d";
+
+const LoadingButton = React.lazy(() => import(/* webpackChunkName: "muilb" */ "@mui/lab/LoadingButton"));
 
 interface RecommendationItemProps extends Recommendation {
 	selectedRecommendations?: string[];
@@ -161,6 +165,7 @@ function RecommendationsPage() {
 	const navigate = useNavigate();
 	const { t } = useTranslation(["recommendations", "common"]);
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+	const [isSubmiting, setIsSubmiting] = React.useState<boolean>(false);
 	const [recommendations, setRecommendations] = React.useState<Recommendation[]>(
 		() => JSON.parse(sessionStorage.getItem(Keys.recommendations) || "[]") as Recommendation[]
 	);
@@ -199,6 +204,7 @@ function RecommendationsPage() {
 
 	const handleContinue = async () => {
 		try {
+			setIsSubmiting(true);
 			const subscribeSession = JSON.parse(
 				sessionStorage.getItem(Keys.subscribe) || "{}"
 			) as SubscribePageFormData | null;
@@ -210,7 +216,8 @@ function RecommendationsPage() {
 					}
 				];
 				await subscribeRecommendations(body);
-				// window.location.href = Links.metaintro;
+				setIsSubmiting(false);
+				window.location.href = Links.metaintro;
 			} else {
 				console.debug("No recommendations selected or email not found in session");
 				console.debug("selectedRecommendations", selectedRecommendations);
@@ -220,6 +227,7 @@ function RecommendationsPage() {
 				//     errorCode: errCode,
 				//     message: errMessage
 				//   });
+				window.location.href = Links.metaintro;
 			}
 			//   posthog.capture(TrackingEvents.ClickedContinue);
 		} catch (err: unknown) {
@@ -275,13 +283,11 @@ function RecommendationsPage() {
 					description={t("seo.description")}
 					title={Seo.titlePretfix + Seo.delimeter + t("seo.title")}
 				/>
-				<Container
-					sx={{ paddingTop: theme.spacing(1), paddingBottom: theme.spacing(1), minHeight: "calc(100vh - 64px)" }}
-				>
+				<Container sx={{ paddingTop: theme.spacing(2), paddingBottom: theme.spacing(2) }}>
 					<Grid
 						container
 						direction="row"
-						spacing={theme.spacing(1)}
+						spacing={theme.spacing(2)}
 					>
 						<Grid
 							item
@@ -299,27 +305,29 @@ function RecommendationsPage() {
 							<Typography
 								variant="h4"
 								component="h4"
-								sx={{ fontWeight: "bold" }}
-								fontSize={isMobile ? "1.125rem" : "1.5rem"}
+								fontSize="1.125rem"
+								sx={{ fontWeight: "bold", lineHeight: "1.5rem" }}
 							>
 								{t("youMightAlsoLike")}
 							</Typography>
-							<Button
-								type="button"
-								variant="text"
-								onClick={handleToggleAll}
-								sx={{
-									cursor: "pointer",
-									textAlign: "right",
-									textTransform: "none",
-									textDecoration: "underline",
-									color: theme.palette.grey[800]
-								}}
-							>
-								{selectedRecommendations.length === recommendations.length
-									? t("common:buttons.selectNone")
-									: t("common:buttons.selectAll")}
-							</Button>
+							<React.Suspense fallback={<div />}>
+								<Button
+									type="button"
+									variant="text"
+									onClick={handleToggleAll}
+									sx={{
+										cursor: "pointer",
+										textAlign: "right",
+										textTransform: "none",
+										textDecoration: "underline",
+										color: theme.palette.grey[800]
+									}}
+								>
+									{selectedRecommendations.length === recommendations.length
+										? t("common:buttons.selectNone")
+										: t("common:buttons.selectAll")}
+								</Button>
+							</React.Suspense>
 						</Grid>
 						{recommendations.map((recommendation: Recommendation) => (
 							<RecommendationItem
@@ -329,25 +337,85 @@ function RecommendationsPage() {
 								selectedRecommendations={selectedRecommendations}
 							/>
 						))}
-						<Grid
-							item
-							flex={1}
+
+						{!isMobile && (
+							<Grid
+								item
+								flex={1}
+							>
+								<LoadingButton
+									fullWidth
+									tabIndex={0}
+									role="button"
+									type="button"
+									color="primary"
+									variant="contained"
+									loading={isSubmiting}
+									onClick={handleContinue}
+									aria-label={t("common:buttons.continue")}
+									sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
+								>
+									{selectedRecommendations.length > 0
+										? t("common:buttons.continue")
+										: t("common:buttons.selectRecommendations")}
+								</LoadingButton>
+								<Button
+									fullWidth
+									role="link"
+									tabIndex={0}
+									type="button"
+									color="primary"
+									component={Link}
+									to={Pages.upgrade}
+									variant="outlined"
+									sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
+								>
+									{t("common:buttons.metaintroPro")}
+								</Button>
+								<Button
+									fullWidth
+									tabIndex={0}
+									type="button"
+									color="primary"
+									variant="text"
+									component={Link}
+									to={Links.metaintro}
+									sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
+								>
+									{t("common:buttons.maybeLater")}
+								</Button>
+							</Grid>
+						)}
+					</Grid>
+				</Container>
+				{isMobile && (
+					<AppBar
+						color="inherit"
+						position="fixed"
+						sx={{ top: "auto", bottom: 0 }}
+					>
+						<Container
+							sx={{
+								paddingTop: theme.spacing(2),
+								paddingBottom: theme.spacing(2)
+							}}
 						>
-							<Button
+							<LoadingButton
 								fullWidth
 								tabIndex={0}
 								role="button"
 								type="button"
 								color="primary"
 								variant="contained"
+								loading={isSubmiting}
 								onClick={handleContinue}
+								sx={{ textTransform: "none" }}
 								aria-label={t("common:buttons.continue")}
-								sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
 							>
 								{selectedRecommendations.length > 0
 									? t("common:buttons.continue")
 									: t("common:buttons.selectRecommendations")}
-							</Button>
+							</LoadingButton>
 							<Button
 								fullWidth
 								role="link"
@@ -357,7 +425,7 @@ function RecommendationsPage() {
 								component={Link}
 								to={Pages.upgrade}
 								variant="outlined"
-								sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
+								sx={{ marginTop: theme.spacing(2), textTransform: "none" }}
 							>
 								{t("common:buttons.metaintroPro")}
 							</Button>
@@ -369,13 +437,13 @@ function RecommendationsPage() {
 								variant="text"
 								component={Link}
 								to={Links.metaintro}
-								sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
+								sx={{ marginTop: theme.spacing(2), textTransform: "none" }}
 							>
 								{t("common:buttons.maybeLater")}
 							</Button>
-						</Grid>
-					</Grid>
-				</Container>
+						</Container>
+					</AppBar>
+				)}
 			</React.Suspense>
 		);
 	}

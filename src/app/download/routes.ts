@@ -5,7 +5,7 @@ const routes: Page[] = [
 	{
 		title: "Download",
 		path: "/download",
-		component: React.lazy(() => import(/* webpackChunkName: 'download' */ "./page"))
+		element: React.lazy(() => import(/* webpackChunkName: 'download' */ "./page"))
 	}
 ];
 

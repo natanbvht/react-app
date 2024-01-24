@@ -5,7 +5,7 @@ const routes: Page[] = [
 	{
 		title: "Upgrade",
 		path: "/upgrade",
-		component: React.lazy(() => import(/* webpackChunkName: 'upgrade' */ "./page"))
+		element: React.lazy(() => import(/* webpackChunkName: 'upgrade' */ "./page"))
 	}
 ];
 

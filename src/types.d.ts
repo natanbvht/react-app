@@ -21,7 +21,7 @@ export interface Page extends RouteConfig {
 	mobile?: RouteConfig;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	provider?: ComponentType<any>;
-	component: ComponentType<RouteConfig>;
+	element: ComponentType<RouteConfig>;
 }
 
 export interface IpLocation {
@@ -38,4 +38,14 @@ export interface UTM {
 	content: string;
 	term: string;
 	search?: string;
+}
+
+export interface Recommendation {
+	_id: string;
+	sub: string;
+	cta?: string;
+	logo: string;
+	name: string;
+	sponsored?: boolean;
+	description: string;
 }

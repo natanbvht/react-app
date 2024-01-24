@@ -20,7 +20,7 @@ import { HashLinks } from "./config";
 const LegalPolicies = React.lazy(() => import("./app/@partials/legal-policies"));
 
 export const pages: Page[] = [
-	{ path: "/", component: Subscribe },
+	{ path: "/", element: Subscribe },
 	...PageDownload,
 	...Page404,
 	...PageSubscribe,
@@ -85,18 +85,21 @@ function AppRoutes() {
 							path="/"
 							element={<Subscribe />}
 						/>
-						{pages.map((page, pageIndex) =>
+						{pages.map(({ element: Element, provider: Provider, path, footer = true }, pageIndex) =>
 							languages.map(({ path: langPath }, langIndex) => (
 								<Route
 									key={`${pageIndex}-${langIndex}`}
-									path={`${langPath}${page.path}`}
+									path={`${langPath}${path}`}
 									element={
-										page.provider ? (
-											<page.provider>
-												<page.component />
-											</page.provider>
+										Provider ? (
+											<Provider>
+												<Element />
+											</Provider>
 										) : (
-											<page.component />
+											<>
+												<Element />
+												{footer && <Footer />}
+											</>
 										)
 									}
 								/>
@@ -109,7 +112,6 @@ function AppRoutes() {
 					</Routes>
 				</Box>
 			</React.Suspense>
-			<Footer />
 			{/* Hash Routes Popup */}
 			{/* Todo: find a better way to dynamically render hash based components
 				without using react router dom, doesn't need to be a spefic component
