@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import { Helmet } from "react-helmet";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/material/styles";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import AvatarGroup from "@mui/material/AvatarGroup";
-import { Stripe, getSessionId } from "../../config";
+import { Links, Keys, Stripe, getSessionId } from "../../config";
 import StripePricingTable from "../../components/StripePricingTable/StripePricingTable";
 
 // import useMediaQuery from "@mui/material/useMediaQuery";
@@ -120,10 +120,11 @@ function Upgrade() {
 	// const { extLink, formData } = usePageView();
 	const { t } = useTranslation(["upgrade", "common"]);
 	const isMobile = useMediaQuery(useTheme().breakpoints.down("sm"));
+	const name = (JSON.parse(sessionStorage.getItem(Keys.subscribe) || "{}") as { name?: string }).name || "";
+	const email = (JSON.parse(sessionStorage.getItem(Keys.subscribe) || "{}") as { email?: string }).email || "";
 	return (
 		<>
 			<Helmet>
-				{/* <title>{SEO.titlePretfix + SEO.delimeter + t("seo.title")}</title> */}
 				<meta
 					name="description"
 					content={t("seo.description")}
@@ -172,8 +173,9 @@ function Upgrade() {
 						}}
 					>
 						<Typography
-							variant={isMobile ? "h3" : "h2"}
+							gutterBottom
 							sx={typoStyleHeader}
+							variant={isMobile ? "h3" : "h2"}
 						>
 							{t("upgradeToPremium")}
 						</Typography>
@@ -196,6 +198,7 @@ function Upgrade() {
 							<Typography
 								variant="body1"
 								maxWidth={400}
+								gutterBottom
 							>
 								{t("accelerateYourCareer")}
 							</Typography>
@@ -207,17 +210,16 @@ function Upgrade() {
 							p: isMobile ? "0 0 2.6rem 0" : "0 0 4.5rem 0"
 						}}
 					>
-						{/* <StripePricingTable email={formData?.email} /> */}
 						<StripePricingTable
-							email="sd@gmai.com"
 							referenceId={getSessionId()}
 							publishableKey={Stripe.publishableKey}
 							pricingTableId={Stripe.pricingTableId}
+							email={(JSON.parse(sessionStorage.getItem(Keys.subscribe) || "{}") as { email?: string }).email || ""}
 						/>
 						<Button
 							fullWidth
-							// component={Link}
-							// to={extLink(metaintroBlogUrl)}
+							component={Link}
+							to={Links.metaintro}
 							variant={isMobile ? "contained" : "outlined"}
 							// onClick={() => posthog.capture(TrackingEvents.ClickedMaybeLater)}
 							sx={{
@@ -237,9 +239,7 @@ function Upgrade() {
 					/>
 				</Helmet>
 			</Box>
-
 			<Testimonials />
-
 			<Box
 				sx={{
 					backgroundColor: "#f1f5f9",
@@ -385,11 +385,12 @@ function Upgrade() {
 					</Typography>
 					<Button
 						id="book-now"
-						// component={Link}
+						component={Link}
 						variant="outlined"
 						aria-label={t("common:buttons.bookNow")}
+						target="_blank"
 						// onClick={() => posthog.capture(TrackingEvents.BookFreeConsultation)}
-						// to={`${extLink(metaintroFreeConsultationUrl)}&email=${formData?.email}&name=${formData?.name}`}
+						to={`${Links.freeConsolation}?email=${email}&name=${name}`}
 						sx={{
 							mt: 2,
 							height: "48px",
@@ -412,8 +413,8 @@ function Upgrade() {
 
 			<Box
 				sx={{
-					backgroundColor: "#fff"
-					// p: isMobile ? "2.6rem 0" : "4.5rem 0"
+					backgroundColor: "#fff",
+					p: isMobile ? "2.6rem 0" : "4.5rem 0"
 				}}
 			>
 				<Container maxWidth="lg">

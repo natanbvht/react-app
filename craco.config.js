@@ -14,7 +14,6 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlCriticalPlugin = require("html-critical-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const HtmlWebpackInjectPreload = require("@principalstudio/html-webpack-inject-preload");
 
 const mockApi = express();
@@ -72,7 +71,6 @@ function getPlugins() {
       const templateParameters = {
         preloadUsNsLocale: `<link rel="preload" as="fetch" href="./locales/en-US/${entry}.json" crossorigin="anonymous" />`,
       };
-
       return new HtmlWebpackPlugin({
         templateParameters,
         minify: htmlMinify,
@@ -232,18 +230,18 @@ function getOptimization() {
             },
           },
         }),
-        new ImageMinimizerPlugin({
-          minimizer: {
-            implementation: ImageMinimizerPlugin.squooshMinify,
-            options: {
-              encodeOptions: {
-                avif: { cqLevel: 0 },
-                webp: { lossless: 1 },
-                mozjpeg: { quality: 100 },
-              },
-            },
-          },
-        }),
+        // new ImageMinimizerPlugin({
+        //   minimizer: {
+        //     implementation: ImageMinimizerPlugin.squooshMinify,
+        //     options: {
+        //       encodeOptions: {
+        //         avif: { cqLevel: 0 },
+        //         webp: { lossless: 1 },
+        //         mozjpeg: { quality: 100 },
+        //       },
+        //     },
+        //   },
+        // }),
       ],
     };
   } else {

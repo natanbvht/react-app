@@ -103,7 +103,26 @@ function SubscribePage() {
 					// TODO: Log error
 					navigate(completedPagePath);
 				}
-				// regardless prefetch recommendations for the next step
+
+				/** Next Steps:
+				 * 1. Get Recommendations (prefetch)
+				 * 2. Load Stripe Pricing Table (pre-load/pre-connect)
+				 */
+				const stripeTag = document.createElement("link");
+				stripeTag.rel = "preconnect";
+				stripeTag.href = "https://js.stripe.comm";
+				stripeTag.crossOrigin = "anonymous";
+				document.head.appendChild(stripeTag);
+				const metaTag = document.createElement("link");
+				metaTag.rel = "preload";
+				metaTag.href = "https://js.stripe.com/v3/pricing-table.js";
+				metaTag.as = "script";
+				document.head.appendChild(metaTag);
+				const stripeMerchantTag = document.createElement("link");
+				stripeTag.rel = "preconnect";
+				stripeTag.href = "https://merchant-ui-api.stripe.com";
+				stripeTag.crossOrigin = "anonymous";
+				document.head.appendChild(stripeMerchantTag);
 				getRecommendations()
 					.then((res) => {
 						if (Array.isArray(res) && res.length > 0) {
@@ -117,7 +136,6 @@ function SubscribePage() {
 					});
 			}
 		};
-
 		handleSubscribe();
 	}, [formData, completedPagePath, navigate]);
 
@@ -144,7 +162,6 @@ function SubscribePage() {
 						lqipSrc="/assets/images/covers/Metaintro-Future-of-Work-lqip.webp"
 					/>
 				)}
-
 				{/* Desktop SideScreen Partial */}
 				{!isMobile && (
 					<Grid

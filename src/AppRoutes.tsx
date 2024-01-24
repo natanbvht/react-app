@@ -1,26 +1,27 @@
 /* eslint-disable no-console */
-import React from "react";
 import Box from "@mui/material/Box";
+import React from "react";
 import { Helmet } from "react-helmet";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Page } from "./types";
-import Footer from "./containers/Footer/Footer";
-import Toolbar from "./containers/Toolbar/Toolbar";
-import CSP from "./containers/CSP";
-import Subscribe from /* webpackPreload: true */ "./app/subscribe/page";
 import Element404 from "./app/404/page";
-import { languages, changeLanguage, getCurrentLanguage } from "./i18n";
 import Page404 from "./app/404/routes";
+import PageDownload from "./app/download/routes";
 import PageRecommendations from "./app/recommendations/routes";
+import Subscribe from /* webpackPreload: true */ "./app/subscribe/page";
 import PageSubscribe from "./app/subscribe/routes";
 import PageUpgrade from "./app/upgrade/routes";
-import PageDownload from "./app/download/routes";
 import { HashLinks } from "./config";
+import CSP from "./containers/CSP";
+import Footer from "./containers/Footer/Footer";
+import Toolbar from "./containers/Toolbar/Toolbar";
+import { changeLanguage, getCurrentLanguage, languages } from "./i18n";
+import { Page } from "./types";
 
 const LegalPolicies = React.lazy(() => import("./app/@partials/legal-policies"));
 
 export const pages: Page[] = [
 	{ path: "/", element: Subscribe },
+	{ path: "*", element: Element404 },
 	...PageDownload,
 	...Page404,
 	...PageSubscribe,
@@ -81,34 +82,42 @@ function AppRoutes() {
 					className="RoutesContentWrapper"
 				>
 					<Routes>
-						<Route
-							path="/"
-							element={<Subscribe />}
-						/>
-						{pages.map(({ element: Element, provider: Provider, path, footer = true }, pageIndex) =>
-							languages.map(({ path: langPath }, langIndex) => (
+						{pages.map(({ element: Element, provider: Provider, path, footer }, pageIndex) => {
+							const showFooter = footer !== false;
+							if (path !== "*") {
+								return languages.map(({ path: langPath }, langIndex) => (
+									<Route
+										key={`${pageIndex}-${langIndex}`}
+										path={`${langPath}${path}`}
+										element={
+											Provider ? (
+												<Provider>
+													<Element />
+													{showFooter && <Footer />}
+												</Provider>
+											) : (
+												<>
+													<Element />
+													{showFooter && <Footer />}
+												</>
+											)
+										}
+									/>
+								));
+							}
+							return (
 								<Route
-									key={`${pageIndex}-${langIndex}`}
-									path={`${langPath}${path}`}
+									path="*"
+									key={pageIndex}
 									element={
-										Provider ? (
-											<Provider>
-												<Element />
-											</Provider>
-										) : (
-											<>
-												<Element />
-												{footer && <Footer />}
-											</>
-										)
+										<React.Suspense fallback={<div>Loading...</div>}>
+											<Element />
+											{showFooter && <Footer />}
+										</React.Suspense>
 									}
 								/>
-							))
-						)}
-						<Route
-							path="*"
-							element={<Element404 />}
-						/>
+							);
+						})}
 					</Routes>
 				</Box>
 			</React.Suspense>

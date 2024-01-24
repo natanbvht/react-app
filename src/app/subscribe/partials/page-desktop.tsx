@@ -5,7 +5,6 @@ import { Box, Avatar, AvatarGroup, Typography } from "@mui/material";
 
 function DesktopSideScreen() {
 	const { t } = useTranslation(["subscribe", "common"]);
-
 	const theme = useTheme();
 	return (
 		<Box

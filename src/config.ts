@@ -74,7 +74,8 @@ export const Links = {
 	advertise: `${METAINTRO}/advertise`,
 	newsletter: `${METAINTRO}/newsletter`,
 	wallOfLove: `${METAINTRO}/wall-of-love`,
-	truestAndSafety: `${METAINTRO}/trust-and-safety`
+	truestAndSafety: `${METAINTRO}/trust-and-safety`,
+	freeConsolation: "https://calendly.com/metaintro/metaintro-pro-consultation"
 };
 
 export const SocialMedia = {

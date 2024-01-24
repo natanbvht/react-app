@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
-import "./page.scss";
+import AppBar from "@mui/material/AppBar";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
-import AppBar from "@mui/material/AppBar";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
 import Container from "@mui/material/Container";
@@ -27,6 +26,7 @@ import {
 	subscribeRecommendations
 } from /* webpackChunkName: "apiV1" */ "../../services/apiV1";
 import { Recommendation } from "../../types.d";
+import "./page.scss";
 
 const LoadingButton = React.lazy(() => import(/* webpackChunkName: "muilb" */ "@mui/lab/LoadingButton"));
 
