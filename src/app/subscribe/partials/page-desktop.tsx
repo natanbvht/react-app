@@ -114,10 +114,22 @@ function DesktopSideScreen() {
 							}
 						}}
 					>
-						<Avatar src="/assets/images/avatar-users/female-18.jpg" />
-						<Avatar src="/assets/images/avatar-users/female-11.jpg" />
-						<Avatar src="/assets/images/avatar-users/male-09.jpg" />
-						<Avatar src="/assets/images/avatar-users/male-16.jpg" />
+						<Avatar
+							src="/assets/images/avatar-users/female-18.jpg"
+							alt={`${t("imageOfFemale")} 1`}
+						/>
+						<Avatar
+							src="/assets/images/avatar-users/female-11.jpg"
+							alt={`${t("imageOfFemale")} 2`}
+						/>
+						<Avatar
+							src="/assets/images/avatar-users/male-09.jpg"
+							alt={`${t("imageOfMale")} 1`}
+						/>
+						<Avatar
+							src="/assets/images/avatar-users/male-16.jpg"
+							alt={`${t("imageOfMale")} 2`}
+						/>
 					</AvatarGroup>
 
 					<Box

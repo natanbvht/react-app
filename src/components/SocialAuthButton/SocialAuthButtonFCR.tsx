@@ -2,7 +2,7 @@ import React from "react";
 import { SxProps } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import Button, { ButtonProps } from "@mui/material/Button";
-import { FirebaseConfig } from "../../services/config";
+import { FirebaseConfig } from "../../config";
 import { languages } from "../../i18n";
 
 export enum AuthFlow {

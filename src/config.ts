@@ -1,25 +1,25 @@
-import { nanoid } from /* webpackChunkName: "nnid" */ "nanoid";
+import { nanoid } from /* webpackChunkName: "nanoid" */ "nanoid";
 
-export const METAINTRO = "https://www.metaintro.com";
 export enum Environments {
-	LOCALHOST = "localhost",
-	TEST = "test",
-	DEVELOPMENT = "development",
 	UAT = "uat",
-	PRODUCTION = "production"
+	TEST = "test",
+	LOCALHOST = "localhost",
+	PRODUCTION = "production",
+	DEVELOPMENT = "development"
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
-export const isLocalhost = window.location.hostname === Environments.LOCALHOST;
-export const isDev = window?.location?.hostname?.includes("dev");
-export const isUat = window?.location?.hostname?.includes("uat");
-export const isProd = !isLocalhost && !isDev && !isUat;
+export const MOCK_API_FLAG = false;
+export const MOCK_API_DEBUG = false;
+export const METAINTRO = "https://www.metaintro.com";
+export const IS_LOCALHOST = window?.location?.hostname === (Environments.LOCALHOST as string);
+export const IS_DEV = window?.location?.hostname?.includes("dev");
+export const IS_UAT = window?.location?.hostname?.includes("uat");
+export const IS_PROD = !IS_LOCALHOST && !IS_DEV && !IS_UAT;
 
-const userAgentString = navigator.userAgent;
 export const Client = {
-	isChrome: userAgentString.includes("Chrome"),
-	isFirefox: userAgentString.includes("Firefox"),
-	isSafari: Boolean(!userAgentString.includes("Chrome") && userAgentString.includes("Safari"))
+	isChrome: navigator.userAgent.includes("Chrome"),
+	isFirefox: navigator.userAgent.includes("Firefox"),
+	isSafari: Boolean(!navigator.userAgent.includes("Chrome") && navigator.userAgent.includes("Safari"))
 };
 
 export const Stripe = {
@@ -56,6 +56,8 @@ export const HashLinks = {
 };
 
 export const Keys = {
+	cc: "cc",
+	utm: "utm",
 	subscribe: "subscribe",
 	sessionId: "sessionId",
 	recommendations: "recommendations"
@@ -84,9 +86,9 @@ export const SocialMedia = {
 };
 
 export function getEnv(): Environments {
-	if (isLocalhost) return Environments.LOCALHOST;
-	if (isDev) return Environments.DEVELOPMENT;
-	if (isUat) return Environments.UAT;
+	if (IS_LOCALHOST) return Environments.LOCALHOST;
+	if (IS_DEV) return Environments.DEVELOPMENT;
+	if (IS_UAT) return Environments.UAT;
 	return Environments.PRODUCTION;
 }
 

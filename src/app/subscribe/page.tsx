@@ -19,7 +19,7 @@ import AutocompleteTextField from "../../components/AutocompleteTextField/Autoco
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
 import { languages } from "../../i18n";
 import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
-import { Client, Pages, Seo, HashLinks, Keys } from "../../services/config";
+import { Client, Pages, Seo, HashLinks, Keys } from "../../config";
 import { PagePartials, SocialAuthButtons } from "./lazy";
 
 interface AppleAuthResponse {
@@ -189,7 +189,7 @@ function SubscribePage() {
 							className="SubscribeSubTitle"
 							align={isMobile ? "center" : "left"}
 						>
-							{t("join400K")}
+							{t("join500K")}
 						</Typography>
 
 						<form
@@ -259,7 +259,7 @@ function SubscribePage() {
 								mb: objectSpacing,
 								lineHeight: "1.75",
 								letterSpacing: "0.02857em",
-								color: theme.palette.grey[600]
+								color: theme.palette.grey[800]
 							}}
 						>
 							{t("orContinueWith")}
@@ -361,7 +361,10 @@ function SubscribePage() {
 								{expanded ? `${t("common:buttons.lessSocialLogins")}` : `${t("common:buttons.moreSocialLogins")}`}
 							</Button>
 						</Box>
-						<Typography className="LegalNotice">
+						<Typography
+							className="LegalNotice"
+							color={theme.palette.grey[800]}
+						>
 							{t("bySigninUp")} <a href={HashLinks.privacyPolicy}>{t("privacyPolicy")}</a>
 							{", "}
 							{t("and")} <a href={HashLinks.termsOfService}>{t("termsOfService")}</a>.

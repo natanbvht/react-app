@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import LinksColumn from "./LinksColumn/LinksColumn";
 import MetaintroIcon from "../../components/Icons/Metaintro";
 import { FooterLinks } from "./types.d";
-import { Links, HashLinks, SocialMedia } from "../../services/config";
+import { Links, HashLinks, SocialMedia } from "../../config";
 
 const links: FooterLinks = {
 	socials: {

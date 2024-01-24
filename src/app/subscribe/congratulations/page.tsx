@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, Link } from "react-router-dom";
 import AchivementIcon from "../../../components/Icons/Achivement";
 import { languages } from "../../../i18n";
-import { Pages } from "../../../services/config";
+import { Pages } from "../../../config";
 import "./page.scss";
 
 function Congratulations() {

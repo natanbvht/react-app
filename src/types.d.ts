@@ -5,6 +5,7 @@ declare module "*.scss" {
 	export default content;
 }
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 export type Route<T = string> = string;
 export type PathName = Route<string>;
 
@@ -21,4 +22,20 @@ export interface Page extends RouteConfig {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	provider?: ComponentType<any>;
 	component: ComponentType<RouteConfig>;
+}
+
+export interface IpLocation {
+	city?: string;
+	state?: string;
+	country?: string;
+	countryCode?: string;
+}
+
+export interface UTM {
+	source: string;
+	medium: string;
+	campaign: string;
+	content: string;
+	term: string;
+	search?: string;
 }

@@ -24,7 +24,7 @@ import {
 	getRecommendations,
 	subscribeRecommendations
 } from "../../services/apiV1" /* webpackChunkName: "apiV1" */;
-import { Keys, Links, Pages, Seo } from "../../services/config";
+import { Keys, Links, Pages, Seo } from "../../config";
 
 interface RecommendationItemProps extends Recommendation {
 	selectedRecommendations?: string[];

@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import AvatarGroup from "@mui/material/AvatarGroup";
-import { Stripe, getSessionId } from "../../services/config";
+import { Stripe, getSessionId } from "../../config";
 import StripePricingTable from "../../components/StripePricingTable/StripePricingTable";
 
 // import useMediaQuery from "@mui/material/useMediaQuery";
@@ -196,7 +196,7 @@ function Upgrade() {
 									/>
 								))}
 							</AvatarGroup>
-							<Typography variant="h5">{isMobile ? t("trustedBy400kShort") : t("trustedBy400k")}</Typography>
+							<Typography variant="h5">{isMobile ? t("trustedBy500kShort") : t("trustedBy500k")}</Typography>
 							<Typography
 								variant="body1"
 								maxWidth={400}

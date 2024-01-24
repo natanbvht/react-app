@@ -15,7 +15,7 @@ import PageRecommendations from "./app/recommendations/routes";
 import PageSubscribe from "./app/subscribe/routes";
 import PageUpgrade from "./app/upgrade/routes";
 import PageDownload from "./app/download/routes";
-import { HashLinks } from "./services/config";
+import { HashLinks } from "./config";
 
 const LegalPolicies = React.lazy(() => import("./app/@partials/legal-policies"));
 
