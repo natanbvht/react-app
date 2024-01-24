@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { nanoid } from "nanoid";
 import { Environments, getEnv } from "./config";
@@ -17,6 +18,7 @@ export type ApiResult = ApiSuccess | ApiError;
 
 const API_V1 = "/api/v1";
 const MAX_TIMEOUT = 5000;
+const MOCK_API_DEBUG = false;
 const MOCK_API_FLAG = getEnv() !== Environments.LOCALHOST;
 const API_HOST = getEnv() === Environments.PRODUCTION ? "https://api.metronai.com" : "http://localhost:8080";
 
@@ -43,6 +45,7 @@ function getMockResponse<T>(config: AxiosRequestConfig, error: boolean = false):
 	const method = config.method || "get";
 	const basePath = config.url?.replace(API_HOST, "").replace(/\//g, "-").replace(/^-/, "") || "default";
 	const jsonFileName = `${basePath}-${method.toLowerCase()}.json`;
+	if (MOCK_API_DEBUG) console.debug(`Mocking ${method} ${config.url} with ${jsonFileName}`);
 
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 	return (
@@ -73,6 +76,7 @@ async function apiV1<T>(options: AxiosRequestConfig, mockError: boolean = false)
 
 	if (MOCK_API_FLAG) {
 		const mockData = await getMockResponse<T>(mergedOptions, mockError);
+		if (MOCK_API_DEBUG) console.debug("Mock data", mockData);
 		return Promise.resolve(mockData as AxiosResponse<T>);
 	}
 	return axios(mergedOptions);

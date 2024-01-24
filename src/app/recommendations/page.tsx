@@ -164,9 +164,12 @@ function RecommendationsPage() {
 	const [recommendations, setRecommendations] = React.useState<Recommendation[]>(
 		() => JSON.parse(sessionStorage.getItem(Keys.recommendations) || "[]") as Recommendation[]
 	);
-	const [selectedRecommendations, setSelectedRecommendations] = React.useState<string[]>(
-		recommendations.map((res: Recommendation) => res.sub)
-	);
+	const [selectedRecommendations, setSelectedRecommendations] = React.useState<string[]>(() => {
+		const cachedRecs = sessionStorage.getItem(Keys.recommendations);
+		if (!cachedRecs || cachedRecs.length === 0) return [];
+		const selectedRecs = JSON.parse(cachedRecs) as Recommendation[];
+		return selectedRecs.map((rec: Recommendation) => rec.sub);
+	});
 
 	const handleSwitchChange = (recommendationId: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
 		const isChecked = event.target.checked;
@@ -184,11 +187,11 @@ function RecommendationsPage() {
 	};
 
 	const handleToggleAll = () => {
-		if (selectedRecommendations?.length === recommendations?.length) {
+		if (selectedRecommendations?.length === recommendations.length) {
 			setSelectedRecommendations([]);
 			//   posthog.capture(TrackingEvents.ClickedDeselectAllAffiliates);
 		} else {
-			const allRecommendationIds = recommendations?.map((recommendation) => recommendation.sub);
+			const allRecommendationIds = recommendations.map((recommendation) => recommendation.sub);
 			//   posthog.capture(TrackingEvents.ClickedSelectAllAffiliates);
 			setSelectedRecommendations(allRecommendationIds);
 		}
@@ -245,7 +248,7 @@ function RecommendationsPage() {
 					setSelectedRecommendations(cachedRecommendations.map((res: Recommendation) => res.sub));
 				}
 				// Analytics: Track viewed recommendations (Impressions)
-				// recommendations?.forEach((rec: Recommendation) => {
+				// recommendations.forEach((rec: Recommendation) => {
 				// 	posthog?.capture(TrackingEvents.ViewedAffiliate, {
 				// 		uuid: rec?._id,
 				// 		sub: rec?.sub,

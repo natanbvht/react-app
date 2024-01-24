@@ -106,7 +106,11 @@ function SubscribePage() {
 				// regardless prefetch recommendations for the next step
 				getRecommendations()
 					.then((res) => {
-						sessionStorage.setItem(Keys.recommendations, JSON.stringify(res));
+						if (Array.isArray(res) && res.length > 0) {
+							sessionStorage.setItem(Keys.recommendations, JSON.stringify(res));
+						} else {
+							console.error("Failed to get recommendations", res);
+						}
 					})
 					.catch((error) => {
 						console.error("Failed to get recommendations", error);
