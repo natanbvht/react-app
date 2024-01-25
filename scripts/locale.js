@@ -4,7 +4,7 @@ const fs = require("fs");
 const OpenAI = require("openai");
 const config = require("./config.js");
 
-const openai = new OpenAI({ apiKey: config.API_KEY });
+const openai = new OpenAI({ apiKey: config.OPENAI_API_KEY });
 
 async function testOpenAIConnection() {
   try {
@@ -22,7 +22,7 @@ async function testOpenAIConnection() {
   }
 }
 
-async function translateJSON(jsonFile, language) {
+async function translateJSON(jsonFileContent, language) {
   try {
     const completion = await openai.chat.completions.create({
       messages: [
@@ -32,7 +32,7 @@ async function translateJSON(jsonFile, language) {
         },
         {
           role: "user",
-          content: `${jsonFile}`,
+          content: `${jsonFileContent}`,
         },
       ],
       model: "gpt-3.5-turbo",
@@ -45,13 +45,51 @@ async function translateJSON(jsonFile, language) {
   }
 }
 
-async function translateAllFiles(files, languages) {
+async function translateMarkdown(markdownFileContent, language) {
+  try {
+    const completion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "system",
+          content: `You will be provided with a markdown file content in English, and your task is to translate it into ${language}. Retain the markdown formatting, hyperlinks, and all functional elements; only translate the textual content.`,
+        },
+        {
+          role: "user",
+          content: `${markdownFileContent}`,
+        },
+      ],
+      model: "gpt-3.5-turbo-16k",
+    });
+    const translatedContent = completion.choices[0].message.content;
+    return translatedContent;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+async function translateAllJSONFiles(files, languages) {
   const translationPromises = files.flatMap(({ name, content }) =>
     languages.map((language) =>
       translateJSON(content, language).then((translatedJson) => {
         const outputPath = `./public/locales/${language}/${name}`;
         fs.mkdirSync(`./public/locales/${language}`, { recursive: true }); // Ensure the directory exists
         fs.writeFileSync(outputPath, JSON.stringify(translatedJson, null, 2));
+        console.log(`Translated ${name} into ${language}`);
+      })
+    )
+  );
+
+  await Promise.all(translationPromises);
+}
+
+async function translateAllMarkdowFiles(files, languages) {
+  const translationPromises = files.flatMap(({ name, content }) =>
+    languages.map((language) =>
+      translateMarkdown(content, language).then((translatedMarkdown) => {
+        const outputPath = `./public/md/${language}/${name}`;
+        fs.mkdirSync(`./public/md/${language}`, { recursive: true }); // Ensure the directory exists
+        fs.writeFileSync(outputPath, translatedMarkdown);
         console.log(`Translated ${name} into ${language}`);
       })
     )
@@ -87,13 +125,20 @@ async function main() {
     console.log("en-US/common.json loaded");
 
     // 4. Load all English locale files
-    const enFiles = fs.readdirSync("./public/locales/en-US").map((fileName) => ({
+    const enJSONFiles = fs.readdirSync("./public/locales/en-US").map((fileName) => ({
       name: fileName,
       content: fs.readFileSync(`./public/locales/en-US/${fileName}`, "utf8"),
     }));
 
-    await translateAllFiles(enFiles, languages);
+    // 5. Load all English markdown files
+    const enMarkdownFiles = fs.readdirSync("./public/md/en-US").map((fileName) => ({
+      name: fileName,
+      content: fs.readFileSync(`./public/md/en-US/${fileName}`, "utf8"),
+    }));
 
+    await translateAllJSONFiles(enJSONFiles, languages);
+    // await translateAllMarkdowFiles(enMarkdownFiles, languages);
+  
     console.log("All translations completed successfully.");
     process.exit(0); // Successful exit
   } catch (error) {

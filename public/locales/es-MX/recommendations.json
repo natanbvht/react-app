@@ -1,3 +1,8 @@
 {
-  "youMightAlsoLike": "Tal vez también te guste"
+  "youMightAlsoLike": "Tal vez también te guste",
+  "seo": {
+    "title": "Tal vez también te guste",
+    "description": "Bienvenido a Metaintro, tal vez también te gusten nuestros socios y sus productos.",
+    "keywords": "metaintro, tal vez también te guste, socios, productos"
+  }
 }

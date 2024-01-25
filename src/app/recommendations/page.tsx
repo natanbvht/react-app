@@ -18,7 +18,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
-import { Keys, Links, Pages, Seo } from "../../config";
+import { Keys, HashLinks, Links, Pages, Seo } from "../../config";
 import { SubscribePageFormData } from "../../context/SubscribePage/SubscribePage";
 import {
 	SubscribeRecommendationsData,
@@ -205,10 +205,16 @@ function RecommendationsPage() {
 
 	const handleContinue = async () => {
 		try {
-			setIsSubmiting(true);
 			const subscribeSession = JSON.parse(
 				sessionStorage.getItem(Keys.subscribe) || "{}"
 			) as SubscribePageFormData | null;
+
+			if (!subscribeSession?.email) {
+				navigate(HashLinks.reqInfo);
+				return;
+			}
+
+			setIsSubmiting(true);
 			if (selectedRecommendations.length > 0 && subscribeSession?.email) {
 				const body: SubscribeRecommendationsData[] = [
 					{
@@ -396,7 +402,7 @@ function RecommendationsPage() {
 					<AppBar
 						color="inherit"
 						position="fixed"
-						sx={{ top: "auto", bottom: 0 }}
+						sx={{ top: "auto", bottom: 0, borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
 					>
 						<Container
 							sx={{

@@ -51,7 +51,7 @@ function Footer() {
 	const { t } = useTranslation();
 
 	return (
-		<footer>
+		<footer className="border-top">
 			<Container
 				maxWidth="lg"
 				className="Footer"

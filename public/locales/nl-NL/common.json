@@ -1,6 +1,10 @@
 {
+  "cookiePolicy": "Cookiebeleid",
+  "privacyPolicy": "Privacybeleid",
+  "termsOfService": "Algemene voorwaarden",
   "buttons": {
     "bookNow": "Nu boeken",
+    "close": "Sluiten",
     "continue": "Doorgaan",
     "continueWithApple": "Doorgaan met Apple",
     "continueWithFacebook": "Doorgaan met Facebook",
@@ -17,25 +21,26 @@
     "metaintroPro": "Metaintro Pro",
     "moreSocialLogins": "Meer sociale logins",
     "selectAll": "Alles selecteren",
-    "selectNone": "Niks selecteren",
+    "selectNone": "Niets selecteren",
+    "selectRecommendations": "Aanbevelingen selecteren",
     "signUp": "Aanmelden",
     "upgradeNow": "Nu upgraden",
     "yes": "Ja"
   },
   "disclaimers": {
     "howWeUseYourInformation": {
-      "contactInfo": "We gebruiken uw contactgegevens voor updates over abonnementen en Metaintro-nieuws en -vacatures.",
-      "prefill": "We kunnen uw contactgegevens vooraf invullen vanuit verschillende bronnen voor gemakkelijkere registratie. U kunt deze gegevens bewerken of verwijderen. Vooraf ingevulde contactgegevens kunnen afkomstig zijn van:",
-      "thirdParty": "Diensten van derden die we gebruiken, kunnen informatie verzamelen voor hun eigen doeleinden. Bekijk hun privacybeleid voor details.",
-      "thisForm": "We verzamelen informatie die u verstrekt (zoals naam en e-mail) en apparaatinformatie (zoals IP-adres) om onze diensten te verbeteren en doelgerichte advertenties te leveren. We gebruiken uw contactgegevens voor updates over abonnementen, Metaintro-nieuws, e-mailnieuwsbrieven, vacaturemeldingen en advertenties.",
+      "contactInfo": "We gebruiken uw contactgegevens voor updates van abonnementen en Metaintro nieuws en vacatures.",
+      "prefill": "We kunnen uw contactgegevens vooraf invullen vanuit diverse bronnen om de registratie te vergemakkelijken. U kunt dit bewerken of verwijderen. Vooraf ingevulde contactgegevens kunnen afkomstig zijn van:",
+      "thirdParty": "Diensten van derden die we gebruiken, kunnen informatie verzamelen voor hun eigen doeleinden. Raadpleeg hun privacybeleid voor details.",
+      "thisForm": "We verzamelen informatie die u verstrekt (zoals naam en e-mail) en apparaatinformatie (zoals IP-adres) om onze services te verbeteren en gerichte advertenties te leveren. We gebruiken uw contactgegevens voor updates van abonnementen, Metaintro nieuws, e-mailnieuwsbrieven, vacaturemeldingen en advertenties.",
       "title": "Hoe gebruiken wij uw informatie?",
-      "unsubscribe": "U kunt zich te allen tijde afmelden voor doelgerichte advertenties en u uitschrijven voor onze marketing-e-mails. In elke e-mail die u van Metaintro ontvangt, staat een optie Uitschrijven in de voettekst, zoals vereist door de wet.",
-      "updateDisclaimer": "We kunnen deze disclaimer op elk moment bijwerken, dus bekijk hem regelmatig."
+      "unsubscribe": "U kunt zich op elk moment afmelden voor gerichte advertenties en uitschrijven voor onze marketinge-mails. In elke e-mail die u van Metaintro ontvangt, is er een optie Afmelden in de footer, zoals wettelijk vereist.",
+      "updateDisclaimer": "We kunnen deze disclaimer op elk moment bijwerken, dus bekijk deze regelmatig."
     }
   },
   "errors": {
     "invalidEmailAddress": "Voer een geldig e-mailadres in",
-    "invalidEmailAddressLatin": "Voer alleen een geldig e-mailadres in met Latijnse tekens (a-z, A-Z, 0-9)"
+    "invalidEmailAddressLatin": "Voer een geldig e-mailadres in met alleen Latijnse tekens (a-z, A-Z, 0-9)"
   },
   "footer": {
     "about": "Over",
@@ -44,23 +49,28 @@
     "community": "Community",
     "company": "Bedrijf",
     "events": "Evenementen",
-    "explore": "Verkennen",
+    "explore": "Ontdekken",
     "jobs": "Vacatures",
-    "join500k": "Sluit u aan bij meer dan 500.000 professionals die een voorsprong hebben in de arbeidsmarkt. Sluit u vandaag aan bij de toekomst van werk!",
+    "social": "Sociale media",
+    "discord": "Discord",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "youtube": "YouTube",
+    "join500k": "Sluit u aan bij meer dan 500K+ professionals die een voorsprong hebben genomen op de arbeidsmarkt. Sluit u vandaag nog aan bij de toekomst van het werk!",
     "newsletter": "Nieuwsbrief",
-    "professionalResumeWallet": "Professionele cv-portemonnee",
+    "professionalResumeWallet": "Professionele CV-portemonnee",
     "remoteJobs": "Op afstand werken",
     "resources": "Bronnen",
     "support": "Ondersteuning",
-    "tagline": "Verbeeld de toekomst van werk",
-    "termsOfService": "Servicevoorwaarden",
-    "truestAndSafety": "Vertrouwen en veiligheid",
-    "wallOfLove": "Muur van liefde",
+    "tagline": "Stel de toekomst van het werk opnieuw voor",
+    "termsOfService": "Algemene voorwaarden",
+    "truestAndSafety": "Vertrouwen & Veiligheid",
+    "wallOfLove": "Muur van Liefde",
     "web3Jobs": "Web3 Vacatures",
     "workWithUs": "Werk met ons"
   },
   "messages": {
-    "boostYourCareer": "Geef uw carrière een boost met een premium plan dat is afgestemd op uw ambities en behoeften.",
+    "boostYourCareer": "Versterk uw carrière met een premium plan dat is afgestemd op uw ambities en behoeften.",
     "differentLanguage": "👋🏽 We zien dat u Metaintro in een andere taal gebruikt. Wilt u overschakelen naar",
     "error": "Er is een fout opgetreden, probeer het opnieuw.",
     "loading": "Laden...",
@@ -70,7 +80,7 @@
     "discord": "Klik hier om lid te worden van onze Discord-server",
     "facebook": "Klik hier om onze Facebook-pagina te bezoeken",
     "instagram": "Klik hier om onze Instagram-pagina te bezoeken",
-    "x": "Klik hier om onze X (voorheen Twitter) pagina te bezoeken",
+    "x": "Klik hier om onze X-pagina (voorheen Twitter) te bezoeken",
     "youtube": "Klik hier om ons YouTube-kanaal te bezoeken"
   }
 }

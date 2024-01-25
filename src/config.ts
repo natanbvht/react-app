@@ -16,6 +16,17 @@ export const IS_DEV = window?.location?.hostname?.includes("dev");
 export const IS_UAT = window?.location?.hostname?.includes("uat");
 export const IS_PROD = !IS_LOCALHOST && !IS_DEV && !IS_UAT;
 
+// TODO: Set from ENV
+export const Secrets = {
+	posthog: "phc_MLRXdlQVQUOlK61toaRaEJMLBcBbed02ZThpwhyS6ek"
+};
+
+export const GA = {
+	webStream: "G-VM6WPRTXRH",
+	containerTag: "GTM-PVPXJMV4",
+	adsConversionTracking: "AW-11394737567"
+};
+
 export const Client = {
 	isChrome: navigator.userAgent.includes("Chrome"),
 	isFirefox: navigator.userAgent.includes("Firefox"),
@@ -50,6 +61,7 @@ export const Pages = {
 };
 
 export const HashLinks = {
+	reqInfo: "#req-info",
 	cookiePolicy: "#cookie-policy",
 	privacyPolicy: "#privacy-policy",
 	termsOfService: "#terms-of-service"

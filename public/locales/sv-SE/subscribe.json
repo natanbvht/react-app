@@ -1,39 +1,41 @@
 {
-  "workInWeb3AIToday": "Jobba med Web3 och AI idag 🚀",
-  "join500K": "Gå med i 500 000+ yrkesverksamma och få vårt tri-veckovisa nyhetsbrev med de högst betalande jobben inom web3 och AI",
+  "workInWeb3AIToday": "Jobba inom Web3 & AI idag 🚀",
+  "join500K": "Gå med i över 500 000 yrkesverksamma och få vårt tredagarsnyhetsbrev med de mest välbetalda jobben inom web3 & AI",
   "contactInformation": "Kontaktinformation",
   "name": "Namn",
   "email": "E-post",
-  "orContinueWith": "Eller fortsätta med",
-  "bySigninUp": "Genom att registrera dig samtycker du till våra",
+  "orContinueWith": "Eller fortsätt med",
+  "bySigninUp": "Genom att registrera dig godkänner du våra",
   "termsOfService": "Användarvillkor",
   "and": "och",
-  "privacyPolicy": "Sekretesspolicy",
-  "cookiePolicy": "Cookie-policy",
+  "privacyPolicy": "Integritetspolicy",
+  "cookiePolicy": "Cookiepolicy",
   "welcomeTo": "Välkommen till",
-  "ourNewsletter": "vår nyhetsbrev",
-  "metaintroHelpedThousands": "Metaintro har hjälpt tusentals yrkesverksamma att hitta sina drömjobb inom Web3 och A.I. Anslut dig till oss och bli anställd snabbare.",
-  "trustedBy500k": "Förtroende från 500 000+ yrkesverksamma",
+  "ourNewsletter": "vårt nyhetsbrev",
+  "metaintroHelpedThousands": "Metaintro har hjälpt tusentals yrkesverksamma att hitta sina drömjobb inom Web3 och A.I. Gå med oss och bli anställd snabbare.",
+  "trustedBy500k": "Pålitlig av över 500 000 yrkesverksamma",
+  "imageOfMale": "Bild av man",
+  "imageOfFemale": "Bild av kvinna",
   "messages": {
-    "congratulations": "Gratulerar! 🎉",
-    "youveSubscribed": "Du har prenumererat! Besök vår hemsida för att utforska de bästa jobben inom Web3 och A.I.",
-    "visitOurWebsite": "Besök vår hemsida för att utforska de bästa jobben inom Web3 och A.I.",
+    "congratulations": "Grattis! 🎉",
+    "youveSubscribed": "Du har prenumererat! Besök vår webbplats för att utforska de bästa jobben inom Web3 och A.I.",
+    "visitOurWebsite": "Besök vår webbplats för att utforska de bästa jobben inom Web3 och A.I.",
     "pleaseCheckYourEmail": "Vänligen kontrollera din e-post för att bekräfta din prenumeration.",
-    "followUp": "Metaintro kan kontakta dig för uppföljning."
+    "followUp": "Metaintro kan kontakta dig för att följa upp."
   },
   "cta": {
     "getStartedHere": "Kom igång här"
   },
   "errors": {
     "nameMustBeAtLeast": "Namnet måste vara minst 2 tecken långt",
-    "emailMustBeAtLeast": "E-posten måste vara minst 3 tecken lång",
-    "emailMustIncludeAt": "E-posten måste innehålla tecknet '@'",
-    "emailMustIncludePeriod": "E-posten måste innehålla tecknet '.'",
-    "emailMustBeLatin": "E-posten måste vara i latinska tecken"
+    "emailMustBeAtLeast": "E-postadressen måste vara minst 3 tecken lång",
+    "emailMustIncludeAt": "E-postadressen måste innehålla ett '@'-tecken",
+    "emailMustIncludePeriod": "E-postadressen måste innehålla en '.'-symbol",
+    "emailMustBeLatin": "E-postadressen måste vara med latinska tecken"
   },
   "seo": {
     "title": "Prenumerera på vårt nyhetsbrev",
-    "description": "Gå med i 500 000+ yrkesverksamma och få vårt tri-veckovisa nyhetsbrev med de högst betalande jobben inom web3 och AI",
-    "keywords": "prenumerera, metaintro prenumerera, web3, web3 jobb, web3 karriärer, web3 nyhetsbrev, web3 jobb nyhetsbrev, web3 karriär nyhetsbrev, web3 nyhetsbrev prenumeration, web3 jobb nyhetsbrev prenumeration, web3 karriär nyhetsbrev prenumeration, web3 nyhetsbrev anmälan, web3 jobb nyhetsbrev anmälan, web3 karriär nyhetsbrev anmälan, web3 nyhetsbrev registrering, web3 jobb nyhetsbrev registrering, web3 karriär nyhetsbrev registrering, web3 nyhetsbrev prenumera, web3 jobb nyhetsbrev prenumera, web3 karriär nyhetsbrev prenumera, web3 nyhetsbrev prenumeration, web3 jobb nyhetsbrev"
+    "description": "Gå med i över 500 000 yrkesverksamma och få vårt tredagarsnyhetsbrev med de mest välbetalda jobben inom web3 & AI",
+    "keywords": "prenumerera, metaintro prenumera, web3, web3 jobb, web3 karriär, web3 nyhetsbrev, web3 jobb nyhetsbrev, web3 karriär nyhetsbrev, web3 nyhetsbrev prenumeration, web3 jobb nyhetsbrev prenumeration, web3 karriär nyhetsbrev prenumeration, web3 nyhetsbrev anmälan, web3 jobb nyhetsbrev anmälan, web3 karriär nyhetsbrev anmälan, web3 nyhetsbrev registrering, web3 jobb nyhetsbrev registrering, web3 karriär nyhetsbrev registrering, web3 nyhetsbrev prenumerera, web3 jobb nyhetsbrev prenumerera, web3 karriär nyhetsbrev prenumerera, web3 nyhetsbrev prenumeration, web3 jobb nyhetsbrev"
   }
 }

@@ -195,3 +195,5 @@ We reserve the right to change this Privacy Policy at any time. If we propose to
 ### 15. MINORS AND CHILDREN
 
 Our Services and the Websites are not intended for use by persons under the age of 18 years. Metaintro does not knowingly collect or solicit Personal Data from anyone under the age of 13 or knowingly allow such persons to register to use our Website. In the event that we learn that we have collected Personal Data of a child under the age of 13, we will delete that data to the extent required by applicable law as quickly as possible. If you believe that we might have any Personal Data from or about a child under 18, please contact us at [admin@metaintro.com](mailto:admin@metaintro.com).
+
+We warmly welcome you to our site! By continuing to use our site, you're acknowledging and agreeing to our [Terms of Service](/#terms-of-service), [Privacy Policy](/#privacy-policy), and [Cookie Policy](/#cookie-policy). If you find yourself not in agreement with these terms, we kindly ask that you exit the site. Thank you for your understanding.

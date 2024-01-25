@@ -1,7 +1,11 @@
 // scripts/config.js
 "use strict";
 const path = require("path");
+const dotenv = require("dotenv");
 const CYPRESS = "../cypress/downloads/sitemap.json";
+
+dotenv.config();
+
 const ignorePaths = [
   "/cb", // Apple CB
   "/404",
@@ -27,4 +31,4 @@ module.exports.ENGLIGH_LOCALE_PATH = path.join(
   __dirname,
   "../public/locales/en-US/common.json"
 );
-module.exports.API_KEY = "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";
+module.exports.OPENAI_API_KEY = process.env.OPENAI_API_KEY;

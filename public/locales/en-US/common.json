@@ -1,6 +1,10 @@
 {
+  "cookiePolicy": "Cookie Policy",
+  "privacyPolicy": "Privacy Policy",
+  "termsOfService": "Terms of Service",
   "buttons": {
     "bookNow": "Book Now",
+    "close": "Close",
     "continue": "Continue",
     "continueWithApple": "Continue with Apple",
     "continueWithFacebook": "Continue with Facebook",

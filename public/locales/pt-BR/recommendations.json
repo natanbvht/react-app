@@ -1,3 +1,8 @@
 {
-  "youMightAlsoLike": "Você também pode gostar"
+  "youMightAlsoLike": "Você também pode gostar",
+  "seo": {
+    "title": "Você também pode gostar",
+    "description": "Bem-vindo ao Metaintro, você também pode gostar dos nossos parceiros e seus produtos.",
+    "keywords": "metaintro, você também pode gostar, parceiros, produtos"
+  }
 }

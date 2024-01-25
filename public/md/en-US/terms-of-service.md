@@ -209,3 +209,5 @@ Your use of the Services includes the ability to enter into agreements and or to
 E. Miscellaneous
 
 Any waiver of any provision of these Terms of Service will be effective only if in writing and signed by Metaintro. No failure by Metaintro to exercise, or to delay in exercising, any rights hereunder shall operate as a waiver hereof, nor shall any single or partial exercise of any right hereunder by Metaintro preclude any other or future exercise of that right or any other right hereunder by Metaintro. If any provision of these Terms of Service is held invalid or unenforceable by a court of competent jurisdiction, such invalidity shall not affect the validity or operation of any other provision and such invalid provision shall be deemed to be severed from these Terms of Service.
+
+We warmly welcome you to our site! By continuing to use our site, you're acknowledging and agreeing to our [Terms of Service](/#terms-of-service), [Privacy Policy](/#privacy-policy), and [Cookie Policy](/#cookie-policy). If you find yourself not in agreement with these terms, we kindly ask that you exit the site. Thank you for your understanding.

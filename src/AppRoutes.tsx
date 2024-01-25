@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import Box from "@mui/material/Box";
 import React from "react";
 import { Helmet } from "react-helmet";
@@ -7,31 +6,30 @@ import Element404 from "./app/404/page";
 import Page404 from "./app/404/routes";
 import PageDownload from "./app/download/routes";
 import PageRecommendations from "./app/recommendations/routes";
-import Subscribe from /* webpackPreload: true */ "./app/subscribe/page";
+import Subscribe from "./app/subscribe/page";
 import PageSubscribe from "./app/subscribe/routes";
 import PageUpgrade from "./app/upgrade/routes";
+import PageLoader from "./components/PageLoader/PageLoader";
 import { HashLinks } from "./config";
 import CSP from "./containers/CSP";
 import Footer from "./containers/Footer/Footer";
 import Toolbar from "./containers/Toolbar/Toolbar";
 import { changeLanguage, getCurrentLanguage, languages } from "./i18n";
 import { Page } from "./types";
-import PageLoader from "./components/PageLoader/PageLoader";
 
-const LegalPolicies = React.lazy(() => import("./app/@partials/legal-policies"));
+const RequestInfo = React.lazy(() => import(/* webpackChunkName: 'p-ri' */ "./app/@partials/request-info"));
+const LegalPolicies = React.lazy(() => import(/* webpackChunkName: 'p-lp' */ "./app/@partials/legal-policies"));
 
 export const pages: Page[] = [
 	{ path: "/", element: Subscribe },
 	{ path: "*", element: Element404 },
-	...PageDownload,
 	...Page404,
+	...PageUpgrade,
+	...PageDownload,
 	...PageSubscribe,
-	...PageRecommendations,
-	...PageUpgrade
+	...PageRecommendations
 ];
 
-// check if already has a language code in the url then replace it and add the default language code
-// also exclude the current one from the list
 function buildRefAlternateUrl(pathname: string, language: { path: string; value: string }) {
 	const pathSegments = pathname.split("/").filter((p) => p);
 	const browserLanguageCode = languages.some((lang) => lang.path === `/${pathSegments[0]}`);
@@ -127,16 +125,23 @@ function AppRoutes() {
 				without using react router dom, doesn't need to be a spefic component
 			*/}
 			<React.Suspense fallback={<PageLoader />}>
+				{location.hash === HashLinks.reqInfo && <RequestInfo />}
 				{location.hash === HashLinks.termsOfService && (
 					<LegalPolicies
-						title="Terms of Service"
+						title="termsOfService"
 						src={`/md/${language?.value}/${HashLinks.termsOfService.replace("#", "")}.md`}
 					/>
 				)}
 				{location.hash === HashLinks.privacyPolicy && (
 					<LegalPolicies
-						title="Privacy Policy"
+						title="privacyPolicy"
 						src={`/md/${language?.value}/${HashLinks.privacyPolicy.replace("#", "")}.md`}
+					/>
+				)}
+				{location.hash === HashLinks.cookiePolicy && (
+					<LegalPolicies
+						title="cookiePolicy"
+						src={`/md/${language?.value}/${HashLinks.cookiePolicy.replace("#", "")}.md`}
 					/>
 				)}
 			</React.Suspense>

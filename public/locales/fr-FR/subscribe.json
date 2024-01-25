@@ -1,39 +1,41 @@
 {
-  "workInWeb3AIToday": "Travaillez dans le Web3 et l'IA aujourd'hui 🚀",
-  "join500K": "Rejoignez plus de 500,000 professionnels et recevez notre newsletter tri-hebdomadaire avec les emplois les mieux rémunérés dans le Web3 et l'IA",
-  "contactInformation": "Coordonnées",
+  "workInWeb3AIToday": "Travaillez dans Web3 & AI aujourd'hui 🚀",
+  "join500K": "Rejoignez plus de 500 000 professionnels et recevez notre newsletter tri-hebdomadaire avec les emplois les mieux rémunérés dans Web3 & AI",
+  "contactInformation": "Informations de contact",
   "name": "Nom",
   "email": "Email",
-  "orContinueWith": "Ou continuez avec",
+  "orContinueWith": "Ou continuer avec",
   "bySigninUp": "En vous inscrivant, vous acceptez nos",
   "termsOfService": "Conditions d'utilisation",
   "and": "et",
   "privacyPolicy": "Politique de confidentialité",
-  "cookiePolicy": "Politique relative aux cookies",
-  "welcomeTo": "Bienvenue sur",
+  "cookiePolicy": "Politique de cookies",
+  "welcomeTo": "Bienvenue à",
   "ourNewsletter": "notre newsletter",
-  "metaintroHelpedThousands": "Metaintro a aidé des milliers de professionnels à trouver leur emploi de rêve dans le domaine du Web3 et de l'IA. Rejoignez-nous et soyez embauché plus rapidement.",
-  "trustedBy500k": "Faites confiance à plus de 500,000 professionnels",
+  "metaintroHelpedThousands": "Metaintro a aidé des milliers de professionnels à trouver leur emploi de rêve dans les domaines de Web3 et de l'IA. Rejoignez-nous et soyez embauché plus rapidement.",
+  "trustedBy500k": "Faites confiance à plus de 500 000 professionnels",
+  "imageOfMale": "Image d'un homme",
+  "imageOfFemale": "Image d'une femme",
   "messages": {
-    "congratulations": "Félicitations! 🎉",
-    "youveSubscribed": "Vous êtes inscrit! Visitez notre site web pour découvrir les meilleurs emplois dans le domaine du Web3 et de l'IA.",
-    "visitOurWebsite": "Visitez notre site web pour découvrir les meilleurs emplois dans le domaine du Web3 et de l'IA.",
-    "pleaseCheckYourEmail": "Veuillez vérifier votre courrier électronique pour confirmer votre abonnement.",
+    "congratulations": "Félicitations ! 🎉",
+    "youveSubscribed": "Vous vous êtes abonné ! Visitez notre site pour découvrir les meilleurs emplois dans les domaines de Web3 et de l'IA.",
+    "visitOurWebsite": "Visitez notre site pour découvrir les meilleurs emplois dans les domaines de Web3 et de l'IA.",
+    "pleaseCheckYourEmail": "Veuillez vérifier votre email pour confirmer votre abonnement.",
     "followUp": "Metaintro peut vous contacter pour un suivi."
   },
   "cta": {
-    "getStartedHere": "Commencer ici"
+    "getStartedHere": "Commencez ici"
   },
   "errors": {
     "nameMustBeAtLeast": "Le nom doit comporter au moins 2 caractères",
     "emailMustBeAtLeast": "L'email doit comporter au moins 3 caractères",
-    "emailMustIncludeAt": "L'email doit inclure un symbole '@'",
-    "emailMustIncludePeriod": "L'email doit inclure un symbole '.'",
-    "emailMustBeLatin": "L'email doit être en caractères latins"
+    "emailMustIncludeAt": "L'email doit inclure le symbole '@'",
+    "emailMustIncludePeriod": "L'email doit inclure le symbole '.'",
+    "emailMustBeLatin": "L'email doit être écrit en caractères latins"
   },
   "seo": {
     "title": "Abonnez-vous à notre newsletter",
-    "description": "Rejoignez plus de 500,000 professionnels et recevez notre newsletter tri-hebdomadaire avec les emplois les mieux rémunérés dans le Web3 et l'IA",
-    "keywords": "abonnement, abonnement metaintro, web3, emplois web3, carrières web3, newsletter web3, newsletter d'emplois web3, newsletter de carrières web3, abonnement newsletter web3, abonnement newsletter d'emplois web3, abonnement newsletter de carrières web3, inscription à la newsletter web3, inscription à la newsletter d'emplois web3, inscription à la newsletter de carrières web3, abonnement newsletter web3, abonnement newsletter d'emplois web3, abonnement newsletter de carrières web3, abonnement newsletter web3, abonnement newsletter d'emplois web3, abonnement newsletter de carrières web3, abonnement newsletter web3, abonnement newsletter d'emplois web3, abonnement newsletter de carrières web3, abonnement newsletter web3, abonnement newsletter d'emplois web3, abonnement newsletter de carrières web3, abonnement newsletter web3, abonnement newsletter d'emplois web3, abonnement newsletter de carrières web3"
+    "description": "Rejoignez plus de 500 000 professionnels et recevez notre newsletter tri-hebdomadaire avec les emplois les mieux rémunérés dans Web3 & AI",
+    "keywords": "abonnement, metaintro abonnement, web3, emplois web3, carrières web3, newsletter web3, newsletter d'emplois web3, newsletter de carrières web3, abonnement à la newsletter web3, abonnement à la newsletter d'emplois web3, abonnement à la newsletter de carrières web3, inscription à la newsletter web3, inscription à la newsletter d'emplois web3, inscription à la newsletter de carrières web3, abonnement à la newsletter web3, abonnement à la newsletter d'emplois web3, abonnement à la newsletter de carrières web3, abonnement à la newsletter web3, abonnement à la newsletter d'emplois web3, abonnement à la newsletter de carrières web3"
   }
 }

@@ -1,76 +1,86 @@
 {
+  "cookiePolicy": "Politica dei cookie",
+  "privacyPolicy": "Informativa sulla privacy",
+  "termsOfService": "Termini di servizio",
   "buttons": {
     "bookNow": "Prenota ora",
+    "close": "Chiudi",
     "continue": "Continua",
     "continueWithApple": "Continua con Apple",
     "continueWithFacebook": "Continua con Facebook",
     "continueWithGitHub": "Continua con GitHub",
     "continueWithGoogle": "Continua con Google",
     "continueWithYahoo": "Continua con Yahoo",
-    "dismiss": "Chiudi",
+    "dismiss": "Ignora",
     "getStarted": "Inizia 🚀",
     "getStartedHere": "Inizia qui",
     "language": "Lingua",
     "learnMore": "Scopri di più",
-    "lessSocialLogins": "Meno accessi con i social media",
-    "maybeLater": "Forse dopo",
+    "lessSocialLogins": "Meno accessi social",
+    "maybeLater": "Forse in seguito",
     "metaintroPro": "Metaintro Pro",
-    "moreSocialLogins": "Più accessi con i social media",
+    "moreSocialLogins": "Più accessi social",
     "selectAll": "Seleziona tutto",
-    "selectNone": "Deseleziona tutti",
-    "signUp": "Iscriviti",
-    "upgradeNow": "Esegui l'upgrade ora",
-    "yes": "Sì"
+    "selectNone": "Deseleziona tutto",
+    "selectRecommendations": "Seleziona consigli",
+    "signUp": "Registrati",
+    "upgradeNow": "Aggiorna ora",
+    "yes": "Si"
   },
   "disclaimers": {
     "howWeUseYourInformation": {
       "contactInfo": "Utilizzeremo le tue informazioni di contatto per aggiornamenti sulla sottoscrizione e notizie e offerte di lavoro di Metaintro.",
-      "prefill": "Potremmo precompilare le tue informazioni di contatto da diverse fonti per facilitare la registrazione. Puoi modificarle o eliminarle. Le informazioni di contatto precaricate possono provenire da:",
-      "thirdParty": "I servizi di terze parti che utilizziamo potrebbero raccogliere informazioni per scopi propri. Consulta le loro politiche sulla privacy per ulteriori dettagli.",
-      "thisForm": "Raccogliamo le informazioni che fornisci (come nome ed email) e le informazioni sul dispositivo (come indirizzo IP) per migliorare i nostri servizi e fornire annunci mirati. Utilizzeremo le tue informazioni di contatto per aggiornamenti sulla sottoscrizione, notizie di Metaintro, newsletter via email, notifiche di lavoro e annunci pubblicitari.",
+      "prefill": "Possiamo pre-compilare le tue informazioni di contatto da varie fonti per semplificare la registrazione. Puoi modificarle o eliminarle. Le informazioni di contatto precompilate possono provenire da:",
+      "thirdParty": "I servizi di terze parti che utilizziamo possono raccogliere informazioni per i loro scopi. Consulta le loro politiche sulla privacy per i dettagli.",
+      "thisForm": "Raccogliamo le informazioni fornite da te (come il nome e l'e-mail) e le informazioni sul dispositivo (come l'indirizzo IP) per migliorare i nostri servizi e fornire annunci mirati. Utilizzeremo le tue informazioni di contatto per gli aggiornamenti sulla sottoscrizione, le notizie di Metaintro, le newsletter, le notifiche di lavoro e gli annunci pubblicitari.",
       "title": "Come utilizziamo le tue informazioni?",
-      "unsubscribe": "Puoi disattivare la pubblicità mirata e annullare l'iscrizione alle nostre email di marketing in qualsiasi momento. In ogni email che ricevi da Metaintro, ci sarà un'opzione per annullare l'iscrizione nel piè di pagina, come richiesto dalla legge.",
-      "updateDisclaimer": "Potremmo aggiornare questo disclaimer in qualsiasi momento, quindi ti invitiamo a consultarlo regolarmente."
+      "unsubscribe": "Puoi disattivare la pubblicità mirata e annullare l'iscrizione alle nostre e-mail di marketing quando desideri. In ogni e-mail che ricevi da Metaintro, ci sarà un'opzione Annulla iscrizione nel piè di pagina, come richiesto dalla legge.",
+      "updateDisclaimer": "Possiamo aggiornare questo avviso in qualsiasi momento, quindi ti invitiamo a rivederlo regolarmente."
     }
   },
   "errors": {
-    "invalidEmailAddress": "Inserisci un indirizzo email valido",
-    "invalidEmailAddressLatin": "Inserisci un indirizzo email valido utilizzando solo caratteri latini (a-z, A-Z, 0-9)"
+    "invalidEmailAddress": "Inserisci un indirizzo e-mail valido",
+    "invalidEmailAddressLatin": "Inserisci un indirizzo e-mail valido utilizzando solo caratteri latini (a-z, A-Z, 0-9)"
   },
   "footer": {
     "about": "Informazioni",
-    "aiJobs": "Lavori nell'AI",
+    "aiJobs": "Lavori di AI",
     "arr": "Tutti i diritti riservati",
     "community": "Comunità",
     "company": "Azienda",
     "events": "Eventi",
     "explore": "Esplora",
     "jobs": "Lavori",
-    "join500k": "Unisciti a oltre 500.000 professionisti che hanno avuto un vantaggio nel mercato del lavoro. Unisciti al futuro del lavoro oggi stesso!",
+    "social": "Social Media",
+    "discord": "Discord",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "youtube": "YouTube",
+    "join500k": "Unisciti a oltre 500K+ professionisti che hanno avuto un vantaggio nel mercato del lavoro. Unisciti al futuro del lavoro oggi!",
     "newsletter": "Newsletter",
     "professionalResumeWallet": "Portafoglio di curriculum professionali",
     "remoteJobs": "Lavori da remoto",
     "resources": "Risorse",
     "support": "Supporto",
-    "tagline": "Ripensiamo il futuro del lavoro",
+    "tagline": "Ripensa al futuro del lavoro",
     "termsOfService": "Termini di servizio",
-    "trustAndSafety": "Affidabilità e sicurezza",
+    "truestAndSafety": "Fiducia e sicurezza",
     "wallOfLove": "Muro dell'amore",
-    "web3Jobs": "Lavori nel Web3",
+    "web3Jobs": "Lavori Web3",
     "workWithUs": "Lavora con noi"
   },
   "messages": {
-    "boostYourCareer": "Migliora la tua carriera con un piano premium personalizzato sulle tue ambizioni e necessità.",
+    "boostYourCareer": "Potenzia la tua carriera con un piano premium su misura per le tue ambizioni e le tue esigenze.",
     "differentLanguage": "👋🏽 Vediamo che stai usando Metaintro in una lingua diversa. Vorresti passare a",
-    "error": "Si è verificato un errore. Riprova.",
+    "error": "Si è verificato un errore, riprova.",
     "loading": "Caricamento in corso...",
     "upgradeYourExperience": "✨ Aggiorna la tua esperienza ✨"
   },
   "socialButtons": {
-    "discord": "Clicca qui per unirti al nostro server su Discord",
-    "facebook": "Clicca qui per visitare la nostra pagina su Facebook",
-    "instagram": "Clicca qui per visitare la nostra pagina su Instagram",
-    "x": "Clicca qui per visitare la nostra pagina su X (ex Twitter)",
-    "youtube": "Clicca qui per visitare il nostro canale su YouTube"
+    "discord": "Clicca qui per unirti al nostro server Discord",
+    "facebook": "Clicca qui per visitare la nostra pagina Facebook",
+    "instagram": "Clicca qui per visitare la nostra pagina Instagram",
+    "x": "Clicca qui per visitare la nostra pagina X (ex Twitter)",
+    "youtube": "Clicca qui per visitare il nostro canale YouTube"
   }
 }

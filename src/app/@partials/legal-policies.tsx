@@ -1,14 +1,15 @@
-import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import { useNavigate } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
-import DialogTitle from "@mui/material/DialogTitle";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import IconButton from "@mui/material/IconButton";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import MarkdownLoader from "../../components/MarkdownLoader/MarkdownLoader";
 
 interface LegalPoliciesProps {
@@ -19,6 +20,7 @@ interface LegalPoliciesProps {
 function LegalPolicies({ src, title }: LegalPoliciesProps) {
 	const theme = useTheme();
 	const navigate = useNavigate();
+	const { t } = useTranslation(["common"]);
 	const [open, setOpen] = React.useState(true);
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -41,7 +43,7 @@ function LegalPolicies({ src, title }: LegalPoliciesProps) {
 				sx={{ m: 0, p: 2 }}
 				id="customized-dialog-title"
 			>
-				{title}
+				{t(`${title}`)}
 			</DialogTitle>
 			<IconButton
 				aria-label="close"
@@ -67,7 +69,7 @@ function LegalPolicies({ src, title }: LegalPoliciesProps) {
 						textTransform: "none"
 					}}
 				>
-					Close
+					{t("buttons.close")}
 				</Button>
 			</DialogActions>
 		</Dialog>

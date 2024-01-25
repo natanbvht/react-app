@@ -1,39 +1,41 @@
 {
   "workInWeb3AIToday": "Werk vandaag in Web3 & AI 🚀",
-  "join500K": "Sluit je aan bij meer dan 500.000 professionals en ontvang onze driewekelijkse nieuwsbrief met de best betalende banen in web3 & AI",
+  "join500K": "Sluit u aan bij meer dan 500.000 professionals en ontvang onze driewekelijkse nieuwsbrief met de best betaalde banen in web3 & AI",
   "contactInformation": "Contactinformatie",
   "name": "Naam",
   "email": "E-mail",
   "orContinueWith": "Of doorgaan met",
-  "bySigninUp": "Door zich aan te melden, gaat u akkoord met onze",
-  "termsOfService": "Servicevoorwaarden",
+  "bySigninUp": "Door u aan te melden, gaat u akkoord met onze",
+  "termsOfService": "Algemene voorwaarden",
   "and": "en",
   "privacyPolicy": "Privacybeleid",
   "cookiePolicy": "Cookiebeleid",
   "welcomeTo": "Welkom bij",
   "ourNewsletter": "onze nieuwsbrief",
-  "metaintroHelpedThousands": "Metaintro heeft duizenden professionals geholpen hun droombanen te vinden in de Web3 en A.I. ruimte. Sluit je bij ons aan en word sneller aangenomen.",
+  "metaintroHelpedThousands": "Metaintro heeft duizenden professionals geholpen om hun droombanen te vinden in de Web3 en A.I. ruimte. Sluit u bij ons aan en vind sneller een baan.",
   "trustedBy500k": "Vertrouwd door meer dan 500.000 professionals",
+  "imageOfMale": "Afbeelding van een man",
+  "imageOfFemale": "Afbeelding van een vrouw",
   "messages": {
     "congratulations": "Gefeliciteerd! 🎉",
-    "youveSubscribed": "Je hebt je geabonneerd! Bezoek onze website om de beste banen in de Web3 en A.I. ruimte te verkennen.",
+    "youveSubscribed": "U heeft zich geabonneerd! Bezoek onze website om de beste banen in de Web3 en A.I. ruimte te verkennen.",
     "visitOurWebsite": "Bezoek onze website om de beste banen in de Web3 en A.I. ruimte te verkennen.",
-    "pleaseCheckYourEmail": "Controleer je e-mail om je inschrijving te bevestigen.",
-    "followUp": "Metaintro kan contact met je opnemen voor een vervolg."
+    "pleaseCheckYourEmail": "Controleer uw e-mail om uw abonnement te bevestigen.",
+    "followUp": "Metaintro kan contact met u opnemen om op te volgen."
   },
   "cta": {
-    "getStartedHere": "Aan de slag"
+    "getStartedHere": "Hier beginnen"
   },
   "errors": {
     "nameMustBeAtLeast": "Naam moet minimaal 2 tekens lang zijn",
     "emailMustBeAtLeast": "E-mail moet minimaal 3 tekens lang zijn",
     "emailMustIncludeAt": "E-mail moet een '@' symbool bevatten",
     "emailMustIncludePeriod": "E-mail moet een '.' symbool bevatten",
-    "emailMustBeLatin": "E-mail moet in Latijnse karakters zijn"
+    "emailMustBeLatin": "E-mail moet in Latijnse tekens zijn"
   },
   "seo": {
-    "title": "Abonneer je op onze nieuwsbrief",
-    "description": "Sluit je aan bij meer dan 500.000 professionals en ontvang onze driewekelijkse nieuwsbrief met de best betalende banen in web3 & AI",
-    "keywords": "abonneren, metaintro abonneren, web3, web3 banen, web3 carrières, web3 nieuwsbrief, web3 banen nieuwsbrief, web3 carrières nieuwsbrief, web3 nieuwsbrief abonnement, web3 banen nieuwsbrief abonnement, web3 carrières nieuwsbrief abonnement, web3 nieuwsbrief aanmelden, web3 banen nieuwsbrief aanmelden, web3 carrières nieuwsbrief aanmelden, web3 nieuwsbrief inschrijven, web3 banen nieuwsbrief inschrijven, web3 carrières nieuwsbrief inschrijven, web3 nieuwsbrief abonneren, web3 banen nieuwsbrief abonneren, web3 carrières nieuwsbrief abonneren, web3 nieuwsbrief abonnement, web3 banen nieuwsbrief"
+    "title": "Abonneer u op onze nieuwsbrief",
+    "description": "Sluit u aan bij meer dan 500.000 professionals en ontvang onze driewekelijkse nieuwsbrief met de best betaalde banen in web3 & AI",
+    "keywords": "abonneren, metaintro abonneren, web3, web3 banen, web3 carrières, web3 nieuwsbrief, web3 banen nieuwsbrief, web3 carrières nieuwsbrief, web3 nieuwsbriefabonnement, web3 banen nieuwsbriefabonnement, web3 carrières nieuwsbriefabonnement, web3 nieuwsbriefaanmelding, web3 banen nieuwsbriefaanmelding, web3 carrières nieuwsbriefaanmelding, web3 nieuwsbriefaanmelden, web3 banen nieuwsbriefaanmelden, web3 carrières nieuwsbriefaanmelden, web3 nieuwsbrief abonneren, web3 banen nieuwsbrief abonneren, web3 carrières nieuwsbrief abonneren, web3 nieuwsbriefabonnement, web3 banen nieuwsbriefabonnement"
   }
 }

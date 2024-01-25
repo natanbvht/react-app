@@ -1,28 +1,30 @@
 {
   "workInWeb3AIToday": "Trabalhe em Web3 & AI hoje 🚀",
-  "join500K": "Junte-se a mais de 500.000 profissionais e receba nosso boletim informativo trisemanal com os empregos mais bem remunerados em web3 & AI",
+  "join500K": "Junte-se a mais de 500.000 profissionais e receba nossa newsletter tri-semanal com as vagas mais bem remuneradas em Web3 & AI",
   "contactInformation": "Informações de Contato",
   "name": "Nome",
   "email": "Email",
   "orContinueWith": "Ou continue com",
-  "bySigninUp": "Ao se inscrever, você concorda com nossos",
+  "bySigninUp": "Ao se cadastrar, você concorda com nossos",
   "termsOfService": "Termos de Serviço",
   "and": "e",
   "privacyPolicy": "Política de Privacidade",
   "cookiePolicy": "Política de Cookies",
-  "welcomeTo": "Bem-vindo ao",
-  "ourNewsletter": "nosso boletim informativo",
-  "metaintroHelpedThousands": "Metaintro ajudou milhares de profissionais a encontrar seus empregos dos sonhos no espaço Web3 e A.I. Junte-se a nós e seja contratado mais rápido.",
+  "welcomeTo": "Bem-vindo(a) ao",
+  "ourNewsletter": "nossa newsletter",
+  "metaintroHelpedThousands": "Metaintro ajudou milhares de profissionais a encontrar seus empregos dos sonhos no espaço Web3 e A.I. Junte-se a nós e seja contratado mais rapidamente.",
   "trustedBy500k": "Confiado por mais de 500.000 profissionais",
+  "imageOfMale": "Imagem de Homem",
+  "imageOfFemale": "Imagem de Mulher",
   "messages": {
     "congratulations": "Parabéns! 🎉",
-    "youveSubscribed": "Você se inscreveu! Visite nosso site para explorar os melhores empregos no espaço Web3 e A.I.",
-    "visitOurWebsite": "Visite nosso site para explorar os melhores empregos no espaço Web3 e A.I.",
-    "pleaseCheckYourEmail": "Por favor, verifique seu e-mail para confirmar sua inscrição.",
-    "followUp": "Metaintro pode entrar em contato com você para acompanhamento."
+    "youveSubscribed": "Você se inscreveu! Visite nosso site para explorar as melhores vagas no espaço Web3 e A.I.",
+    "visitOurWebsite": "Visite nosso site para explorar as melhores vagas no espaço Web3 e A.I.",
+    "pleaseCheckYourEmail": "Por favor, verifique seu email para confirmar sua inscrição.",
+    "followUp": "Metaintro pode entrar em contato com você para dar seguimento."
   },
   "cta": {
-    "getStartedHere": "Comece aqui"
+    "getStartedHere": "Comece Aqui"
   },
   "errors": {
     "nameMustBeAtLeast": "O nome deve ter pelo menos 2 caracteres",
@@ -32,8 +34,8 @@
     "emailMustBeLatin": "O email deve ser em caracteres latinos"
   },
   "seo": {
-    "title": "Assine nosso boletim informativo",
-    "description": "Junte-se a mais de 500.000 profissionais e receba nosso boletim informativo trisemanal com os empregos mais bem remunerados em web3 & AI",
-    "keywords": "assine, assinatura metaintro, web3, empregos web3, carreiras web3, boletim informativo web3, empregos web3 boletim informativo, carreiras web3 boletim informativo, assinatura boletim informativo web3, assinatura boletim informativo empregos web3, assinatura boletim informativo carreiras web3, inscrição boletim informativo web3, inscrição boletim informativo empregos web3, assinatura carreiras boletim informativo web3, assinatura boletim informativo empregos web3, assinatura carreiras boletim informativo web3, inscrição boletim informativo empregos web3, assinatura boletim informativo empregos web3, assinatura carreiras boletim informativo web3, assinatura boletim informativo empregos web3, assinatura carreiras boletim informativo web3, assinatura boletim informativo empregos web3"
+    "title": "Assine nossa newsletter",
+    "description": "Junte-se a mais de 500.000 profissionais e receba nossa newsletter tri-semanal com as vagas mais bem remuneradas em Web3 & AI",
+    "keywords": "assinar, assinar metaintro, web3, vagas web3, carreiras web3, newsletter web3, newsletter de vagas web3, newsletter de carreiras web3, assinatura de newsletter web3, assinatura de newsletter de vagas web3, assinatura de newsletter de carreiras web3, cadastro de newsletter web3, cadastro de newsletter de vagas web3, cadastro de newsletter de carreiras web3, inscrição de newsletter web3, inscrição de newsletter de vagas web3, inscrição de newsletter de carreiras web3, assinar newsletter web3, assinar newsletter de vagas web3, assinar newsletter de carreiras web3, assinatura de newsletter web3, assinatura de newsletter de vagas web3"
   }
 }

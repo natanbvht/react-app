@@ -1,3 +1,8 @@
 {
-  "youMightAlsoLike": "Du kanske också gillar"
+  "youMightAlsoLike": "Du kanske också gillar",
+  "seo": {
+    "title": "Du kanske också gillar",
+    "description": "Välkommen till Metaintro, du kanske också gillar våra partners och deras produkter.",
+    "keywords": "metaintro, du kanske också gillar, partners, produkter"
+  }
 }
