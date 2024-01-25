@@ -36,7 +36,7 @@ function App() {
 			} catch (err: unknown) {
 				sessionStorage.setItem(Keys.cc, JSON.stringify({}));
 			}
-		}, 8000); // delay 8s, to avoid blocking the main thread
+		}, 3000); // delay 3s, to avoid blocking the main thread
 		return () => clearTimeout(timeoutGetIpLocation);
 	}, []);
 

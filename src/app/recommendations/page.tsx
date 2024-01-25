@@ -26,6 +26,7 @@ import {
 	subscribeRecommendations
 } from /* webpackChunkName: "apiV1" */ "../../services/apiV1";
 import { Recommendation } from "../../types.d";
+import PageLoader from "../../components/PageLoader/PageLoader";
 import "./page.scss";
 
 const LoadingButton = React.lazy(() => import(/* webpackChunkName: "muilb" */ "@mui/lab/LoadingButton"));
@@ -277,13 +278,17 @@ function RecommendationsPage() {
 
 	if (recommendations.length > 0) {
 		return (
-			<React.Suspense fallback={<div />}>
+			<React.Suspense fallback={<PageLoader />}>
 				<OnPageSeo
 					keywords={t("seo.keywords")}
 					description={t("seo.description")}
 					title={Seo.titlePretfix + Seo.delimeter + t("seo.title")}
 				/>
-				<Container sx={{ paddingTop: theme.spacing(2), paddingBottom: theme.spacing(2) }}>
+				{isSubmiting && <PageLoader />}
+				<Container
+					id="recommendations"
+					sx={{ paddingTop: theme.spacing(2), paddingBottom: theme.spacing(2) }}
+				>
 					<Grid
 						container
 						direction="row"
@@ -337,7 +342,6 @@ function RecommendationsPage() {
 								selectedRecommendations={selectedRecommendations}
 							/>
 						))}
-
 						{!isMobile && (
 							<Grid
 								item
@@ -447,7 +451,7 @@ function RecommendationsPage() {
 			</React.Suspense>
 		);
 	}
-	return null;
+	return <PageLoader />;
 }
 
 export default React.memo(RecommendationsPage);

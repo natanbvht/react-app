@@ -3,6 +3,7 @@ import { Page } from "../../types";
 
 const routes: Page[] = [
 	{
+		footer: false,
 		path: "/404",
 		title: "404 Oops! Page not found",
 		element: React.lazy(() => import(/* webpackChunkName: '404' */ "./page"))

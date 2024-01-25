@@ -16,6 +16,7 @@ import Footer from "./containers/Footer/Footer";
 import Toolbar from "./containers/Toolbar/Toolbar";
 import { changeLanguage, getCurrentLanguage, languages } from "./i18n";
 import { Page } from "./types";
+import PageLoader from "./components/PageLoader/PageLoader";
 
 const LegalPolicies = React.lazy(() => import("./app/@partials/legal-policies"));
 
@@ -76,7 +77,7 @@ function AppRoutes() {
 			</Helmet>
 			{/* Toolbar Height is 64px */}
 			<Toolbar />
-			<React.Suspense fallback={<div>Loading...</div>}>
+			<React.Suspense fallback={<PageLoader />}>
 				<Box
 					pt={8} /* 8x8 -> 64px toolbar height + 16px top and buttom */
 					className="RoutesContentWrapper"
@@ -125,7 +126,7 @@ function AppRoutes() {
 			{/* Todo: find a better way to dynamically render hash based components
 				without using react router dom, doesn't need to be a spefic component
 			*/}
-			<React.Suspense fallback={<div>Loading...</div>}>
+			<React.Suspense fallback={<PageLoader />}>
 				{location.hash === HashLinks.termsOfService && (
 					<LegalPolicies
 						title="Terms of Service"

@@ -13,7 +13,7 @@ import "./page.scss";
 
 function Congratulations() {
 	const navigate = useNavigate();
-	const buttonRef = React.useRef<HTMLButtonElement>(null);
+	const focusRef = React.useRef<HTMLAnchorElement>(null);
 	const { t, i18n } = useTranslation(["subscribe", "common"]);
 	const currentLanguage = languages.find((lang) => lang.id === i18n.language);
 
@@ -21,8 +21,8 @@ function Congratulations() {
 	const recommendationsPagePath = `${currentLanguage?.path}${Pages.recommendations}`;
 
 	React.useEffect(() => {
-		if (buttonRef.current) {
-			buttonRef.current.focus();
+		if (focusRef.current) {
+			focusRef.current.focus();
 		}
 	}, []);
 
@@ -66,17 +66,17 @@ function Congratulations() {
 				</Typography>
 				<Button
 					fullWidth
-					autoFocus
+					type="link"
 					focusRipple
 					tabIndex={0}
-					type="button"
+					ref={focusRef}
 					component={Link}
 					variant="contained"
 					sx={{ zIndex: 9999 }}
 					to={recommendationsPagePath}
 					className="GetStartedButton"
 				>
-					{t("cta.getStartedHere")}
+					Get Started Here
 				</Button>
 				<Typography
 					component="p"

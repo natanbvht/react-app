@@ -2,7 +2,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { nanoid } from "nanoid";
 import { IpLocation, Recommendation } from "../types.d";
-import { getEnv, Keys, Environments, MOCK_API_DEBUG, MOCK_API_FLAG } from "../config";
+import { getEnv, getCC, getSessionId, Keys, Environments, MOCK_API_DEBUG, MOCK_API_FLAG } from "../config";
 
 export interface ApiError {
 	message: string;
@@ -28,14 +28,18 @@ const ENDPOINTS = {
 	recommendationsSubscribe: `${API_HOST}${API_V1}/metaintro/recommendations`
 };
 
-const DEFAULT_HEADERS = {
-	"X-Session-CC": "US",
-	"X-Request-ID": nanoid(8),
-	"Content-Type": "application/json",
-	"X-Session-Language": navigator.language,
-	"Access-Control-Allow-Origin": `${window?.location?.origin}`, // Enable CORS
-	"X-Session-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone
-} as Record<string, string>;
+function getDefaultHeaders(): Record<string, string> {
+	const DEFAULT_HEADERS = {
+		"X-Request-ID": nanoid(8),
+		"X-Session-CC": getCC() ?? "",
+		"X-Session-ID": getSessionId(),
+		"Content-Type": "application/json",
+		"X-Session-Language": navigator.language,
+		"Access-Control-Allow-Origin": `${window?.location?.origin}`, // Enable CORS
+		"X-Session-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone
+	};
+	return DEFAULT_HEADERS;
+}
 
 /**
  * @used for localhost/testing only, mock api response
@@ -76,7 +80,7 @@ async function apiV1<T>(options: ApiOptions, mockError: boolean = false): Promis
 		url: fullUrl,
 		method: options.method || "get",
 		timeout: options.timeout || MAX_TIMEOUT,
-		headers: { ...DEFAULT_HEADERS, ...options.headers }
+		headers: { ...getDefaultHeaders(), ...options.headers }
 	};
 
 	if (MOCK_API_FLAG) {
@@ -145,6 +149,29 @@ export async function subscribe(data: SubscribeData): Promise<ApiResult> {
 	}
 }
 
+type IpLocationResponse = IpLocation | ApiError;
+export async function getIpLocation(): Promise<IpLocationResponse> {
+	try {
+		return (await apiV1<IpLocation>({ url: ENDPOINTS.ipLocation, cacheKey: Keys.cc })).data;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			const errorResponse = error.response?.data as ApiError;
+			const customError: ApiError = {
+				timestamp: errorResponse?.timestamp,
+				requestId: errorResponse?.requestId,
+				message: errorResponse?.message || "An error occurred during get ip location request"
+			};
+			throw customError;
+		}
+		const defaultError: ApiError = {
+			requestId: `local-${nanoid(8)}`,
+			timestamp: new Date().toISOString(),
+			message: "An unexpected error occurred during get ip location request"
+		};
+		throw defaultError;
+	}
+}
+
 /**
  * Gets recommendations.
  * @returns {Promise<Recommendation[] | ApiError>} - The response from the recommendations API.
@@ -152,8 +179,20 @@ export async function subscribe(data: SubscribeData): Promise<ApiResult> {
  */
 export async function getRecommendations(): Promise<Recommendation[] | ApiError> {
 	try {
+		/**
+		 * X-Session-CC header is required for recommendations API
+		 * and  are  being  prefetched  on  mount app (with delay)
+		 * but in the  event  where  the  user  is  fast enough to
+		 * click or when direct  hit on  the  recommendations page
+		 * we need to make sure that the X-Session-CC is available
+		 */
+		const headers: Record<string, string> = {
+			// getIpLocation will fall to cache if exists
+			"X-Session-CC": ((await getIpLocation()) as IpLocation)?.countryCode || ""
+		};
 		return (
 			await apiV1<Recommendation[]>({
+				headers,
 				url: ENDPOINTS.recommendations,
 				cacheKey: Keys.recommendations
 			})
@@ -181,6 +220,7 @@ export interface SubscribeRecommendationsData {
 	sub: string; // comma separated list of recommendation ids
 	email: string;
 }
+
 export async function subscribeRecommendations(data: SubscribeRecommendationsData[]): Promise<ApiResult> {
 	try {
 		return (
@@ -205,28 +245,5 @@ export async function subscribeRecommendations(data: SubscribeRecommendationsDat
 			timestamp: new Date().toISOString(),
 			message: "An unexpected error occurred during subscribe to recommendations api request"
 		} as ApiError;
-	}
-}
-
-type IpLocationResponse = IpLocation | ApiError;
-export async function getIpLocation(): Promise<IpLocationResponse> {
-	try {
-		return (await apiV1<IpLocation>({ url: ENDPOINTS.ipLocation, cacheKey: Keys.cc })).data;
-	} catch (error) {
-		if (axios.isAxiosError(error)) {
-			const errorResponse = error.response?.data as ApiError;
-			const customError: ApiError = {
-				timestamp: errorResponse?.timestamp,
-				requestId: errorResponse?.requestId,
-				message: errorResponse?.message || "An error occurred during get ip location request"
-			};
-			throw customError;
-		}
-		const defaultError: ApiError = {
-			requestId: `local-${nanoid(8)}`,
-			timestamp: new Date().toISOString(),
-			message: "An unexpected error occurred during get ip location request"
-		};
-		throw defaultError;
 	}
 }

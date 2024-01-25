@@ -1,3 +1,8 @@
 {
-    "youMightAlsoLike": "You might also like"
+    "youMightAlsoLike": "You might also like",
+    "seo": {
+        "title": "You might also like",
+        "description": "Welcome to Metaintro, you might also like our partners and their products.",
+        "keywords": "metaintro, you might also like, partners, products"
+    }
 }

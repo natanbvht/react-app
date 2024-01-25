@@ -93,6 +93,10 @@ export function getEnv(): Environments {
 	return Environments.PRODUCTION;
 }
 
+export const getCC = (): string | null => {
+	return (JSON.parse(sessionStorage.getItem(Keys.cc) || "{}") as { countryCode?: string }).countryCode || "";
+};
+
 export function getSessionId(): string {
 	let sessionId = sessionStorage.getItem(Keys.sessionId);
 	if (!sessionId) {
