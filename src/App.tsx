@@ -40,7 +40,7 @@ function App() {
 				gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA.trackingId}`;
 				document.head.appendChild(gtagScript);
 				const gtagConfigScript = document.createElement("script");
-				gtagConfigScript.innerHTML = `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments);}; gtag("js", new Date()); gtag("config", "${GA.trackingId}"); gtag("config", "${GA.containerTag}"); gtag("config", "${GA.adsConversionTracking}");`;
+				gtagConfigScript.innerHTML = `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments);}; gtag("js", new Date()); gtag("config", "${GA.trackingId}", ${JSON.stringify({ debug_mode: GA.debug })}); gtag("config", "${GA.containerTag}"); gtag("config", "${GA.adsConversionTracking}");`;
 				document.head.appendChild(gtagConfigScript);
 				// 3. Posthog Web Analytics
 				const posthogScript = document.createElement("script");

@@ -230,18 +230,6 @@ function getOptimization() {
             },
           },
         }),
-        // new ImageMinimizerPlugin({
-        //   minimizer: {
-        //     implementation: ImageMinimizerPlugin.squooshMinify,
-        //     options: {
-        //       encodeOptions: {
-        //         avif: { cqLevel: 0 },
-        //         webp: { lossless: 1 },
-        //         mozjpeg: { quality: 100 },
-        //       },
-        //     },
-        //   },
-        // }),
       ],
     };
   } else {
@@ -282,6 +270,11 @@ module.exports = {
         mockApi.get("/api/health", express.json(), (req, res) => {
           res.json([{ name: "John Doe" }, { name: "Jane Doe" }]);
         });
+      },
+    },
+    resolve: {
+      fallback: {
+        crypto: require.resolve("crypto-browserify"),
       },
     },
   },

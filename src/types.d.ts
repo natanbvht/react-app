@@ -9,6 +9,12 @@ declare module "*.scss" {
 export type Route<T = string> = string;
 export type PathName = Route<string>;
 
+export interface User {
+	id?: string;
+	name: string;
+	email: string;
+}
+
 export interface RouteConfig {
 	title?: string;
 	keywords?: string;

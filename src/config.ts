@@ -20,8 +20,15 @@ export const IS_PROD = !IS_LOCALHOST && !IS_DEV && !IS_UAT;
 export const Secrets = {
 	posthog: "phc_MLRXdlQVQUOlK61toaRaEJMLBcBbed02ZThpwhyS6ek"
 };
+// TODO: Set from ENV
+export const Security = {
+	secret: "secret",
+	sha256: "SHA-256",
+	algorithm: "aes-256-cbc"
+};
 
 export const GA = {
+	debug: true,
 	trackingId: "G-VM6WPRTXRH",
 	containerTag: "GTM-PVPXJMV4",
 	adsConversionTracking: "AW-11394737567"
@@ -70,6 +77,7 @@ export const HashLinks = {
 export const Keys = {
 	cc: "cc",
 	utm: "utm",
+	events: "events",
 	subscribe: "subscribe",
 	sessionId: "sessionId",
 	recommendations: "recommendations"

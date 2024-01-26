@@ -7,8 +7,10 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import AchivementIcon from "../../../components/Icons/Achivement";
-import { Pages } from "../../../config";
+import OnPageSeo from "../../../components/OnPageSeo/OnPageSeo";
+import { Pages, Seo } from "../../../config";
 import { languages } from "../../../i18n";
+import trackEventOnce, { Events } from "../../../services/analytics";
 import "./page.scss";
 
 function Congratulations() {
@@ -26,73 +28,84 @@ function Congratulations() {
 		}
 	}, []);
 
+	React.useEffect(() => {
+		trackEventOnce(Events.SubscribedToMetaintroConversion);
+	}, []);
+
 	return (
-		<Dialog
-			open
-			fullWidth
-			maxWidth="xs"
-			aria-labelledby="dialog-congratulations"
-			sx={{ maxWidth: 440, margin: "0 auto" }}
-			onClose={() => navigate(recommendationsPagePath)}
-		>
-			<DialogContent>
-				<Box
-					marginTop={objSpacing}
-					className="CongratulationImageWrapper"
-				>
-					<AchivementIcon />
-				</Box>
-				<Typography
-					gutterBottom
-					variant="h4"
-					component="h4"
-					align="center"
-					fontWeight={700}
-					letterSpacing={0}
-					marginTop={objSpacing / 2}
-				>
-					{t("messages.congratulations")}
-				</Typography>
-				<Typography
-					gutterBottom
-					component="p"
-					align="center"
-					variant="body1"
-					fontWeight={400}
-					letterSpacing={0}
-					className="CongratulationMessage"
-				>
-					{t("messages.youveSubscribed")}
-				</Typography>
-				<Button
-					fullWidth
-					type="link"
-					focusRipple
-					tabIndex={0}
-					ref={focusRef}
-					component={Link}
-					variant="contained"
-					sx={{ zIndex: 9999 }}
-					to={recommendationsPagePath}
-					className="GetStartedButton"
-				>
-					Get Started Here
-				</Button>
-				<Typography
-					component="p"
-					variant="body2"
-					fontWeight={400}
-					textAlign="center"
-					className="CongratulationNotice"
-				>
-					*{t("messages.pleaseCheckYourEmail")}
-				</Typography>
-			</DialogContent>
-			<div className="Fireworks">
-				<div className="before" />
-				<div className="after" />
-			</div>
-		</Dialog>
+		<React.Suspense fallback={<div style={{ minHeight: "100vh", width: "100vw" }} />}>
+			<OnPageSeo
+				keywords={t("seo.keywords")}
+				description={t("seo.description")}
+				title={`${Seo.titlePretfix} ${Seo.delimeter} ${t("messages.congratulations")} ${t("welcomeTo")} ${t("ourNewsletter")}`}
+			/>
+			<Dialog
+				open
+				fullWidth
+				maxWidth="xs"
+				aria-labelledby="dialog-congratulations"
+				sx={{ maxWidth: 440, margin: "0 auto" }}
+				onClose={() => navigate(recommendationsPagePath)}
+			>
+				<DialogContent>
+					<Box
+						marginTop={objSpacing}
+						className="CongratulationImageWrapper"
+					>
+						<AchivementIcon />
+					</Box>
+					<Typography
+						gutterBottom
+						variant="h4"
+						component="h4"
+						align="center"
+						fontWeight={700}
+						letterSpacing={0}
+						marginTop={objSpacing / 2}
+					>
+						{t("messages.congratulations")}
+					</Typography>
+					<Typography
+						gutterBottom
+						component="p"
+						align="center"
+						variant="body1"
+						fontWeight={400}
+						letterSpacing={0}
+						className="CongratulationMessage"
+					>
+						{t("messages.youveSubscribed")}
+					</Typography>
+					<Button
+						fullWidth
+						type="link"
+						focusRipple
+						tabIndex={0}
+						ref={focusRef}
+						component={Link}
+						variant="contained"
+						sx={{ zIndex: 9999 }}
+						to={recommendationsPagePath}
+						className="GetStartedButton"
+					>
+						{t("cta.getStartedHere")}
+					</Button>
+					<Typography
+						component="p"
+						variant="body2"
+						fontWeight={400}
+						textAlign="center"
+						className="CongratulationNotice"
+					>
+						*{t("messages.pleaseCheckYourEmail")}
+					</Typography>
+				</DialogContent>
+				<div className="Fireworks">
+					<div className="before" />
+					<div className="after" />
+				</div>
+			</Dialog>
+		</React.Suspense>
 	);
 }
 

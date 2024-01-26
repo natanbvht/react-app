@@ -20,7 +20,6 @@ import SubscribePageProvider, { useSubscribePage } from "../../context/Subscribe
 import { languages } from "../../i18n";
 import { PagePartials, SocialAuthButtons } from "./lazy";
 import "./page.scss";
-import trackEvent, { Events } from "../../services/analytics";
 
 interface AppleAuthResponse {
 	_tokenResponse?: {
@@ -92,7 +91,9 @@ function SubscribePage() {
 	React.useEffect(() => {
 		const handleSubscribe = async () => {
 			if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
+				const { identifyUser } = await import("../../services/analytics" /* webpackChunkName: "analytics" */);
 				const { subscribe, getRecommendations } = await import("../../services/apiV1" /* webpackChunkName: "apiV1" */);
+				identifyUser({ name: formData.name, email: formData.email });
 				try {
 					if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
 						await subscribe({ email: formData.email, fullName: formData.name });
@@ -394,14 +395,6 @@ function SubscribePage() {
 }
 
 export function SubscribeCongratulationPage() {
-	React.useEffect(() => {
-		trackEvent(Events.SubscribedToMetaintroConversion, {
-			category: "Subscribe",
-			action: "Subscribe",
-			label: "Subscribe"
-		});
-	}, []);
-
 	return (
 		<SubscribePageProvider>
 			<SubscribePage />

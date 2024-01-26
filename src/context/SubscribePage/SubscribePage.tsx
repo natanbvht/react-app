@@ -2,10 +2,9 @@
 import React, { ReactNode, createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Keys } from "../../config";
+import { User } from "../../types";
 
-export interface SubscribePageFormData {
-	name: string;
-	email: string;
+export interface SubscribePageFormData extends User {
 	isReadyToSubmit?: boolean;
 	viewedCookiePolicy?: boolean;
 	viewedTermsOfService?: boolean;
