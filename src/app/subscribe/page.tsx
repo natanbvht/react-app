@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Collapse from "@mui/material/Collapse";
@@ -10,17 +9,18 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { AuthError, UserCredential } from "firebase/auth";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./page.scss";
-
-import ChevronDownIcon from "../../components/Icons/ChevronDown";
 import AutocompleteTextField from "../../components/AutocompleteTextField/AutocompleteTextField";
+import ChevronDownIcon from "../../components/Icons/ChevronDown";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
-import { languages } from "../../i18n";
+import { Client, HashLinks, Keys, Pages, Seo } from "../../config";
 import SubscribePageProvider, { useSubscribePage } from "../../context/SubscribePage/SubscribePage";
-import { Client, Pages, Seo, HashLinks, Keys } from "../../config";
+import { languages } from "../../i18n";
 import { PagePartials, SocialAuthButtons } from "./lazy";
+import "./page.scss";
+import trackEvent, { Events } from "../../services/analytics";
 
 interface AppleAuthResponse {
 	_tokenResponse?: {
@@ -394,6 +394,14 @@ function SubscribePage() {
 }
 
 export function SubscribeCongratulationPage() {
+	React.useEffect(() => {
+		trackEvent(Events.SubscribedToMetaintroConversion, {
+			category: "Subscribe",
+			action: "Subscribe",
+			label: "Subscribe"
+		});
+	}, []);
+
 	return (
 		<SubscribePageProvider>
 			<SubscribePage />

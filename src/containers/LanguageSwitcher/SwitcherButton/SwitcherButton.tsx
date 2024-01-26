@@ -1,9 +1,9 @@
-import React, { memo } from "react";
-import "./SwitcherButton.css";
 import Button from "@mui/material/Button";
-import { Language } from "../../../i18n";
-import LanguageIcon from "../../../components/Icons/Language";
+import React, { memo } from "react";
 import ChevronDownIcon from "../../../components/Icons/ChevronDown";
+import LanguageIcon from "../../../components/Icons/Language";
+import { Language } from "../../../i18n";
+import "./SwitcherButton.css";
 
 interface SwitcherButtonProps {
 	open?: boolean;

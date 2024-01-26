@@ -1,7 +1,6 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import { Avatar, AvatarGroup, Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Box, Avatar, AvatarGroup, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 function DesktopSideScreen() {
 	const { t } = useTranslation(["subscribe", "common"]);

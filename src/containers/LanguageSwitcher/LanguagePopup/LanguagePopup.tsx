@@ -1,11 +1,11 @@
-import React, { memo } from "react";
-import "./LanguagePopup.css";
 import Grid from "@mui/material/Grid";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
+import { memo } from "react";
 import { Language } from "../../../i18n";
+import "./LanguagePopup.css";
 
 interface LanguagePopupProps {
 	open?: boolean;

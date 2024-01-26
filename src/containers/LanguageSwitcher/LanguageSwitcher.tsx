@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-import React from "react";
 import Skeleton from "@mui/material/Skeleton";
-import { useNavigate, useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Language, changeLanguage, getCurrentLanguage, getPreviewsLanguage, languages } from "../../i18n";
 import SwitcherButton from "./SwitcherButton/SwitcherButton";
-import { languages, getCurrentLanguage, changeLanguage, getPreviewsLanguage, Language } from "../../i18n";
 
 const LanguagePopup = React.lazy(() => import(/* webpackChunkName: 'LanguagePopup' */ "./LanguagePopup/LanguagePopup"));
 

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
+import React, { ReactNode, createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import React, { createContext, useEffect, useContext, useState, useMemo, useCallback, ReactNode } from "react";
 import { Keys } from "../../config";
 
 export interface SubscribePageFormData {

@@ -1,11 +1,11 @@
+import { ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { BrowserRouter } from /* webpackChunkName: "ReactRouterDom", webpackPrefetch: true */ "react-router-dom";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./theme";
 import Routes from "./AppRoutes";
 import { GA, Keys, Secrets } from "./config";
-import { UTM, IpLocation } from "./types.d";
 import i18n, { changeLanguage } from "./i18n";
+import theme from "./theme";
+import { IpLocation, UTM } from "./types.d";
 
 function App() {
 	// Init i18n and save UTM params
@@ -37,10 +37,10 @@ function App() {
 				const gtagScript = document.createElement("script");
 				gtagScript.async = true;
 				gtagScript.defer = true;
-				gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA.webStream}`;
+				gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA.trackingId}`;
 				document.head.appendChild(gtagScript);
 				const gtagConfigScript = document.createElement("script");
-				gtagConfigScript.innerHTML = `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments);}; gtag("js", new Date()); gtag("config", "${GA.webStream}"); gtag("config", "${GA.containerTag}"); gtag("config", "${GA.adsConversionTracking}");`;
+				gtagConfigScript.innerHTML = `window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments);}; gtag("js", new Date()); gtag("config", "${GA.trackingId}"); gtag("config", "${GA.containerTag}"); gtag("config", "${GA.adsConversionTracking}");`;
 				document.head.appendChild(gtagConfigScript);
 				// 3. Posthog Web Analytics
 				const posthogScript = document.createElement("script");

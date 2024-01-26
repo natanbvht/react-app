@@ -22,7 +22,7 @@ export const Secrets = {
 };
 
 export const GA = {
-	webStream: "G-VM6WPRTXRH",
+	trackingId: "G-VM6WPRTXRH",
 	containerTag: "GTM-PVPXJMV4",
 	adsConversionTracking: "AW-11394737567"
 };

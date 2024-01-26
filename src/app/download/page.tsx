@@ -1,7 +1,7 @@
-import React from "react";
 import Button from "@mui/material/Button";
-import { languages, Language } from "../../i18n";
+import React from "react";
 import { pages } from "../../AppRoutes";
+import { Language, languages } from "../../i18n";
 import { Page } from "../../types.d";
 
 export interface UTM {

@@ -25,4 +25,4 @@ const PagePartials = {
 	DesktopSideScreen
 };
 
-export { SocialAuthButtons, PagePartials };
+export { PagePartials, SocialAuthButtons };

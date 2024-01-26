@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
 import Autocomplete, { AutocompleteProps } from "@mui/material/Autocomplete";
 import TextField, { TextFieldProps } from "@mui/material/TextField";
+import { useMemo } from "react";
 
 interface AutocompleteTextFieldProps extends Omit<AutocompleteProps<string, boolean, boolean, boolean>, "renderInput"> {
 	textFieldProps?: TextFieldProps;

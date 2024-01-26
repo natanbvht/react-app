@@ -1,5 +1,8 @@
+import { GA } from "../config";
+
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export enum TrackingEvents {
+export enum Events {
 	// Newsletter
 	StartedNewsletterOnboarding = "Started Newsletter Onboarding", // ✔️
 	CompletedNewsletterContactInfo = "Completed Newsletter Contact Info", // ✔️
@@ -56,8 +59,15 @@ export enum TrackingEvents {
 	TypedFullName = "Typed Full Name" // ✔️
 }
 
+const DEGUBUG = false;
+
+interface Data {
+	[key: string]: any;
+}
+
 interface Gtag {
-	event: (event: string, data: any) => void;
+	(command: "config", targetId: string, config?: Data): void;
+	(command: "event", eventName: string, eventParams?: Data): void;
 }
 
 interface Posthog {
@@ -67,8 +77,8 @@ interface Posthog {
 
 declare global {
 	interface Window {
-		gtag: Gtag;
-		posthog: Posthog;
+		posthog: Posthog; // https://posthog.com/docs/libraries/js
+		gtag: Gtag; // https://developers.google.com/tag-platform/gtagjs/reference
 	}
 }
 
@@ -80,10 +90,24 @@ declare global {
  * @example
  * trackEvent(TrackingEvents.StartedNewsletterOnboarding, { email: "", name: "" });
  */
-function trackEvent(event: TrackingEvents, data?: any) {
+function trackEvent(event: Events, data?: Data) {
 	const gtag = window?.gtag;
 	const posthog = window?.posthog;
-
-	if (gtag) gtag.event(event, data);
 	if (posthog) posthog.capture(event, data);
+	if (!posthog && DEGUBUG) console.debug("Track event was called before Posthog was loaded.");
+	if (gtag) gtag("event", event.replaceAll(" ", ""), data);
+	if (!gtag && DEGUBUG) console.debug("Track event was called before Google Analytics was loaded.");
 }
+
+export function trackPageView(pagePath: string, pageTitle: string) {
+	const gtag = window?.gtag;
+	const posthog = window?.posthog;
+	if (gtag) gtag("config", GA.trackingId, { page_path: pagePath });
+	if (!gtag && DEGUBUG) console.debug("No analytics services found.");
+	if (DEGUBUG) console.log("Page view:", pagePath);
+	if (posthog) posthog.capture("$pageview", { page_path: pagePath, page_title: pageTitle });
+	if (!posthog && DEGUBUG) console.debug("No analytics services found.");
+	if (DEGUBUG) console.log("Page view:", pagePath);
+}
+
+export default trackEvent;

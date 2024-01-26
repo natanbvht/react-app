@@ -15,6 +15,7 @@ import CSP from "./containers/CSP";
 import Footer from "./containers/Footer/Footer";
 import Toolbar from "./containers/Toolbar/Toolbar";
 import { changeLanguage, getCurrentLanguage, languages } from "./i18n";
+import { trackPageView } from "./services/analytics";
 import { Page } from "./types";
 
 const RequestInfo = React.lazy(() => import(/* webpackChunkName: 'p-ri' */ "./app/@partials/request-info"));
@@ -56,13 +57,14 @@ function AppRoutes() {
 		}
 	}, [location.pathname]);
 
-	const currentRoute = pages.find((page) => `${language.path}${page.path}` === location.pathname);
+	React.useEffect(() => {
+		trackPageView(`${location.pathname}${location.search}${location.hash}`, document.title);
+	}, [location]);
 
 	return (
 		<>
 			<CSP />
 			<Helmet>
-				<title>{currentRoute?.title}</title>
 				<html lang={language.shortCode.toLocaleLowerCase()} />
 				{languages?.map((l) => (
 					<link
@@ -128,18 +130,23 @@ function AppRoutes() {
 				{location.hash === HashLinks.reqInfo && <RequestInfo />}
 				{location.hash === HashLinks.termsOfService && (
 					<LegalPolicies
+						open
+						fullScreen
 						title="termsOfService"
 						src={`/md/${language?.value}/${HashLinks.termsOfService.replace("#", "")}.md`}
 					/>
 				)}
 				{location.hash === HashLinks.privacyPolicy && (
 					<LegalPolicies
+						open
+						fullScreen
 						title="privacyPolicy"
 						src={`/md/${language?.value}/${HashLinks.privacyPolicy.replace("#", "")}.md`}
 					/>
 				)}
 				{location.hash === HashLinks.cookiePolicy && (
 					<LegalPolicies
+						open
 						title="cookiePolicy"
 						src={`/md/${language?.value}/${HashLinks.cookiePolicy.replace("#", "")}.md`}
 					/>

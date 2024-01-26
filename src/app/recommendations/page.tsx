@@ -18,7 +18,8 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import OnPageSeo from "../../components/OnPageSeo/OnPageSeo";
-import { Keys, HashLinks, Links, Pages, Seo } from "../../config";
+import PageLoader from "../../components/PageLoader/PageLoader";
+import { HashLinks, Keys, Links, Pages, Seo } from "../../config";
 import { SubscribePageFormData } from "../../context/SubscribePage/SubscribePage";
 import {
 	SubscribeRecommendationsData,
@@ -26,7 +27,6 @@ import {
 	subscribeRecommendations
 } from /* webpackChunkName: "apiV1" */ "../../services/apiV1";
 import { Recommendation } from "../../types.d";
-import PageLoader from "../../components/PageLoader/PageLoader";
 import "./page.scss";
 
 const LoadingButton = React.lazy(() => import(/* webpackChunkName: "muilb" */ "@mui/lab/LoadingButton"));

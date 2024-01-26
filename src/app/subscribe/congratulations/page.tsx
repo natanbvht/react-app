@@ -1,14 +1,14 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import Typography from "@mui/material/Typography";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AchivementIcon from "../../../components/Icons/Achivement";
-import { languages } from "../../../i18n";
 import { Pages } from "../../../config";
+import { languages } from "../../../i18n";
 import "./page.scss";
 
 function Congratulations() {

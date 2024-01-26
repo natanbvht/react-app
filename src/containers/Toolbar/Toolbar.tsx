@@ -1,16 +1,16 @@
-import React from "react";
-import "./Toolbar.scss";
-import Slide from "@mui/material/Slide";
-import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
+import Slide from "@mui/material/Slide";
+import Toolbar from "@mui/material/Toolbar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import { getCurrentLanguage } from "../../i18n";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import MetaintroIcon from "../../components/Icons/Metaintro";
+import { getCurrentLanguage } from "../../i18n";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import "./Toolbar.scss";
 
 interface HideOnScrollProps {
 	window?: () => Window;

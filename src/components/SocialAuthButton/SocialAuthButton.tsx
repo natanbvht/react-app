@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React from "react";
 import Box from "@mui/material/Box";
+import React from "react";
 import { SocialAuthButtonProps } from "./index.d";
 
 const SocialAuthButtonFCR = React.lazy(() => import("./SocialAuthButtonFCR"));

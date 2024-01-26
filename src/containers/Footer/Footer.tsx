@@ -1,16 +1,16 @@
-import "./Footer.css";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
-import { Link } from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
-import { useTranslation } from "react-i18next";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import LinksColumn from "./LinksColumn/LinksColumn";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import MetaintroIcon from "../../components/Icons/Metaintro";
+import { HashLinks, Links, SocialMedia } from "../../config";
+import "./Footer.css";
+import LinksColumn from "./LinksColumn/LinksColumn";
 import { FooterLinks } from "./types.d";
-import { Links, HashLinks, SocialMedia } from "../../config";
 
 const links: FooterLinks = {
 	socials: {

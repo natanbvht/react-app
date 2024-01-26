@@ -1,43 +1,62 @@
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
+import Dialog, { DialogProps } from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
+import Slide from "@mui/material/Slide";
 import { useTheme } from "@mui/material/styles";
+import { TransitionProps } from "@mui/material/transitions";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import MarkdownLoader from "../../components/MarkdownLoader/MarkdownLoader";
 
-interface LegalPoliciesProps {
+const Transition = React.forwardRef(function Transition(
+	props: TransitionProps & {
+		children: React.ReactElement;
+	},
+	ref: React.Ref<unknown>
+) {
+	return (
+		<Slide
+			ref={ref}
+			{...props}
+			direction="up"
+		/>
+	);
+});
+
+interface LegalPoliciesProps extends DialogProps {
 	src: string;
 	title: string;
 }
 
-function LegalPolicies({ src, title }: LegalPoliciesProps) {
+function LegalPolicies(props: LegalPoliciesProps) {
+	const { src, title, scroll = "paper", open = true, ...modalProps } = props;
 	const theme = useTheme();
 	const navigate = useNavigate();
 	const { t } = useTranslation(["common"]);
-	const [open, setOpen] = React.useState(true);
+	const [dialogOpen, setDialogOpen] = React.useState(open);
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const handleClose = () => {
-		setOpen(false);
+		setDialogOpen(false);
 		navigate(-1);
 	};
 
 	return (
 		<Dialog
-			fullWidth
-			open={open}
-			scroll="paper"
+			{...modalProps}
+			scroll={scroll}
+			open={dialogOpen}
 			onClose={handleClose}
 			aria-label="Legal Policies"
 			maxWidth={isMobile ? "xl" : "md"}
 			aria-describedby="legal-policies"
+			TransitionComponent={modalProps.fullScreen ? Transition : undefined}
 		>
 			<DialogTitle
 				sx={{ m: 0, p: 2 }}

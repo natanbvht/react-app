@@ -1,7 +1,7 @@
 import i18n from /* webpackChunkName: "I18next", webpackPrefetch: true */ "i18next";
+import LanguageDetector from /* webpackChunkName: "I18nextBrowser", webpackPrefetch: true */ "i18next-browser-languagedetector";
 import HttpBackend from /* webpackChunkName: "I18nextHttp", webpackPrefetch: true */ "i18next-http-backend";
 import { initReactI18next /* webpackChunkName: "I18ReactNext", webpackPrefetch: true */ } from "react-i18next";
-import LanguageDetector from /* webpackChunkName: "I18nextBrowser", webpackPrefetch: true */ "i18next-browser-languagedetector";
 
 export enum LocaleEnum {
 	EN = "en-US",

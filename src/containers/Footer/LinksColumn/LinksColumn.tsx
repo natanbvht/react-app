@@ -1,13 +1,12 @@
-import React from "react";
-import "./LinksColumn.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { LinksColumnProps } from "../types.d";
+import "./LinksColumn.css";
 
 function LinksColumn({ title, links }: LinksColumnProps) {
 	const { t } = useTranslation();
