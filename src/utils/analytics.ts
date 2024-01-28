@@ -98,8 +98,8 @@ declare global {
 export function trackEvent(event: Events, data?: Data) {
 	const gtag = window?.gtag;
 	const posthog = window?.posthog;
-	gtag("event", event, data);
-	posthog.capture(event, data);
+	posthog?.capture(event, data);
+	gtag?.("event", event, data);
 }
 
 export function trackEventOnce(event: Events, data?: Data) {
@@ -107,16 +107,16 @@ export function trackEventOnce(event: Events, data?: Data) {
 	const posthog = window?.posthog;
 	const trackedEvents = JSON.parse(sessionStorage.getItem(Keys.events) || "[]") as string[];
 	if (trackedEvents?.includes(event)) return;
-	gtag("event", event, data);
-	posthog.capture(event, data);
+	posthog?.capture(event, data);
+	gtag?.("event", event, data);
 	sessionStorage.setItem(Keys.events, JSON.stringify([...trackedEvents, event]));
 }
 
 export function trackPageView(pagePath: string, pageTitle: string) {
 	const gtag = window?.gtag;
 	const posthog = window?.posthog;
-	gtag("config", GA.trackingId, { page_path: pagePath });
-	posthog.capture("$pageview", { page_path: pagePath, page_title: pageTitle, page_location: window?.location?.href });
+	gtag?.("config", GA.trackingId, { page_path: pagePath });
+	posthog?.capture("$pageview", { page_path: pagePath, page_title: pageTitle, page_location: window?.location?.href });
 }
 
 export function identifyUser(user: User) {
@@ -124,10 +124,9 @@ export function identifyUser(user: User) {
 	const posthog = window?.posthog;
 	const { id, email, ...data } = user;
 	const processIdentification = (userId: string) => {
-		posthog.identify(userId, data);
-		gtag("set", { user_id: userId });
+		posthog?.identify(userId, data);
+		gtag?.("set", { user_id: userId });
 	};
-
 	if (id) {
 		processIdentification(id);
 	} else if (email) {

@@ -28,7 +28,7 @@ export const Security = {
 };
 
 export const GA = {
-	debug: true,
+	debug: !IS_PROD,
 	trackingId: "G-VM6WPRTXRH",
 	containerTag: "GTM-PVPXJMV4",
 	adsConversionTracking: "AW-11394737567"
