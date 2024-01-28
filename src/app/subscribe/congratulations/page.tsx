@@ -10,7 +10,7 @@ import AchievementIcon from "../../../components/Icons/Achievement";
 import OnPageSeo from "../../../components/OnPageSeo/OnPageSeo";
 import { Pages, Seo } from "../../../config";
 import { languages } from "../../../i18n";
-import trackEventOnce, { Events } from "../../../services/analytics";
+import trackEventOnce, { Events } from "../../../utils/analytics";
 import "./page.scss";
 
 function Congratulations() {

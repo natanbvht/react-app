@@ -15,7 +15,7 @@ import CSP from "./containers/CSP";
 import Footer from "./containers/Footer/Footer";
 import Toolbar from "./containers/Toolbar/Toolbar";
 import { changeLanguage, getCurrentLanguage, languages } from "./i18n";
-import { trackPageView } from "./services/analytics";
+import { trackPageView } from "./utils/analytics";
 import { Page } from "./types";
 
 const RequestInfo = React.lazy(() => import(/* webpackChunkName: 'p-ri' */ "./app/@partials/request-info"));

@@ -57,7 +57,7 @@ function SocialAuthButtonFCR({
 	async function continueWithProvider(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		e.preventDefault();
 		try {
-			const { trackEvent, Events } = await import("../../services/analytics" /* webpackChunkName: "analytics" */);
+			const { trackEvent, Events } = await import("../../utils/analytics" /* webpackChunkName: "analytics" */);
 			const { initializeApp } = await import("firebase/app" /* webpackChunkName: "firebase-app" */);
 			const { getAuth, signInWithPopup, OAuthProvider, GoogleAuthProvider } = await import(
 				"firebase/auth"

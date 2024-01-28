@@ -2,7 +2,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { nanoid } from "nanoid";
 import { Environments, Keys, MOCK_API_DEBUG, MOCK_API_FLAG, getCC, getEnv, getSessionId } from "../config";
-import { IpLocation, Recommendation } from "../types.d";
+import { IpLocation, Recommendation } from "../types";
 
 export interface ApiError {
 	message: string;

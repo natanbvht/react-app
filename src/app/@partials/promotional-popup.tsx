@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import DialogContent from "@mui/material/DialogContent";
 import { Pages, HashLinks } from "../../config";
 import { getCurrentLanguage } from "../../i18n";
-import { trackEvent, Events } from "../../services/analytics";
+import { trackEvent, Events } from "../../utils/analytics";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 	"& .MuiDialogContent-root": {

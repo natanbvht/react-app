@@ -63,7 +63,7 @@ function SubscribePage() {
 
 		updateFormData({ ...formData, name, email, isReadyToSubmit: true });
 
-		import("../../services/analytics" /* webpackChunkName: "analytics" */)
+		import("../../utils/analytics" /* webpackChunkName: "analytics" */)
 			.then(({ trackEvent, Events }) => {
 				trackEvent(Events.CompletedLoginWithSocial, { providerId: response.providerId });
 			})
@@ -78,7 +78,7 @@ function SubscribePage() {
 			// eslint-disable-next-line no-alert
 			alert(t("common:messages.popupBlocked"));
 		}
-		import("../../services/analytics" /* webpackChunkName: "analytics" */)
+		import("../../utils/analytics" /* webpackChunkName: "analytics" */)
 			.then(({ trackEvent, Events }) => {
 				trackEvent(Events.LoginWithSocialError, {
 					code: err.code,
@@ -108,8 +108,8 @@ function SubscribePage() {
 	React.useEffect(() => {
 		const handleSubscribe = async () => {
 			if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
-				const { identifyUser } = await import("../../services/analytics" /* webpackChunkName: "analytics" */);
-				const { subscribe, getRecommendations } = await import("../../services/apiV1" /* webpackChunkName: "apiV1" */);
+				const { identifyUser } = await import("../../utils/analytics" /* webpackChunkName: "analytics" */);
+				const { subscribe, getRecommendations } = await import("../../utils/apiV1" /* webpackChunkName: "apiV1" */);
 				identifyUser({ name: formData.name, email: formData.email });
 				try {
 					if (formData.isReadyToSubmit && location.pathname !== completedPagePath) {
@@ -117,7 +117,7 @@ function SubscribePage() {
 						navigate(completedPagePath);
 					}
 				} catch (error) {
-					import("../../services/analytics" /* webpackChunkName: "analytics" */)
+					import("../../utils/analytics" /* webpackChunkName: "analytics" */)
 						.then(({ trackEvent, Events }) => {
 							trackEvent(Events.SubscriptionError, { error });
 						})
@@ -155,7 +155,7 @@ function SubscribePage() {
 						}
 					})
 					.catch((error: unknown) => {
-						import("../../services/analytics" /* webpackChunkName: "analytics" */)
+						import("../../utils/analytics" /* webpackChunkName: "analytics" */)
 							.then(({ trackEvent, Events }) => {
 								trackEvent(Events.AffiliateError, { error });
 							})

@@ -25,10 +25,10 @@ import {
 	SubscribeRecommendationsData,
 	getRecommendations,
 	subscribeRecommendations
-} from /* webpackChunkName: "apiV1" */ "../../services/apiV1";
+} from /* webpackChunkName: "apiV1" */ "../../utils/apiV1";
 import { Recommendation } from "../../types.d";
 import "./page.scss";
-import { trackEvent, Events } from "../../services/analytics";
+import { trackEvent, Events } from "../../utils/analytics";
 
 const LoadingButton = React.lazy(() => import(/* webpackChunkName: "muilb" */ "@mui/lab/LoadingButton"));
 
@@ -259,7 +259,7 @@ function RecommendationsPage() {
 					if (Array.isArray(recommendations) && recommendations.length > 0) {
 						setRecommendations(recommendations);
 						setSelectedRecommendations(recommendations.map((res: Recommendation) => res.sub));
-						import(/* webpackChunkName: "posthog" */ "../../services/analytics").then(({ trackEvent, Events }) => {
+						import(/* webpackChunkName: "posthog" */ "../../utils/analytics").then(({ trackEvent, Events }) => {
 							recommendations.forEach((rec: Recommendation) => {
 								trackEvent(Events.ViewedAffiliate, { uuid: rec?._id, sub: rec?.sub, name: rec?.name });
 							});
@@ -268,14 +268,14 @@ function RecommendationsPage() {
 				} else {
 					setSelectedRecommendations(cachedRecommendations.map((res: Recommendation) => res.sub));
 					// Analytics: Track viewed recommendations (Impressions) for each recommendation
-					import(/* webpackChunkName: "posthog" */ "../../services/analytics").then(({ trackEvent, Events }) => {
+					import(/* webpackChunkName: "posthog" */ "../../utils/analytics").then(({ trackEvent, Events }) => {
 						cachedRecommendations.forEach((rec: Recommendation) => {
 							trackEvent(Events.ViewedAffiliate, { uuid: rec?._id, sub: rec?.sub, name: rec?.name });
 						});
 					});
 				}
 			} catch (err: unknown) {
-				import(/* webpackChunkName: "posthog" */ "../../services/analytics").then(({ trackEvent, Events }) => {
+				import(/* webpackChunkName: "posthog" */ "../../utils/analytics").then(({ trackEvent, Events }) => {
 					trackEvent(Events.AffiliateError, { err });
 				});
 				navigate(Pages.upgrade);

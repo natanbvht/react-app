@@ -87,9 +87,6 @@ declare global {
 	}
 }
 
-const gtag = window?.gtag;
-const posthog = window?.posthog;
-
 /**
  * @param event {String} event name e.g. "Started Newsletter Onboarding"
  * @param data {Object} event data e.g. { email: "", name: "" }
@@ -99,19 +96,54 @@ const posthog = window?.posthog;
  * trackEvent(TrackingEvents.StartedNewsletterOnboarding, { email: "", name: "" });
  */
 export function trackEvent(event: Events, data?: Data) {
-	gtag?.("event", event, data);
-	posthog?.capture(event, data);
+	const gtag = window?.gtag;
+	const posthog = window?.posthog;
+	gtag("event", event, data);
+	posthog.capture(event, data);
 }
 
 export function trackEventOnce(event: Events, data?: Data) {
+	const gtag = window?.gtag;
+	const posthog = window?.posthog;
 	const trackedEvents = JSON.parse(sessionStorage.getItem(Keys.events) || "[]") as string[];
 	if (trackedEvents?.includes(event)) return;
-	gtag?.("event", event, data);
-	posthog?.capture(event, data);
+	gtag("event", event, data);
+	posthog.capture(event, data);
 	sessionStorage.setItem(Keys.events, JSON.stringify([...trackedEvents, event]));
 }
 
-export async function hashUserEmail(email: string): Promise<string> {
+export function trackPageView(pagePath: string, pageTitle: string) {
+	const gtag = window?.gtag;
+	const posthog = window?.posthog;
+	gtag("config", GA.trackingId, { page_path: pagePath });
+	posthog.capture("$pageview", { page_path: pagePath, page_title: pageTitle, page_location: window?.location?.href });
+}
+
+export function identifyUser(user: User) {
+	const gtag = window?.gtag;
+	const posthog = window?.posthog;
+	const { id, email, ...data } = user;
+	const processIdentification = (userId: string) => {
+		posthog.identify(userId, data);
+		gtag("set", { user_id: userId });
+	};
+
+	if (id) {
+		processIdentification(id);
+	} else if (email) {
+		_hashUserEmail(email)
+			.then((hashedEmail) => {
+				const updatedUser = { ...user, id: hashedEmail };
+				sessionStorage.setItem(Keys.subscribe, JSON.stringify(updatedUser));
+				processIdentification(hashedEmail);
+			})
+			.catch((err) => {
+				console.debug("Error hashing email:", err);
+			});
+	}
+}
+
+async function _hashUserEmail(email: string): Promise<string> {
 	const crypto = window?.crypto;
 	const encoder = new TextEncoder();
 	const data = encoder.encode(email);
@@ -126,34 +158,6 @@ export async function hashUserEmail(email: string): Promise<string> {
 	} catch (err) {
 		console.debug("Hashing failed:", err);
 		throw new Error("Hashing failed");
-	}
-}
-
-export function trackPageView(pagePath: string, pageTitle: string) {
-	gtag?.("config", GA.trackingId, { page_path: pagePath });
-	posthog?.capture("$pageview", { page_path: pagePath, page_title: pageTitle, page_location: window?.location?.href });
-}
-
-export function identifyUser(user: User) {
-	const { id, email, ...data } = user;
-
-	const processIdentification = (userId: string) => {
-		posthog?.identify(userId, data);
-		gtag?.("set", { user_id: userId });
-	};
-
-	if (id) {
-		processIdentification(id);
-	} else if (email) {
-		hashUserEmail(email)
-			.then((hashedEmail) => {
-				const updatedUser = { ...user, id: hashedEmail };
-				sessionStorage.setItem(Keys.subscribe, JSON.stringify(updatedUser));
-				processIdentification(hashedEmail);
-			})
-			.catch((err) => {
-				console.debug("Error hashing email:", err);
-			});
 	}
 }
 

@@ -30,7 +30,7 @@ function App() {
 		const timeoutGetIpLocation = setTimeout(async () => {
 			try {
 				// 1. Save Country Code
-				const { getIpLocation } = await import("./services/apiV1" /* webpackChunkName: "apiV1" */);
+				const { getIpLocation } = await import("./utils/apiV1" /* webpackChunkName: "apiV1" */);
 				const response = (await getIpLocation()) as IpLocation;
 				if (response?.countryCode !== "") sessionStorage.setItem(Keys.cc, JSON.stringify(response || {}));
 				// 2. Google Tag Manager
