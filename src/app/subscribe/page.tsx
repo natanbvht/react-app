@@ -62,15 +62,32 @@ function SubscribePage() {
 		}
 
 		updateFormData({ ...formData, name, email, isReadyToSubmit: true });
+
+		import("../../services/analytics" /* webpackChunkName: "analytics" */)
+			.then(({ trackEvent, Events }) => {
+				trackEvent(Events.CompletedLoginWithSocial, { providerId: response.providerId });
+			})
+			.catch((err) => {
+				console.debug("Failed to load analytics", err);
+			});
 	};
 
-	const authErrorCb = (error: AuthError) => {
-		const isBlockedError = error.code === "auth/popup-blocked";
+	const authErrorCb = (err: AuthError) => {
+		const isBlockedError = err.code === "auth/popup-blocked";
 		if (isBlockedError) {
-			// TODO: Show a popup blocked message with GIF
 			// eslint-disable-next-line no-alert
-			alert("Please allow popups for this website and try again.");
+			alert(t("common:messages.popupBlocked"));
 		}
+		import("../../services/analytics" /* webpackChunkName: "analytics" */)
+			.then(({ trackEvent, Events }) => {
+				trackEvent(Events.LoginWithSocialError, {
+					code: err.code,
+					message: err.message
+				});
+			})
+			.catch((err) => {
+				console.debug("Failed to load analytics", err);
+			});
 	};
 
 	const handleClickSubmit = React.useCallback(
@@ -100,8 +117,13 @@ function SubscribePage() {
 						navigate(completedPagePath);
 					}
 				} catch (error) {
-					console.error("API call failed", error);
-					// TODO: Log error
+					import("../../services/analytics" /* webpackChunkName: "analytics" */)
+						.then(({ trackEvent, Events }) => {
+							trackEvent(Events.SubscriptionError, { error });
+						})
+						.catch((err) => {
+							console.debug("Failed to load analytics", err);
+						});
 					navigate(completedPagePath);
 				}
 
@@ -129,11 +151,17 @@ function SubscribePage() {
 						if (Array.isArray(res) && res.length > 0) {
 							sessionStorage.setItem(Keys.recommendations, JSON.stringify(res));
 						} else {
-							console.error("Failed to get recommendations", res);
+							console.debug("Failed to get recommendations", res);
 						}
 					})
-					.catch((error) => {
-						console.error("Failed to get recommendations", error);
+					.catch((error: unknown) => {
+						import("../../services/analytics" /* webpackChunkName: "analytics" */)
+							.then(({ trackEvent, Events }) => {
+								trackEvent(Events.AffiliateError, { error });
+							})
+							.catch((err) => {
+								console.debug("Failed to load analytics", err);
+							});
 					});
 			}
 		};
@@ -145,7 +173,7 @@ function SubscribePage() {
 			<OnPageSeo
 				keywords={t("seo.keywords")}
 				description={t("seo.description")}
-				title={Seo.titlePretfix + Seo.delimeter + t("seo.title")}
+				title={Seo.titlePrefix + Seo.delimiter + t("seo.title")}
 			/>
 			<Grid
 				container

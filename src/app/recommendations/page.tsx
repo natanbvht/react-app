@@ -28,6 +28,7 @@ import {
 } from /* webpackChunkName: "apiV1" */ "../../services/apiV1";
 import { Recommendation } from "../../types.d";
 import "./page.scss";
+import { trackEvent, Events } from "../../services/analytics";
 
 const LoadingButton = React.lazy(() => import(/* webpackChunkName: "muilb" */ "@mui/lab/LoadingButton"));
 
@@ -166,7 +167,7 @@ function RecommendationsPage() {
 	const navigate = useNavigate();
 	const { t } = useTranslation(["recommendations", "common"]);
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-	const [isSubmiting, setIsSubmiting] = React.useState<boolean>(false);
+	const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 	const [recommendations, setRecommendations] = React.useState<Recommendation[]>(
 		() => JSON.parse(sessionStorage.getItem(Keys.recommendations) || "[]") as Recommendation[]
 	);
@@ -214,7 +215,7 @@ function RecommendationsPage() {
 				return;
 			}
 
-			setIsSubmiting(true);
+			setIsSubmitting(true);
 			if (selectedRecommendations.length > 0 && subscribeSession?.email) {
 				const body: SubscribeRecommendationsData[] = [
 					{
@@ -223,7 +224,7 @@ function RecommendationsPage() {
 					}
 				];
 				await subscribeRecommendations(body);
-				setIsSubmiting(false);
+				setIsSubmitting(false);
 				window.location.href = Links.metaintro;
 			} else {
 				console.debug("No recommendations selected or email not found in session");
@@ -258,24 +259,25 @@ function RecommendationsPage() {
 					if (Array.isArray(recommendations) && recommendations.length > 0) {
 						setRecommendations(recommendations);
 						setSelectedRecommendations(recommendations.map((res: Recommendation) => res.sub));
+						import(/* webpackChunkName: "posthog" */ "../../services/analytics").then(({ trackEvent, Events }) => {
+							recommendations.forEach((rec: Recommendation) => {
+								trackEvent(Events.ViewedAffiliate, { uuid: rec?._id, sub: rec?.sub, name: rec?.name });
+							});
+						});
 					}
 				} else {
 					setSelectedRecommendations(cachedRecommendations.map((res: Recommendation) => res.sub));
+					// Analytics: Track viewed recommendations (Impressions) for each recommendation
+					import(/* webpackChunkName: "posthog" */ "../../services/analytics").then(({ trackEvent, Events }) => {
+						cachedRecommendations.forEach((rec: Recommendation) => {
+							trackEvent(Events.ViewedAffiliate, { uuid: rec?._id, sub: rec?.sub, name: rec?.name });
+						});
+					});
 				}
-				// Analytics: Track viewed recommendations (Impressions)
-				// recommendations.forEach((rec: Recommendation) => {
-				// 	posthog?.capture(TrackingEvents.ViewedAffiliate, {
-				// 		uuid: rec?._id,
-				// 		sub: rec?.sub,
-				// 		name: rec?.name
-				// 	});
-				// });
 			} catch (err: unknown) {
-				// Analytics: Track error and redirect to upgrade page
-				// posthog.capture(TrackingEvents.AffiliateError, {
-				// 	errorCode: errCode,
-				// 	message: errMessage
-				// });
+				import(/* webpackChunkName: "posthog" */ "../../services/analytics").then(({ trackEvent, Events }) => {
+					trackEvent(Events.AffiliateError, { err });
+				});
 				navigate(Pages.upgrade);
 			}
 		};
@@ -288,9 +290,9 @@ function RecommendationsPage() {
 				<OnPageSeo
 					keywords={t("seo.keywords")}
 					description={t("seo.description")}
-					title={Seo.titlePretfix + Seo.delimeter + t("seo.title")}
+					title={Seo.titlePrefix + Seo.delimiter + t("seo.title")}
 				/>
-				{isSubmiting && <PageLoader />}
+				{isSubmitting && <PageLoader />}
 				<Container
 					id="recommendations"
 					sx={{ paddingTop: theme.spacing(2), paddingBottom: theme.spacing(2) }}
@@ -360,9 +362,13 @@ function RecommendationsPage() {
 									type="button"
 									color="primary"
 									variant="contained"
-									loading={isSubmiting}
+									loading={isSubmitting}
 									onClick={handleContinue}
-									aria-label={t("common:buttons.continue")}
+									aria-label={
+										selectedRecommendations.length > 0
+											? t("common:buttons.continue")
+											: t("common:buttons.selectRecommendations")
+									}
 									sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
 								>
 									{selectedRecommendations.length > 0
@@ -378,6 +384,7 @@ function RecommendationsPage() {
 									component={Link}
 									to={Pages.upgrade}
 									variant="outlined"
+									onClick={() => trackEvent(Events.ClickedMetaintroPro)}
 									sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
 								>
 									{t("common:buttons.metaintroPro")}
@@ -390,6 +397,7 @@ function RecommendationsPage() {
 									variant="text"
 									component={Link}
 									to={Links.metaintro}
+									onClick={() => trackEvent(Events.ClickedMaybeLater)}
 									sx={{ marginTop: theme.spacing(1), textTransform: "none" }}
 								>
 									{t("common:buttons.maybeLater")}
@@ -417,10 +425,14 @@ function RecommendationsPage() {
 								type="button"
 								color="primary"
 								variant="contained"
-								loading={isSubmiting}
+								loading={isSubmitting}
 								onClick={handleContinue}
 								sx={{ textTransform: "none" }}
-								aria-label={t("common:buttons.continue")}
+								aria-label={
+									selectedRecommendations.length > 0
+										? t("common:buttons.continue")
+										: t("common:buttons.selectRecommendations")
+								}
 							>
 								{selectedRecommendations.length > 0
 									? t("common:buttons.continue")
@@ -435,6 +447,7 @@ function RecommendationsPage() {
 								component={Link}
 								to={Pages.upgrade}
 								variant="outlined"
+								onClick={() => trackEvent(Events.ClickedMetaintroPro)}
 								sx={{ marginTop: theme.spacing(2), textTransform: "none" }}
 							>
 								{t("common:buttons.metaintroPro")}
@@ -447,6 +460,7 @@ function RecommendationsPage() {
 								variant="text"
 								component={Link}
 								to={Links.metaintro}
+								onClick={() => trackEvent(Events.ClickedMaybeLater)}
 								sx={{ marginTop: theme.spacing(2), textTransform: "none" }}
 							>
 								{t("common:buttons.maybeLater")}

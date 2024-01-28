@@ -11,31 +11,31 @@
     "continueWithGitHub": "Fortsätt med GitHub",
     "continueWithGoogle": "Fortsätt med Google",
     "continueWithYahoo": "Fortsätt med Yahoo",
-    "dismiss": "Avfärda",
+    "dismiss": "Avvisa",
     "getStarted": "Kom igång 🚀",
-    "getStartedHere": "Kom Igång Här",
+    "getStartedHere": "Kom igång här",
     "language": "Språk",
-    "learnMore": "Läs Mer",
-    "lessSocialLogins": "Mindre Sociala Inloggningar",
-    "maybeLater": "Kanske Senare",
+    "learnMore": "Läs mer",
+    "lessSocialLogins": "Färre sociala inloggningar",
+    "maybeLater": "Kanske senare",
     "metaintroPro": "Metaintro Pro",
-    "moreSocialLogins": "Fler Sociala Inloggningar",
-    "selectAll": "Välj Alla",
-    "selectNone": "Välj Inget",
-    "selectRecommendations": "Välj Rekommendationer",
-    "signUp": "Registrera Dig",
+    "moreSocialLogins": "Fler sociala inloggningar",
+    "selectAll": "Välj alla",
+    "selectNone": "Välj inga",
+    "selectRecommendations": "Välj rekommendationer",
+    "signUp": "Registrera",
     "upgradeNow": "Uppgradera Nu",
     "yes": "Ja"
   },
   "disclaimers": {
     "howWeUseYourInformation": {
-      "contactInfo": "Vi kommer att använda din kontaktinformation för prenumerationer, uppdateringar och Metaintro-nyheter och jobb.",
-      "prefill": "Vi kan fylla i din kontaktinformation från olika källor för enklare registrering. Du kan redigera eller ta bort den. Förifylld kontaktinformation kan komma från:",
-      "thirdParty": "De tredjepartstjänster vi använder kan samla in information för egna syften. Kontrollera deras sekretesspolicy för detaljer.",
-      "thisForm": "Vi samlar in information som du tillhandahåller (som namn och e-post) och enhetsinformation (som IP-adress) för att förbättra våra tjänster och leverera riktade annonser. Vi kommer att använda din kontaktinformation för prenumerationer, Metaintro-nyheter, e-postnyhetsbrev, jobbnotiser och annonser.",
+      "contactInfo": "Vi kommer att använda din kontaktinformation för prenumerationsuppdateringar och Metaintro nyheter och jobb.",
+      "prefill": "Vi kan förifylla din kontaktinformation från olika källor för enklare registrering. Du kan redigera eller ta bort den. Förifyllt kontaktinformation kan komma från:",
+      "thirdParty": "Tredjepartstjänster vi använder kan samla in information för sina egna ändamål. Kontrollera deras integritetspolicy för detaljer.",
+      "thisForm": "Vi samlar in den information du tillhandahåller (som namn och e-postadress) och enhetsinformation (som IP-adress) för att förbättra våra tjänster och leverera riktade annonser. Vi kommer att använda din kontaktinformation för prenumerationsuppdateringar, Metaintro nyheter, e-postnyhetsbrev, jobbmeddelanden och annonser.",
       "title": "Hur vi använder din information?",
-      "unsubscribe": "Du kan avbryta målinriktad marknadsföring och avregistrera dig från våra marknadsföringsemail när du vill. I varje e-post du får från Metaintro finns det en avregistrera-option i sidfoten, enligt lagens krav.",
-      "updateDisclaimer": "Vi kan uppdatera den här förklaringen när som helst, så var vänlig och granska den regelbundet."
+      "unsubscribe": "Du kan välja att inte ta emot riktad annonsering och avsluta prenumerationen på våra marknadsföringsemail när du vill. I varje e-postmeddelande du får från Metaintro finns det en Lämna prenumeration-alternativ i sidfoten, enligt lagkrav.",
+      "updateDisclaimer": "Vi kan uppdatera denna ansvarsfriskrivning när som helst, så granska den regelbundet."
     }
   },
   "errors": {
@@ -43,9 +43,9 @@
     "invalidEmailAddressLatin": "Ange endast en giltig e-postadress med latinska tecken (a-z, A-Z, 0-9)"
   },
   "footer": {
-    "about": "Om oss",
-    "aiJobs": "AI Jobb",
-    "arr": "Alla Rättigheter Reserverade",
+    "about": "Om",
+    "aiJobs": "AI-jobb",
+    "arr": "Med ensamrätt",
     "community": "Community",
     "company": "Företag",
     "events": "Evenemang",
@@ -56,23 +56,24 @@
     "facebook": "Facebook",
     "instagram": "Instagram",
     "youtube": "YouTube",
-    "join500k": "Gå med över 500 000+ yrkesverksamma som har fått en fördel på arbetsmarknaden. Anslut dig till framtiden idag!",
+    "join500k": "Gå med över 500 000 professionella som har fått en försprång på arbetsmarknaden. Gå med i framtidens arbetsplats idag!",
     "newsletter": "Nyhetsbrev",
-    "professionalResumeWallet": "Professionell CV-plånbok",
+    "professionalResumeWallet": "Professionellt CV-plånbok",
     "remoteJobs": "Distansjobb",
     "resources": "Resurser",
     "support": "Support",
-    "tagline": "Omtolka framtidens arbetsmarknad",
+    "tagline": "Omtänka framtiden för arbete",
     "termsOfService": "Användarvillkor",
-    "truestAndSafety": "Förtroende & Säkerhet",
-    "wallOfLove": "Kärlekens Vägg",
-    "web3Jobs": "Web3 Jobb",
-    "workWithUs": "Jobba Hos Oss"
+    "truestAndSafety": "Förtroende och säkerhet",
+    "wallOfLove": "Kärlekens vägg",
+    "web3Jobs": "Web3-jobb",
+    "workWithUs": "Jobba med oss"
   },
   "messages": {
-    "boostYourCareer": "Framåtblickande din karriär med ett premiumpaket skräddarsytt för dina ambitioner och behov.",
+    "boostYourCareer": "Boosta din karriär med ett premiumplan som är anpassat efter dina ambitioner och behov.",
     "differentLanguage": "👋🏽 Vi ser att du använder Metaintro på ett annat språk. Vill du byta till",
     "error": "Ett fel inträffade, försök igen.",
+    "popupBlocked": "Det verkar som att en popup-blockerare förhindrar att ett fönster öppnas. För att lösa detta, leta efter en notifiering om en blockerad popup i närheten av webbläsarens adressfält, vanligtvis längst upp till höger. Klicka på den och välj att tillåta popup, sedan försök igen.",
     "loading": "Laddar...",
     "upgradeYourExperience": "✨ Uppgradera din upplevelse ✨"
   },
@@ -80,7 +81,7 @@
     "discord": "Klicka här för att gå med i vår Discord-server",
     "facebook": "Klicka här för att besöka vår Facebook-sida",
     "instagram": "Klicka här för att besöka vår Instagram-sida",
-    "x": "Klicka här för att besöka vår X (tidigare Twitter) sida",
+    "x": "Klicka här för att besöka vår X-sida (tidigare Twitter)",
     "youtube": "Klicka här för att besöka vår YouTube-kanal"
   }
 }

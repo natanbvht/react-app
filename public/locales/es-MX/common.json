@@ -16,10 +16,10 @@
     "getStartedHere": "Comenzar aquí",
     "language": "Idioma",
     "learnMore": "Aprende más",
-    "lessSocialLogins": "Menos Inicios de Sesión con Redes Sociales",
-    "maybeLater": "Quizás después",
+    "lessSocialLogins": "Menos Inicio de sesión social",
+    "maybeLater": "Tal vez después",
     "metaintroPro": "Metaintro Pro",
-    "moreSocialLogins": "Más Inicios de Sesión con Redes Sociales",
+    "moreSocialLogins": "Más Inicio de sesión social",
     "selectAll": "Seleccionar todo",
     "selectNone": "No seleccionar ninguno",
     "selectRecommendations": "Seleccionar recomendaciones",
@@ -29,22 +29,22 @@
   },
   "disclaimers": {
     "howWeUseYourInformation": {
-      "contactInfo": "Usaremos tu información de contacto para actualizaciones de suscripción y noticias y empleos de Metaintro.",
-      "prefill": "Podemos precargar tu información de contacto de diversas fuentes para facilitar el registro. Puedes editarla o eliminarla. La información de contacto precargada puede provenir de:",
-      "thirdParty": "Servicios de terceros que utilizamos pueden recopilar información para sus propios fines. Consulta sus políticas de privacidad para obtener más detalles.",
-      "thisForm": "Recopilamos la información que proporcionas (como nombre y correo electrónico) y la información del dispositivo (como la dirección IP) para mejorar nuestros servicios y ofrecer anuncios personalizados. Usaremos tu información de contacto para actualizaciones de suscripción, noticias de Metaintro, boletines por correo electrónico, notificaciones de empleo y publicidad.",
+      "contactInfo": "Usaremos tu información de contacto para enviar actualizaciones de suscripción y noticias y empleos de Metaintro.",
+      "prefill": "Podemos precargar tu información de contacto desde varias fuentes para facilitar el registro. Puedes editarla o eliminarla. La información de contacto precargada puede provenir de:",
+      "thirdParty": "Los servicios de terceros que utilizamos pueden recopilar información con fines propios. Consulta sus políticas de privacidad para obtener más detalles.",
+      "thisForm": "Recopilamos la información que proporcionas (como nombre y correo electrónico) y la información del dispositivo (como la dirección IP) para mejorar nuestros servicios y ofrecer anuncios personalizados. Usaremos tu información de contacto para enviar actualizaciones de suscripción, noticias de Metaintro, boletines por correo electrónico, notificaciones de trabajo y anuncios.",
       "title": "¿Cómo utilizamos tu información?",
-      "unsubscribe": "Puedes optar por no recibir publicidad personalizada y darte de baja de nuestros correos electrónicos de marketing en cualquier momento. En cada correo electrónico que recibas de Metaintro, habrá una opción para darte de baja en el pie de página, según lo requiere la ley.",
-      "updateDisclaimer": "Podemos actualizar este descargo de responsabilidad en cualquier momento, por lo que te recomendamos revisarlo periódicamente."
+      "unsubscribe": "Puedes optar por no recibir publicidad personalizada y cancelar tu suscripción a nuestros correos electrónicos de marketing en cualquier momento. En cada correo electrónico que recibas de Metaintro, habrá una opción para darte de baja en el pie de página, como lo exige la ley.",
+      "updateDisclaimer": "Podemos actualizar este aviso legal en cualquier momento, por lo que te recomendamos revisarlo periódicamente."
     }
   },
   "errors": {
-    "invalidEmailAddress": "Ingresa una dirección de correo electrónico válida",
-    "invalidEmailAddressLatin": "Ingresa una dirección de correo electrónico válida utilizando solo caracteres latinos (a-z, A-Z, 0-9)"
+    "invalidEmailAddress": "Por favor ingresa una dirección de correo electrónico válida",
+    "invalidEmailAddressLatin": "Por favor ingresa una dirección de correo electrónico válida utilizando solo caracteres latinos (a-z, A-Z, 0-9)"
   },
   "footer": {
     "about": "Acerca de",
-    "aiJobs": "Empleos de IA",
+    "aiJobs": "Trabajos de IA",
     "arr": "Todos los derechos reservados",
     "community": "Comunidad",
     "company": "Empresa",
@@ -56,25 +56,26 @@
     "facebook": "Facebook",
     "instagram": "Instagram",
     "youtube": "YouTube",
-    "join500k": "Únete a más de 500K+ profesionales que comenzaron antes en el mercado laboral. ¡Únete al futuro del trabajo hoy mismo!",
-    "newsletter": "Boletín de noticias",
-    "professionalResumeWallet": "Monedero de CV profesional",
-    "remoteJobs": "Empleos remotos",
+    "join500k": "Únete a más de 500K+ profesionales que han sido los primeros en entrar al mercado laboral. ¡Únete al futuro del trabajo hoy!",
+    "newsletter": "Boletín",
+    "professionalResumeWallet": "Billetera de CV profesional",
+    "remoteJobs": "Trabajos remotos",
     "resources": "Recursos",
     "support": "Soporte",
     "tagline": "Reimagina el futuro del trabajo",
     "termsOfService": "Términos de servicio",
     "truestAndSafety": "Confianza y Seguridad",
-    "wallOfLove": "Muro del amor",
-    "web3Jobs": "Empleos de Web3",
+    "wallOfLove": "Muro del Amor",
+    "web3Jobs": "Trabajos web3",
     "workWithUs": "Trabaja con nosotros"
   },
   "messages": {
-    "boostYourCareer": "Impulsa tu carrera con un plan premium adaptado a tus ambiciones y necesidades.",
+    "boostYourCareer": "Impulsa tu carrera con un plan premium diseñado a medida para tus ambiciones y necesidades.",
     "differentLanguage": "👋🏽 Vemos que estás usando Metaintro en un idioma diferente. ¿Te gustaría cambiar a",
     "error": "Ocurrió un error, por favor intenta de nuevo.",
+    "popupBlocked": "Parece que un bloqueador de ventanas emergentes está impidiendo que se abra una ventana. Para solucionar esto, busca una notificación sobre una ventana emergente bloqueada cerca de la barra de direcciones de tu navegador, generalmente en la esquina superior derecha. Haz clic en ella y elige permitir las ventanas emergentes, luego intenta de nuevo.",
     "loading": "Cargando...",
-    "upgradeYourExperience": "✨ Mejora tu experiencia ✨"
+    "upgradeYourExperience": "✨ Mejora tu Experiencia ✨"
   },
   "socialButtons": {
     "discord": "Haz clic aquí para unirte a nuestro servidor de Discord",

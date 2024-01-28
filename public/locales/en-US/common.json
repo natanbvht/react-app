@@ -30,7 +30,7 @@
   "disclaimers": {
     "howWeUseYourInformation": {
       "contactInfo": "We will use your contact info for subscription updates & Metaintro news and jobs.",
-      "prefill": "We may pre-filll your contact information from various sources for easier registration. You are able to edit or delete it. Prefill contact information can come from:",
+      "prefill": "We may pre-populate your contact information from various sources for easier registration. You are able to edit or delete it. Prefill contact information can come from:",
       "thirdParty": "Third-party services we use may collect information for their own purposes. Check their privacy policies for details.",
       "thisForm": "We collect information you provide (like name and email) and device information (like IP address) to improve our services and deliver targeted ads. We will use your contact info for subscription updates, Metaintro news, email newsletters, job notifications, and advertisements.",
       "title": "How We Use Your Information?",
@@ -73,6 +73,7 @@
     "boostYourCareer": "Boost your career with a premium plan tailored to your ambitions and needs.",
     "differentLanguage": "👋🏽 We see you're using Metaintro in a different language. Would you like to switch to",
     "error": "An error occurred, please try again.",
+    "popupBlocked": "It seems like a popup blocker is preventing a window from opening. To fix this, look for a notification about a blocked popup near your browser's address bar, usually at the top right. Click on it and choose to allow the popup, then try again.",
     "loading": "Loading...",
     "upgradeYourExperience": "✨ Upgrade Your Experience ✨"
   },

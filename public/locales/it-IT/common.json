@@ -1,5 +1,5 @@
 {
-  "cookiePolicy": "Politica dei cookie",
+  "cookiePolicy": "Informativa sui cookie",
   "privacyPolicy": "Informativa sulla privacy",
   "termsOfService": "Termini di servizio",
   "buttons": {
@@ -11,31 +11,31 @@
     "continueWithGitHub": "Continua con GitHub",
     "continueWithGoogle": "Continua con Google",
     "continueWithYahoo": "Continua con Yahoo",
-    "dismiss": "Ignora",
+    "dismiss": "Chiudi",
     "getStarted": "Inizia 🚀",
     "getStartedHere": "Inizia qui",
     "language": "Lingua",
     "learnMore": "Scopri di più",
     "lessSocialLogins": "Meno accessi social",
-    "maybeLater": "Forse in seguito",
+    "maybeLater": "Forse più tardi",
     "metaintroPro": "Metaintro Pro",
     "moreSocialLogins": "Più accessi social",
     "selectAll": "Seleziona tutto",
-    "selectNone": "Deseleziona tutto",
-    "selectRecommendations": "Seleziona consigli",
-    "signUp": "Registrati",
-    "upgradeNow": "Aggiorna ora",
-    "yes": "Si"
+    "selectNone": "Annulla selezione",
+    "selectRecommendations": "Seleziona raccomandazioni",
+    "signUp": "Iscriviti",
+    "upgradeNow": "Esegui l'upgrade ora",
+    "yes": "Sì"
   },
   "disclaimers": {
     "howWeUseYourInformation": {
-      "contactInfo": "Utilizzeremo le tue informazioni di contatto per aggiornamenti sulla sottoscrizione e notizie e offerte di lavoro di Metaintro.",
-      "prefill": "Possiamo pre-compilare le tue informazioni di contatto da varie fonti per semplificare la registrazione. Puoi modificarle o eliminarle. Le informazioni di contatto precompilate possono provenire da:",
-      "thirdParty": "I servizi di terze parti che utilizziamo possono raccogliere informazioni per i loro scopi. Consulta le loro politiche sulla privacy per i dettagli.",
-      "thisForm": "Raccogliamo le informazioni fornite da te (come il nome e l'e-mail) e le informazioni sul dispositivo (come l'indirizzo IP) per migliorare i nostri servizi e fornire annunci mirati. Utilizzeremo le tue informazioni di contatto per gli aggiornamenti sulla sottoscrizione, le notizie di Metaintro, le newsletter, le notifiche di lavoro e gli annunci pubblicitari.",
+      "contactInfo": "Utilizzeremo le tue informazioni di contatto per gli aggiornamenti della sottoscrizione e le novità e le offerte di lavoro di Metaintro.",
+      "prefill": "Potremmo pre-compilare le tue informazioni di contatto da varie fonti per facilitare la registrazione. Puoi modificare o eliminare tali informazioni di contatto. Le informazioni di contatto pre-compilate possono provenire da:",
+      "thirdParty": "I servizi di terze parti che utilizziamo possono raccogliere informazioni per scopi propri. Consulta le loro politiche sulla privacy per ulteriori dettagli.",
+      "thisForm": "Raccogliamo le informazioni che fornisci (come nome ed e-mail) e le informazioni sul dispositivo (come l'indirizzo IP) per migliorare i nostri servizi e fornire annunci mirati. Utilizzeremo le tue informazioni di contatto per gli aggiornamenti della sottoscrizione, le novità di Metaintro, le newsletter via e-mail, le notifiche di lavoro e gli annunci pubblicitari.",
       "title": "Come utilizziamo le tue informazioni?",
-      "unsubscribe": "Puoi disattivare la pubblicità mirata e annullare l'iscrizione alle nostre e-mail di marketing quando desideri. In ogni e-mail che ricevi da Metaintro, ci sarà un'opzione Annulla iscrizione nel piè di pagina, come richiesto dalla legge.",
-      "updateDisclaimer": "Possiamo aggiornare questo avviso in qualsiasi momento, quindi ti invitiamo a rivederlo regolarmente."
+      "unsubscribe": "Puoi annullare l'iscrizione dalla pubblicità mirata e dai nostri messaggi di marketing in qualsiasi momento. In ogni e-mail che ricevi da Metaintro, troverai un'opzione per annullare l'iscrizione nel piè di pagina, come richiesto dalla legge.",
+      "updateDisclaimer": "Potremmo aggiornare questa informativa in qualsiasi momento, quindi controllala periodicamente."
     }
   },
   "errors": {
@@ -44,7 +44,7 @@
   },
   "footer": {
     "about": "Informazioni",
-    "aiJobs": "Lavori di AI",
+    "aiJobs": "Lavori AI",
     "arr": "Tutti i diritti riservati",
     "community": "Comunità",
     "company": "Azienda",
@@ -56,31 +56,32 @@
     "facebook": "Facebook",
     "instagram": "Instagram",
     "youtube": "YouTube",
-    "join500k": "Unisciti a oltre 500K+ professionisti che hanno avuto un vantaggio nel mercato del lavoro. Unisciti al futuro del lavoro oggi!",
+    "join500k": "Unisciti a oltre 500.000 professionisti che hanno avuto una marcia in più nel mercato del lavoro. Unisciti al futuro del lavoro oggi!",
     "newsletter": "Newsletter",
-    "professionalResumeWallet": "Portafoglio di curriculum professionali",
-    "remoteJobs": "Lavori da remoto",
+    "professionalResumeWallet": "Portafoglio professionale del curriculum",
+    "remoteJobs": "Lavori remoti",
     "resources": "Risorse",
     "support": "Supporto",
     "tagline": "Ripensa al futuro del lavoro",
     "termsOfService": "Termini di servizio",
-    "truestAndSafety": "Fiducia e sicurezza",
+    "truestAndSafety": "Affidabilità e sicurezza",
     "wallOfLove": "Muro dell'amore",
     "web3Jobs": "Lavori Web3",
     "workWithUs": "Lavora con noi"
   },
   "messages": {
-    "boostYourCareer": "Potenzia la tua carriera con un piano premium su misura per le tue ambizioni e le tue esigenze.",
-    "differentLanguage": "👋🏽 Vediamo che stai usando Metaintro in una lingua diversa. Vorresti passare a",
+    "boostYourCareer": "Rilancia la tua carriera con un piano premium su misura per le tue ambizioni e le tue esigenze.",
+    "differentLanguage": "👋🏽 Sembra che tu stia utilizzando Metaintro in una lingua diversa. Vorresti passare a",
     "error": "Si è verificato un errore, riprova.",
-    "loading": "Caricamento in corso...",
-    "upgradeYourExperience": "✨ Aggiorna la tua esperienza ✨"
+    "popupBlocked": "Sembra che un blocco delle finestre di popup impedisca l'apertura di una finestra. Per risolvere il problema, cerca una notifica relativa a un popup bloccato vicino alla barra degli indirizzi del tuo browser, di solito in alto a destra. Clicca su di essa e scegli di consentire il popup, quindi riprova.",
+    "loading": "Caricamento...",
+    "upgradeYourExperience": "✨ Migliora la tua esperienza ✨"
   },
   "socialButtons": {
-    "discord": "Clicca qui per unirti al nostro server Discord",
-    "facebook": "Clicca qui per visitare la nostra pagina Facebook",
-    "instagram": "Clicca qui per visitare la nostra pagina Instagram",
-    "x": "Clicca qui per visitare la nostra pagina X (ex Twitter)",
-    "youtube": "Clicca qui per visitare il nostro canale YouTube"
+    "discord": "Fai clic qui per unirti al nostro server Discord",
+    "facebook": "Fai clic qui per visitare la nostra pagina Facebook",
+    "instagram": "Fai clic qui per visitare la nostra pagina Instagram",
+    "x": "Fai clic qui per visitare la nostra pagina X (ex Twitter)",
+    "youtube": "Fai clic qui per visitare il nostro canale YouTube"
   }
 }

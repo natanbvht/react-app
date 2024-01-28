@@ -1,7 +1,7 @@
 {
   "cookiePolicy": "Cookiebeleid",
   "privacyPolicy": "Privacybeleid",
-  "termsOfService": "Algemene voorwaarden",
+  "termsOfService": "Gebruiksvoorwaarden",
   "buttons": {
     "bookNow": "Nu boeken",
     "close": "Sluiten",
@@ -16,10 +16,10 @@
     "getStartedHere": "Hier beginnen",
     "language": "Taal",
     "learnMore": "Meer informatie",
-    "lessSocialLogins": "Minder sociale logins",
+    "lessSocialLogins": "Minder sociale aanmeldingen",
     "maybeLater": "Misschien later",
     "metaintroPro": "Metaintro Pro",
-    "moreSocialLogins": "Meer sociale logins",
+    "moreSocialLogins": "Meer sociale aanmeldingen",
     "selectAll": "Alles selecteren",
     "selectNone": "Niets selecteren",
     "selectRecommendations": "Aanbevelingen selecteren",
@@ -29,50 +29,51 @@
   },
   "disclaimers": {
     "howWeUseYourInformation": {
-      "contactInfo": "We gebruiken uw contactgegevens voor updates van abonnementen en Metaintro nieuws en vacatures.",
-      "prefill": "We kunnen uw contactgegevens vooraf invullen vanuit diverse bronnen om de registratie te vergemakkelijken. U kunt dit bewerken of verwijderen. Vooraf ingevulde contactgegevens kunnen afkomstig zijn van:",
-      "thirdParty": "Diensten van derden die we gebruiken, kunnen informatie verzamelen voor hun eigen doeleinden. Raadpleeg hun privacybeleid voor details.",
-      "thisForm": "We verzamelen informatie die u verstrekt (zoals naam en e-mail) en apparaatinformatie (zoals IP-adres) om onze services te verbeteren en gerichte advertenties te leveren. We gebruiken uw contactgegevens voor updates van abonnementen, Metaintro nieuws, e-mailnieuwsbrieven, vacaturemeldingen en advertenties.",
-      "title": "Hoe gebruiken wij uw informatie?",
-      "unsubscribe": "U kunt zich op elk moment afmelden voor gerichte advertenties en uitschrijven voor onze marketinge-mails. In elke e-mail die u van Metaintro ontvangt, is er een optie Afmelden in de footer, zoals wettelijk vereist.",
-      "updateDisclaimer": "We kunnen deze disclaimer op elk moment bijwerken, dus bekijk deze regelmatig."
+      "contactInfo": "We zullen uw contactgegevens gebruiken voor abonnementsupdates en Metaintro-nieuws en vacatures.",
+      "prefill": "We kunnen uw contactgegevens vooraf invullen vanuit verschillende bronnen om de registratie eenvoudiger te maken. U kunt het bewerken of verwijderen. Vooringevulde contactinformatie kan afkomstig zijn van:",
+      "thirdParty": "Websites van derden die we gebruiken, kunnen informatie verzamelen voor hun eigen doeleinden. Raadpleeg hun privacybeleid voor details.",
+      "thisForm": "We verzamelen informatie die u verstrekt (zoals naam en e-mail) en apparaatinformatie (zoals IP-adres) om onze diensten te verbeteren en gerichte advertenties te leveren. We zullen uw contactgegevens gebruiken voor abonnementsupdates, Metaintro-nieuws, e-mailnieuwsbrieven, vacaturemeldingen en advertenties.",
+      "title": "Hoe gebruiken we uw informatie?",
+      "unsubscribe": "U kunt zich op elk moment afmelden voor gerichte advertenties en u uitschrijven voor onze marketing-e-mails. In elke e-mail die u van Metaintro ontvangt, staat een optie om u uit te schrijven in de voettekst, zoals wettelijk vereist.",
+      "updateDisclaimer": "We kunnen deze disclaimer op elk moment bijwerken, dus controleer deze regelmatig."
     }
   },
   "errors": {
     "invalidEmailAddress": "Voer een geldig e-mailadres in",
-    "invalidEmailAddressLatin": "Voer een geldig e-mailadres in met alleen Latijnse tekens (a-z, A-Z, 0-9)"
+    "invalidEmailAddressLatin": "Voer alleen een geldig e-mailadres in met Latijnse tekens (a-z, A-Z, 0-9)"
   },
   "footer": {
     "about": "Over",
-    "aiJobs": "AI Vacatures",
+    "aiJobs": "AI-vacatures",
     "arr": "Alle rechten voorbehouden",
-    "community": "Community",
+    "community": "Gemeenschap",
     "company": "Bedrijf",
     "events": "Evenementen",
-    "explore": "Ontdekken",
+    "explore": "Verkennen",
     "jobs": "Vacatures",
     "social": "Sociale media",
     "discord": "Discord",
     "facebook": "Facebook",
     "instagram": "Instagram",
     "youtube": "YouTube",
-    "join500k": "Sluit u aan bij meer dan 500K+ professionals die een voorsprong hebben genomen op de arbeidsmarkt. Sluit u vandaag nog aan bij de toekomst van het werk!",
+    "join500k": "Word lid van meer dan 500K+ professionals die een voorsprong hebben op de arbeidsmarkt. Word vandaag nog lid van de toekomst van werk!",
     "newsletter": "Nieuwsbrief",
-    "professionalResumeWallet": "Professionele CV-portemonnee",
+    "professionalResumeWallet": "Professionele cv-portemonnee",
     "remoteJobs": "Op afstand werken",
     "resources": "Bronnen",
     "support": "Ondersteuning",
-    "tagline": "Stel de toekomst van het werk opnieuw voor",
-    "termsOfService": "Algemene voorwaarden",
+    "tagline": "Herschep de toekomst van werk",
+    "termsOfService": "Gebruiksvoorwaarden",
     "truestAndSafety": "Vertrouwen & Veiligheid",
     "wallOfLove": "Muur van Liefde",
-    "web3Jobs": "Web3 Vacatures",
+    "web3Jobs": "Web3-vacatures",
     "workWithUs": "Werk met ons"
   },
   "messages": {
-    "boostYourCareer": "Versterk uw carrière met een premium plan dat is afgestemd op uw ambities en behoeften.",
+    "boostYourCareer": "Stuw uw carrière naar nieuwe hoogtes met een premium plan dat is afgestemd op uw ambities en behoeften.",
     "differentLanguage": "👋🏽 We zien dat u Metaintro in een andere taal gebruikt. Wilt u overschakelen naar",
     "error": "Er is een fout opgetreden, probeer het opnieuw.",
+    "popupBlocked": "Het lijkt erop dat een popup-blokkering ervoor zorgt dat er geen venster geopend kan worden. Zoek hiervoor naar een melding over een geblokkeerde popup in de buurt van de adresbalk van uw browser, meestal rechtsboven. Klik erop en kies ervoor om de popup toe te staan, probeer het dan opnieuw.",
     "loading": "Laden...",
     "upgradeYourExperience": "✨ Upgrade uw ervaring ✨"
   },
@@ -80,7 +81,7 @@
     "discord": "Klik hier om lid te worden van onze Discord-server",
     "facebook": "Klik hier om onze Facebook-pagina te bezoeken",
     "instagram": "Klik hier om onze Instagram-pagina te bezoeken",
-    "x": "Klik hier om onze X-pagina (voorheen Twitter) te bezoeken",
+    "x": "Klik hier om onze X (voorheen Twitter) pagina te bezoeken",
     "youtube": "Klik hier om ons YouTube-kanaal te bezoeken"
   }
 }

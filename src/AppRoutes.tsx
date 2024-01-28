@@ -20,6 +20,7 @@ import { Page } from "./types";
 
 const RequestInfo = React.lazy(() => import(/* webpackChunkName: 'p-ri' */ "./app/@partials/request-info"));
 const LegalPolicies = React.lazy(() => import(/* webpackChunkName: 'p-lp' */ "./app/@partials/legal-policies"));
+const PromotionalPopup = React.lazy(() => import(/* webpackChunkName: 'p-pp' */ "./app/@partials/promotional-popup"));
 
 export const pages: Page[] = [
 	{ path: "/", element: Subscribe },
@@ -57,9 +58,21 @@ function AppRoutes() {
 		}
 	}, [location.pathname]);
 
+	// Track page view on url change (react router dom) SPA
 	React.useEffect(() => {
 		trackPageView(`${location.pathname}${location.search}${location.hash}`, document.title);
-	}, [location]);
+	}, [location.pathname, location.search, location.hash]);
+
+	// Display Promotional Popup after 1 minute
+	React.useEffect(() => {
+		const timeout = setTimeout(
+			() => {
+				window.location.hash = HashLinks.promoPopup;
+			},
+			1 * 60 * 1000 // 1 minute
+		);
+		return () => clearTimeout(timeout);
+	}, [location.pathname, language.path]);
 
 	return (
 		<>
@@ -79,7 +92,7 @@ function AppRoutes() {
 			<Toolbar />
 			<React.Suspense fallback={<PageLoader />}>
 				<Box
-					pt={8} /* 8x8 -> 64px toolbar height + 16px top and buttom */
+					pt={8} /* 8x8 -> 64px toolbar height + 16px top and bottom */
 					className="RoutesContentWrapper"
 				>
 					<Routes>
@@ -124,10 +137,11 @@ function AppRoutes() {
 			</React.Suspense>
 			{/* Hash Routes Popup */}
 			{/* Todo: find a better way to dynamically render hash based components
-				without using react router dom, doesn't need to be a spefic component
+				without using react router dom, doesn't need to be a specif component
 			*/}
 			<React.Suspense fallback={<PageLoader />}>
 				{location.hash === HashLinks.reqInfo && <RequestInfo />}
+				{location.hash === HashLinks.promoPopup && <PromotionalPopup />}
 				{location.hash === HashLinks.termsOfService && (
 					<LegalPolicies
 						open

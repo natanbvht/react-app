@@ -1,4 +1,4 @@
-interface AchivementIconProps {
+interface AchievementIconProps {
 	width?: string | number;
 	height?: string | number;
 }
@@ -17,7 +17,7 @@ const Yellow = {
 	light: "#fce379"
 };
 
-function AchivementIcon({ width = 114, height = 128 }: AchivementIconProps) {
+function AchievementIcon({ width = 114, height = 128 }: AchievementIconProps) {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -109,4 +109,4 @@ function AchivementIcon({ width = 114, height = 128 }: AchivementIconProps) {
 	);
 }
 
-export default AchivementIcon;
+export default AchievementIcon;

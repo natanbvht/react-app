@@ -1,19 +1,19 @@
 {
-  "workInWeb3AIToday": "Jobba inom Web3 & AI idag 🚀",
-  "join500K": "Gå med i över 500 000 yrkesverksamma och få vårt tredagarsnyhetsbrev med de mest välbetalda jobben inom web3 & AI",
+  "workInWeb3AIToday": "Arbeta med Web3 och AI idag 🚀",
+  "join500K": "Gå med i 500 000+ yrkesverksamma och ta emot vårt nyhetsbrev tre gånger i veckan med de bäst betalda jobben inom web3 och AI",
   "contactInformation": "Kontaktinformation",
   "name": "Namn",
   "email": "E-post",
   "orContinueWith": "Eller fortsätt med",
-  "bySigninUp": "Genom att registrera dig godkänner du våra",
+  "bySigninUp": "Genom att registrera dig samtycker du till våra",
   "termsOfService": "Användarvillkor",
   "and": "och",
   "privacyPolicy": "Integritetspolicy",
   "cookiePolicy": "Cookiepolicy",
   "welcomeTo": "Välkommen till",
   "ourNewsletter": "vårt nyhetsbrev",
-  "metaintroHelpedThousands": "Metaintro har hjälpt tusentals yrkesverksamma att hitta sina drömjobb inom Web3 och A.I. Gå med oss och bli anställd snabbare.",
-  "trustedBy500k": "Pålitlig av över 500 000 yrkesverksamma",
+  "metaintroHelpedThousands": "Metaintro har hjälpt tusentals yrkesverksamma att hitta drömjobben inom Web3 och A.I. Bli medlem hos oss och få jobb snabbare.",
+  "trustedBy500k": "Förtroende från över 500 000 yrkesverksamma",
   "imageOfMale": "Bild av man",
   "imageOfFemale": "Bild av kvinna",
   "messages": {
@@ -29,13 +29,13 @@
   "errors": {
     "nameMustBeAtLeast": "Namnet måste vara minst 2 tecken långt",
     "emailMustBeAtLeast": "E-postadressen måste vara minst 3 tecken lång",
-    "emailMustIncludeAt": "E-postadressen måste innehålla ett '@'-tecken",
-    "emailMustIncludePeriod": "E-postadressen måste innehålla en '.'-symbol",
+    "emailMustIncludeAt": "E-postadressen måste innehålla '@' symbol",
+    "emailMustIncludePeriod": "E-postadressen måste innehålla en '.' symbol",
     "emailMustBeLatin": "E-postadressen måste vara med latinska tecken"
   },
   "seo": {
     "title": "Prenumerera på vårt nyhetsbrev",
-    "description": "Gå med i över 500 000 yrkesverksamma och få vårt tredagarsnyhetsbrev med de mest välbetalda jobben inom web3 & AI",
-    "keywords": "prenumerera, metaintro prenumera, web3, web3 jobb, web3 karriär, web3 nyhetsbrev, web3 jobb nyhetsbrev, web3 karriär nyhetsbrev, web3 nyhetsbrev prenumeration, web3 jobb nyhetsbrev prenumeration, web3 karriär nyhetsbrev prenumeration, web3 nyhetsbrev anmälan, web3 jobb nyhetsbrev anmälan, web3 karriär nyhetsbrev anmälan, web3 nyhetsbrev registrering, web3 jobb nyhetsbrev registrering, web3 karriär nyhetsbrev registrering, web3 nyhetsbrev prenumerera, web3 jobb nyhetsbrev prenumerera, web3 karriär nyhetsbrev prenumerera, web3 nyhetsbrev prenumeration, web3 jobb nyhetsbrev"
+    "description": "Gå med i 500 000+ yrkesverksamma och ta emot vårt nyhetsbrev tre gånger i veckan med de bäst betalda jobben inom web3 och AI",
+    "keywords": "prenumerera, metaintro prenumeration, web3, web3 jobb, web3 karriär, web3 nyhetsbrev, web3 jobbnyhetsbrev, web3 karriärnyhetsbrev, web3 nyhetsbrevprenumeration, web3 jobbnyhetsbrevprenumeration, web3 karriärnyhetsbrevprenumeration, web3 nyhetsbrevanmälan, web3 jobbnyhetsbrevanmälan, web3 karriärnyhetsbrevanmälan, web3 nyhetsbrevregistrering, web3 jobbnyhetsbrevregistrering, web3 karriärnyhetsbrevregistrering, web3 nyhetsbrevprenumerera, web3 jobbnyhetsbrevprenumerera, web3 karriärnyhetsbrevprenumerera, web3 nyhetsbrevprenumeration, web3 jobbnyhetsbrev"
   }
 }

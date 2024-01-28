@@ -57,10 +57,12 @@ function SocialAuthButtonFCR({
 	async function continueWithProvider(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		e.preventDefault();
 		try {
+			const { trackEvent, Events } = await import("../../services/analytics" /* webpackChunkName: "analytics" */);
 			const { initializeApp } = await import("firebase/app" /* webpackChunkName: "firebase-app" */);
 			const { getAuth, signInWithPopup, OAuthProvider, GoogleAuthProvider } = await import(
 				"firebase/auth"
 			); /* webpackChunkName: "firebase-auth" */
+			trackEvent(Events.StartedLoginWithSocial, { provider: authProvider });
 			const firebaseApp = initializeApp(FirebaseConfig);
 			const firebaseAuth = getAuth(firebaseApp);
 			const currentLanguage = languages.find((lang) => lang.id === i18n.language);
@@ -81,8 +83,8 @@ function SocialAuthButtonFCR({
 			oauthProvider.setCustomParameters({ locale: currentLocaleShortCode });
 			const authResponse = await signInWithPopup(firebaseAuth, oauthProvider);
 			return successCb(authResponse);
-		} catch (error) {
-			return errorCb(error);
+		} catch (err) {
+			return errorCb(err);
 		}
 	}
 

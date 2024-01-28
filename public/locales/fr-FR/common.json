@@ -11,7 +11,7 @@
     "continueWithGitHub": "Continuer avec GitHub",
     "continueWithGoogle": "Continuer avec Google",
     "continueWithYahoo": "Continuer avec Yahoo",
-    "dismiss": "Fermer",
+    "dismiss": "Rejeter",
     "getStarted": "Commencer 🚀",
     "getStartedHere": "Commencer ici",
     "language": "Langue",
@@ -21,30 +21,30 @@
     "metaintroPro": "Metaintro Pro",
     "moreSocialLogins": "Plus de connexions sociales",
     "selectAll": "Tout sélectionner",
-    "selectNone": "Tout désélectionner",
-    "selectRecommendations": "Sélectionner des recommandations",
+    "selectNone": "Ne rien sélectionner",
+    "selectRecommendations": "Sélectionner les recommandations",
     "signUp": "S'inscrire",
-    "upgradeNow": "Passer à la version Premium",
+    "upgradeNow": "Mettre à niveau maintenant",
     "yes": "Oui"
   },
   "disclaimers": {
     "howWeUseYourInformation": {
       "contactInfo": "Nous utiliserons vos informations de contact pour les mises à jour d'abonnement et les actualités et offres d'emploi de Metaintro.",
-      "prefill": "Nous pouvons pré-remplir vos informations de contact à partir de différentes sources pour faciliter l'inscription. Vous pouvez les modifier ou les supprimer. Les informations de contact préremplies peuvent provenir de :",
-      "thirdParty": "Les services tiers que nous utilisons peuvent collecter des informations à des fins propres. Veuillez consulter leurs politiques de confidentialité pour plus de détails.",
-      "thisForm": "Nous collectons les informations que vous fournissez (telles que votre nom et votre adresse e-mail) ainsi que des informations sur votre appareil (comme votre adresse IP) afin d'améliorer nos services et de diffuser des publicités ciblées. Nous utiliserons vos informations de contact pour les mises à jour d'abonnement, les actualités Metaintro, les bulletins d'information par e-mail, les notifications d'emploi et les publicités.",
+      "prefill": "Nous pouvons pré-remplir vos informations de contact à partir de diverses sources pour faciliter l'inscription. Vous pouvez les modifier ou les supprimer. Les informations de contact pré-remplies peuvent provenir de:",
+      "thirdParty": "Les services tiers que nous utilisons peuvent collecter des informations à des fins propres. Consultez leur politique de confidentialité pour plus de détails.",
+      "thisForm": "Nous recueillons les informations que vous fournissez (comme le nom et l'adresse e-mail) ainsi que des informations sur l'appareil (comme l'adresse IP) afin d'améliorer nos services et de diffuser des publicités ciblées. Nous utiliserons vos informations de contact pour les mises à jour d'abonnement, les actualités de Metaintro, les bulletins d'information par e-mail, les notifications d'emploi et les publicités.",
       "title": "Comment utilisons-nous vos informations ?",
-      "unsubscribe": "Vous pouvez refuser la publicité ciblée et vous désabonner de nos e-mails marketing à tout moment. Dans chaque e-mail que vous recevez de Metaintro, vous trouverez une option de désabonnement dans le pied de page, conformément à la loi.",
-      "updateDisclaimer": "Nous pouvons mettre à jour ce disclaimer à tout moment, veuillez donc le consulter régulièrement."
+      "unsubscribe": "Vous pouvez choisir de ne plus recevoir de publicités ciblées et vous désabonner de nos e-mails marketing à tout moment. Dans chaque e-mail que vous recevez de Metaintro, il y aura une option de désabonnement dans le pied de page, comme l'exige la loi.",
+      "updateDisclaimer": "Nous pouvons mettre à jour cette clause de non-responsabilité à tout moment, veuillez donc la consulter régulièrement."
     }
   },
   "errors": {
-    "invalidEmailAddress": "Veuillez saisir une adresse e-mail valide",
-    "invalidEmailAddressLatin": "Veuillez saisir une adresse e-mail valide en caractères latins uniquement (a-z, A-Z, 0-9)"
+    "invalidEmailAddress": "Veuillez entrer une adresse e-mail valide",
+    "invalidEmailAddressLatin": "Veuillez entrer une adresse e-mail valide en caractères latins uniquement (a-z, A-Z, 0-9)"
   },
   "footer": {
     "about": "À propos",
-    "aiJobs": "Offres d'emploi en IA",
+    "aiJobs": "Emplois en IA",
     "arr": "Tous droits réservés",
     "community": "Communauté",
     "company": "Entreprise",
@@ -56,31 +56,32 @@
     "facebook": "Facebook",
     "instagram": "Instagram",
     "youtube": "YouTube",
-    "join500k": "Rejoignez plus de 500 000 professionnels qui ont une longueur d'avance sur le marché de l'emploi. Rejoignez le futur du travail dès aujourd'hui !",
+    "join500k": "Rejoignez plus de 500K+ de professionnels qui ont pris de l'avance sur le marché du travail. Rejoignez le futur du travail dès aujourd'hui !",
     "newsletter": "Bulletin d'information",
     "professionalResumeWallet": "Portefeuille de CV professionnels",
     "remoteJobs": "Emplois à distance",
     "resources": "Ressources",
-    "support": "Support",
+    "support": "Assistance",
     "tagline": "Réinventez le futur du travail",
     "termsOfService": "Conditions d'utilisation",
     "truestAndSafety": "Confiance et sécurité",
-    "wallOfLove": "Mur de l'amour",
+    "wallOfLove": "Mur d'amour",
     "web3Jobs": "Emplois Web3",
-    "workWithUs": "Travaillez avec nous"
+    "workWithUs": "Travailler avec nous"
   },
   "messages": {
-    "boostYourCareer": "Booster votre carrière avec un abonnement premium adapté à vos ambitions et besoins.",
-    "differentLanguage": "👋🏽 Nous voyons que vous utilisez Metaintro dans une autre langue. Souhaitez-vous passer à",
+    "boostYourCareer": "Boostez votre carrière avec un abonnement premium adapté à vos ambitions et à vos besoins.",
+    "differentLanguage": "👋🏽 Nous constatons que vous utilisez Metaintro dans une langue différente. Souhaitez-vous passer à",
     "error": "Une erreur s'est produite, veuillez réessayer.",
-    "loading": "Chargement en cours...",
+    "popupBlocked": "Il semble qu'un bloqueur de fenêtres publicitaires empêche l'ouverture d'une fenêtre. Pour résoudre ce problème, recherchez une notification indiquant qu'une fenêtre publicitaire a été bloquée près de la barre d'adresse de votre navigateur, généralement en haut à droite. Cliquez dessus et choisissez d'autoriser la fenêtre publicitaire, puis réessayez.",
+    "loading": "Chargement...",
     "upgradeYourExperience": "✨ Améliorez votre expérience ✨"
   },
   "socialButtons": {
     "discord": "Cliquez ici pour rejoindre notre serveur Discord",
     "facebook": "Cliquez ici pour visiter notre page Facebook",
     "instagram": "Cliquez ici pour visiter notre page Instagram",
-    "x": "Cliquez ici pour visiter notre page X (anciennement Twitter)",
+    "x": "Cliquez ici pour visiter notre page X (formellement Twitter)",
     "youtube": "Cliquez ici pour visiter notre chaîne YouTube"
   }
 }

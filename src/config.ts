@@ -47,8 +47,8 @@ export const Stripe = {
 };
 
 export const Seo = {
-	delimeter: " | ",
-	titlePretfix: "Metaintro"
+	delimiter: " | ",
+	titlePrefix: "Metaintro"
 };
 
 export const FirebaseConfig = {
@@ -69,6 +69,7 @@ export const Pages = {
 
 export const HashLinks = {
 	reqInfo: "#req-info",
+	promoPopup: "#promo-popup",
 	cookiePolicy: "#cookie-policy",
 	privacyPolicy: "#privacy-policy",
 	termsOfService: "#terms-of-service"

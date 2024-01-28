@@ -1,6 +1,6 @@
 {
   "workInWeb3AIToday": "Trabaja en Web3 y AI hoy 🚀",
-  "join500K": "Únete a más de 500,000 profesionales y recibe nuestro boletín trimestral con los trabajos mejor remunerados en Web3 y AI",
+  "join500K": "Únete a más de 500,000 profesionales y recibe nuestro boletín tri-semanal con los empleos mejor remunerados en Web3 y AI",
   "contactInformation": "Información de contacto",
   "name": "Nombre",
   "email": "Correo electrónico",
@@ -12,16 +12,16 @@
   "cookiePolicy": "Política de cookies",
   "welcomeTo": "Bienvenido a",
   "ourNewsletter": "nuestro boletín",
-  "metaintroHelpedThousands": "Metaintro ha ayudado a miles de profesionales a encontrar sus empleos soñados en el espacio de Web3 y A.I. Únete a nosotros y consigue trabajo más rápido.",
-  "trustedBy500k": "Confiado por más de 500,000 profesionales",
-  "imageOfMale": "Imagen de hombre",
-  "imageOfFemale": "Imagen de mujer",
+  "metaintroHelpedThousands": "Metaintro ha ayudado a miles de profesionales a encontrar empleos de sus sueños en espacio de Web3 y A.I. Únete a nosotros y consigue empleo más rápido.",
+  "trustedBy500k": "Confianza de más de 500,000 profesionales",
+  "imageOfMale": "Imagen de Hombre",
+  "imageOfFemale": "Imagen de Mujer",
   "messages": {
     "congratulations": "¡Felicidades! 🎉",
-    "youveSubscribed": "¡Te has suscrito! Visita nuestro sitio web para explorar los mejores trabajos en el espacio de Web3 y A.I.",
-    "visitOurWebsite": "Visita nuestro sitio web para explorar los mejores trabajos en el espacio de Web3 y A.I.",
-    "pleaseCheckYourEmail": "Por favor, revisa tu correo electrónico para confirmar tu suscripción.",
-    "followUp": "Metaintro puede contactarte para darle seguimiento."
+    "youveSubscribed": "¡Te has suscrito! Visita nuestro sitio web para explorar los mejores empleos en el espacio de Web3 y A.I.",
+    "visitOurWebsite": "Visita nuestro sitio web para explorar los mejores empleos en el espacio de Web3 y A.I.",
+    "pleaseCheckYourEmail": "Por favor, verifica tu correo electrónico para confirmar tu suscripción.",
+    "followUp": "Metaintro puede contactarte para dar seguimiento."
   },
   "cta": {
     "getStartedHere": "Comenzar aquí"
@@ -29,13 +29,13 @@
   "errors": {
     "nameMustBeAtLeast": "El nombre debe tener al menos 2 caracteres",
     "emailMustBeAtLeast": "El correo electrónico debe tener al menos 3 caracteres",
-    "emailMustIncludeAt": "El correo electrónico debe incluir el símbolo '@'",
+    "emailMustIncludeAt": "El correo electrónico debe incluir un símbolo '@'",
     "emailMustIncludePeriod": "El correo electrónico debe incluir un símbolo '.'",
     "emailMustBeLatin": "El correo electrónico debe estar en caracteres latinos"
   },
   "seo": {
     "title": "Suscríbete a nuestro boletín",
-    "description": "Únete a más de 500,000 profesionales y recibe nuestro boletín trimestral con los trabajos mejor remunerados en Web3 y AI",
-    "keywords": "suscribirse, suscripción a metaintro, web3, trabajos de web3, carreras de web3, boletín de web3, boletín de trabajos de web3, boletín de carreras de web3, suscripción al boletín de web3, suscripción al boletín de trabajos de web3, suscripción al boletín de carreras de web3, registro al boletín de web3, registro al boletín de trabajos de web3, registro al boletín de carreras de web3, registro al boletín de web3, registro al boletín de trabajos de web3, registro al boletín de carreras de web3, suscribirse al boletín de web3, suscribirse al boletín de trabajos de web3, suscribirse al boletín de carreras de web3, suscripción al boletín de web3, suscripción al boletín de trabajos de web3"
+    "description": "Únete a más de 500,000 profesionales y recibe nuestro boletín tri-semanal con los empleos mejor remunerados en Web3 y AI",
+    "keywords": "suscribirse, suscribirse a metaintro, web3, trabajos de web3, carreras de web3, newsletter de web3, newsletter de trabajos de web3, newsletter de carreras de web3, suscripción al newsletter de web3, suscripción al newsletter de trabajos de web3, suscripción al newsletter de carreras de web3, registro al newsletter de web3, registro al newsletter de trabajos de web3, registro al newsletter de carreras de web3, suscribirse al newsletter de web3, suscribirse al newsletter de trabajos de web3, suscribirse al newsletter de carreras de web3, suscripción al newsletter de web3, suscripción al newsletter de trabajos de web3"
   }
 }

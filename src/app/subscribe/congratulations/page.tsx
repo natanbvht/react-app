@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import AchivementIcon from "../../../components/Icons/Achivement";
+import AchievementIcon from "../../../components/Icons/Achievement";
 import OnPageSeo from "../../../components/OnPageSeo/OnPageSeo";
 import { Pages, Seo } from "../../../config";
 import { languages } from "../../../i18n";
@@ -28,6 +28,7 @@ function Congratulations() {
 		}
 	}, []);
 
+	// Report conversion to analytics on first render
 	React.useEffect(() => {
 		trackEventOnce(Events.SubscribedToMetaintroConversion);
 	}, []);
@@ -37,7 +38,7 @@ function Congratulations() {
 			<OnPageSeo
 				keywords={t("seo.keywords")}
 				description={t("seo.description")}
-				title={`${Seo.titlePretfix} ${Seo.delimeter} ${t("messages.congratulations")} ${t("welcomeTo")} ${t("ourNewsletter")}`}
+				title={`${Seo.titlePrefix} ${Seo.delimiter} ${t("messages.congratulations")} ${t("welcomeTo")} ${t("ourNewsletter")}`}
 			/>
 			<Dialog
 				open
@@ -52,7 +53,7 @@ function Congratulations() {
 						marginTop={objSpacing}
 						className="CongratulationImageWrapper"
 					>
-						<AchivementIcon />
+						<AchievementIcon />
 					</Box>
 					<Typography
 						gutterBottom
